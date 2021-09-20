@@ -22,7 +22,7 @@
       
         <!-- sidebar -->
         <div  class="sidebar absolute text-white text-base w-64 bg-gray-700 space-y-6 py-7 px-2 inset-y-0 left-0 
-        transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+        transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out h-full">
 
          <img src="img/admin.png" class=" mx-auto py-4 w-48 h-36">
          <p class="text-center  font-bold">Payroll Manager</p>
@@ -59,7 +59,7 @@
                   </svg><span class="px-5">LOGOUT</span></a>
             
           </nav>
-          <div class="py-8">
+          <div class="pb-56">
           <p class="w-full h-5 text-sm text-white px-4">Contact Us</p>
           <hr style="border:solid;height: 5px;background-color: white;" class="m-4">
           <p class="w-full h-5 text-sm text-white px-4">Eversun Software</p>
@@ -73,28 +73,26 @@
         
         <div class="flex-1 p-10 text-2xl font-bold">
             
-            <p class="w-80 h-12 text-2xl font-bold">EMPLOYEES</p>
+            <p class="w-80 h-12 text-2xl font-bold">EMPLOYEES SALARY</p>
             <div class="bg-gray-300" style="width: full; height: 5px;">
 
-        <div class="grid sm:grid-flow-col gap-4  ">
+        <div class="grid sm:grid-flow-col mx-auto gap-4 ">
         <div class="grid grid-cols-1 gap-4 ">
-          <div class="px-48 py-28 ">
+          <div class="py-28 ">
             <div class="bg-gray-100 py-8 border text-black px-8 shadow">
-            <div> <p class="  h-9 text-2xl font-bold">TOTAL AMOUNT OF SALARY</p></div>
-            <div>  <p class=" h-5 text-sm  font-bold">18,000.00</p></div>
+            <div><p class="  text-2xl font-bold">TOTAL AMOUNT OF SALARY</p></div>
+            <div><p class="  text-sm  font-bold">18,000.00</p></div>
           </div>
-          <div class="flex flex-initial  justify-between px-4 pt-8 ">
-            <div>
-                <button class="bg-blue-500 hover:bg-gray-700 float-left w-80 text-white text-base font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          <div class="grid md:grid-cols-1 mx-auto gap-6 px-4 pt-8 ">
+            <div class="mx-auto">
+                <button class="bg-blue-500 hover:bg-gray-700 float-left text-white text-base font-bold  py-2 px-16 rounded focus:outline-none focus:shadow-outline" type="button">
                     Submit
                   </button>
-            </div>
-            
-            <div >
-                <button class="bg-gray-500 hover:bg-blue-700 float-right w-80 text-white text-base font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                  <button class="bg-gray-500 hover:bg-blue-700 float-left text-white text-base font-bold  py-2 px-16 rounded focus:outline-none focus:shadow-outline" type="button">
                     Cancel
                   </button>
-            </div>
+                </div>
+       
         </div>
         
         </div>
@@ -102,7 +100,7 @@
         
         <div class="grid grid-cols-1">
           <div>
-            <form class="w-full bg-gray-600 text-white max-w-sm  p-8 mt-6">
+            <form class="w-full mx-auto bg-gray-600 text-white max-w-sm  p-8 mt-6">
               <p class="text-xl font-bold text-white mb-4 text-center">ADD SALARY</p>
     
               <div class="flex flex-wrap -mx-3 mb-2">
@@ -142,7 +140,7 @@
               </div>
               
               <button class="bg-blue-500 hover:bg-blue-700 w-full text-white text-base font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                Submit
+                Calculate
               </button>
             </form>
           </div>
@@ -150,71 +148,123 @@
         
         </div>
      
-        <div class="flex justify-between px-4 pt-8 ">
-            <div>
-                <h1 class="w-full ">LIST OF SALARIES</h1>
-            </div>
-            
-            <div >
-                 <input type="search"
-            class=" pl-10 pr-4 py-1 border-2 border-black-900 focus:outline-none text-black "
-            placeholder="........."><button class="bg-blue-700 px-6 py-1 text-white">Search</button>
-            </div>
-          </div>
-        <div class="table w-full px-4 py-4 ">
-            <div class="table-row-group h-32 text-base ">
-              <div class="table-row text-white bg-gray-700  ">
-            
-                <div class="table-cell px-16 py-3">ID</div>
-                <div class="table-cell px-8">Name</div>
-                <div class="table-cell px-8">Deduction</div>
-                <div class="table-cell px-8">Total Amount of Salary</div>
+        <div class="flex justify-between px-4 pt-8 pb-4">
+          <div class="px-8">
+            <h1 class="w-full ">LIST OF SALARIES</h1>
+        </div></div>
         
-              </div>
-              <div class="table-row bg-gray-200  ">
-                <div class="table-cell px-16 py-3">1131</div>
-                <div class="table-cell px-8">Michael John Caligner</div>
-                <div class="table-cell px-8">400</div>
-                <div class="table-cell px-8">4100</div>
+        <div class="flex justify-end px-12">
+             <input type="search"
+        class=" pl-10 pr-4 py-1 text-base border-2 border-black-900 focus:outline-none text-black "
+        placeholder="........."><button class="bg-blue-700 text-base px-6 py-1 text-white">Search</button>
+        </div>
+          
+        <section class="container mx-auto p-6 font-sans">
+          <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+            <div class="w-full overflow-y-auto">
+              <table class="w-full text-base">
+                <thead>
+                  <tr class=" font-semibold tracking-wide text-left text-white bg-gray-700 uppercase border-b border-gray-600">
+                    <th class="px-4 py-3">ID</th>
+                    <th class="px-4 py-3">NAME</th>
+                    <th class="px-4 py-3">DEDUCTION</th>
+                    <th class="px-4 py-3">TOTAL AMOUNT</th>
+                   
+                  </tr>
+                </thead>
+                <tbody class="bg-white">
+
+                   <tr class="text-gray-700">
+                    <td class="px-4 py-3 border">
+                      <h1 class="">1333</h1>
+                    </td>
+                    <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
+                    <td class="px-4 py-3 border">
+                      <h1>300</h1>
+                    </td>
+                    <td class="px-4 py-3 border">15</td>
+                    
+                  </tr>
+
+                   <tr class="text-gray-700">
+                    <td class="px-4 py-3 border">
+                      <h1 class="">1333</h1>
+                    </td>
+                    <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
+                    <td class="px-4 py-3 border">
+                      <h1>300</h1>
+                    </td>
+                    <td class="px-4 py-3 border">15</td>
+                    
+                  </tr>
+
+                  <tr class="text-gray-700">
+                    <td class="px-4 py-3 border">
+                      <h1 class="">1333</h1>
+                    </td>
+                    <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
+                    <td class="px-4 py-3 border">
+                      <h1>300</h1>
+                    </td>
+                    <td class="px-4 py-3 border">15</td>
+                    
+                  </tr>
+
+                   <tr class="text-gray-700">
+                    <td class="px-4 py-3 border">
+                      <h1 class="">1333</h1>
+                    </td>
+                    <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
+                    <td class="px-4 py-3 border">
+                      <h1>300</h1>
+                    </td>
+                    <td class="px-4 py-3 border">15</td>
+                    
+                  </tr>
+
+                   <tr class="text-gray-700">
+                    <td class="px-4 py-3 border">
+                      <h1 class="">1333</h1>
+                    </td>
+                    <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
+                    <td class="px-4 py-3 border">
+                      <h1>300</h1>
+                    </td>
+                    <td class="px-4 py-3 border">15</td>
+                    
+                  </tr>
+                  <tr class="text-gray-700">
+                    <td class="px-4 py-3 border">
+                      <h1 class="">1333</h1>
+                    </td>
+                    <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
+                    <td class="px-4 py-3 border">
+                      <h1>300</h1>
+                    </td>
+                    <td class="px-4 py-3 border">15</td>
+                    
+                  </tr>
+                  <tr class="text-gray-700">
+                    <td class="px-4 py-3 border">
+                      <h1 class="">1333</h1>
+                    </td>
+                    <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
+                    <td class="px-4 py-3 border">
+                      <h1>300</h1>
+                    </td>
+                    <td class="px-4 py-3 border">15</td>
+                    
+                  </tr>
+                  
+
                 
-              </div>
-              <div class="table-row bg-gray-200">
-                <div class="table-cell px-16 py-3">1132</div>
-                <div class="table-cell px-8">Adrian Salvnia</div>
-                <div class="table-cell px-8">400</div>
-                <div class="table-cell px-8">4100</div>
-                
-              </div>
-              <div class="table-row bg-gray-200">
-                <div class="table-cell px-16 py-3">1133</div>
-                <div class="table-cell px-8">Trishia hamo-ay</div>
-                <div class="table-cell px-8">400</div>
-                <div class="table-cell px-8">4100</div>
-                
-              </div>
-              <div class="table-row bg-gray-200">
-                <div class="table-cell px-16 py-3">1134</div>
-                <div class="table-cell px-8">James Ryan Pineda</div>
-                <div class="table-cell px-8">400</div>
-                <div class="table-cell px-8">4100</div>
-                
-              </div>
-              <div class="table-row bg-gray-200">
-                <div class="table-cell px-16 py-3">1135</div>
-                <div class="table-cell px-8">Mark Anthony Namoca</div>
-                <div class="table-cell px-8">400</div>
-                <div class="table-cell px-8">4100</div>
-                
-              </div>
-              <div class="table-row bg-gray-200">
-                <div class="table-cell px-16 py-3">1136</div>
-                <div class="table-cell px-8">Harley Galcena</div>
-                <div class="table-cell px-8">400</div>
-                <div class="table-cell px-8">4100</div>
-                
-              </div>
+                 
+                </tbody>
+              </table>
+
             </div>
           </div>
+        </section>
         </div>
         </div>  </div>
 
