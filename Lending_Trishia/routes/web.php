@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use  App\Http\Controllers\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,34 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [CustomAuthController:: class, 'login']);
+Route::get('/registration', [CustomAuthController:: class, 'registration']);
+Route::post('/register-user',[CustomAuthController:: class,'registerUser'])->name('register-user');
+Route::post('/login-user',[CustomAuthController:: class,'loginUser'])->name('login-user');
+Route::get('/home',[CustomAuthController:: class,'home']);
+Route::get('/logout',[CustomAuthController:: class,'logout']);
 
-Route::get('/signup', function () {
-    return view('signup');
-});
 
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/borrowers', function () {
-    return view('borrowers');
-});
-
-Route::get('/loans', function () {
-    return view('loans');
-});
-
-Route::get('/payments', function () {
-    return view('payments');
-});
-
-Route::get('/user', function () {
-    return view('user');
-});
