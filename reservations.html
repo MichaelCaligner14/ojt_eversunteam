@@ -1,0 +1,233 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Reservations</title>
+</head>
+
+<div class="relative min-h-screen md:flex">
+
+  
+  <!-- sidebar -->
+  <div class="sidebar bg-gray-400 text-gray-900 w-48 space-y-6 py-2 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+
+    <!-- profile -->
+    <div class="flex items-center justify-center">    
+      <img src="img/000kurorepia.jpg" alt="userimg" class="border border-white shadow-lg object-contain w-24 rounded-full mt-20">
+    </div>
+    <!-- username -->
+    <div class="flex items-center justify-center font-medium text-2xl">KuroRepia</div>
+    <a href="#" class="pl-12 hover:underline hover:text-gray-500 px-7 text-sm">Edit profile</a>
+
+    <!-- nav.options -->
+    <nav class="pt-10 font-semibold">
+      <!-- overview -->
+      <a href="#" class="hover:bg-gray-600 hover:text-white  opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.overview.png" alt="svg" class="pr-2 h-6">
+        Overview</a>
+
+      <!-- bookflight -->
+      <a href="book.html" class="hover:bg-gray-600 hover:text-white opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.ticket.png" alt="svg" class="pr-2 h-6">
+        Book Flight</a>
+
+      <!-- reserve -->
+      <a href="#" class="bg-gray-600 text-white opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.reserve.png" alt="svg" class="pr-2 h-6">
+        Reservations</a>
+        
+      <!-- payment -->
+      <a href="payments.html" class="hover:bg-gray-600 hover:text-white opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.payment.png" alt="reserve" class="pr-2 h-6">
+        Payments</a>
+
+      <!-- logout -->
+      <a href="login.html" class="hover:bg-gray-600 hover:text opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.logout.png" alt="logout" class="pr-2 h-6">
+        Logout</a>
+    </nav>
+  </div>
+  
+    <!-- content -->
+    <!-- content -->
+  <body class="bg-gray-300">
+    <!-- start here -->
+    <div class="mt-12">
+      <div class="max-w-7xl py-4 sm:px-6 lg:px-8 w-full">
+  
+          <div class="flex flex-col w-max">
+              <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                  <div class="shadow-lg overflow-hidden border-b border-gray-200 sm:rounded-lg bg-blue-500 text-gray-900 w-full">
+                      <!-- image -->
+                      <!-- <img src="img/ph.nobg.png" alt="phimg" class="w-auto h-64 sm:hidden md:hidden lg:hidden"> -->
+                      <img src="img/illuminati.nobg.png" alt="phimg" class="w-auto h-64 sm:hidden md:hidden lg:hidden">
+                      
+                      <!-- edit this -->
+                    <table class="min-w-full divide-y divide-black text-xl text-gray-700 font-medium">
+                      <thead class="bg-white">
+                        <span class="text-xl font-medium px-4 pt-4 text-white">Reservations</span>
+                        <span class="text-base font-medium px-4 pt-4 text-white ml-96">Reservations made: <b>1</b></span>
+                      </thead>
+                      
+                      <tbody class="bg-white divide-y divide-black">
+                          <!-- .. -->
+                          <tr class="bg-gray-300 text-gray-900 text-base">
+                              <td class="px-4 py-2 whitespace-nowrap">
+                                <div class="flex items-center">
+                                  <div class="ml-2">
+                                    <div class="mx-4">Ticket No.</div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="px-4 py-2 whitespace-nowrap">
+                                <div class="mx-24">Flight No.</div>
+                              </td>
+                              <td class="px-4 py-2 whitespace-nowrap">
+                                  <div class="mx-24">Gate</div>
+                                </td>
+                                <td class="px-4 py-2 whitespace-nowrap">
+                                  <div class="mx-12">Status</div>
+                                </td>
+                            </tr>
+                            <!-- 1 -->
+                            <tr class="hover:bg-gray-500 hover:text-white">
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                  <div class="ml-2">
+                                    <div class="mx-4">101</div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="mx-24">175</div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-24">2</div>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-12">Boarding</div>
+                                </td>
+                            </tr>
+                            <!-- 2 -->
+                            <tr class="px-4">
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                  <div class="ml-2">
+                                    <div class="mx-4"> -</div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="mx-24"> </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-24"> </div>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-12"> </div>
+                                </td>
+                            </tr>
+                            <!-- 3 -->
+                            <tr class="px-4">
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                  <div class="ml-2">
+                                    <div class="mx-4"> -</div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="mx-24"> </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-24"> </div>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-12"> </div>
+                                </td>
+                            </tr>
+                            <!-- 4 -->
+                            <tr class="px-4">
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                  <div class="ml-2">
+                                    <div class="mx-4"> -</div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="mx-24"> </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-24"> </div>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-12"> </div>
+                                </td>
+                            </tr>
+                            <!-- 5 -->
+                            <tr class="px-4">
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                  <div class="ml-2">
+                                    <div class="mx-4"> -</div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="mx-24"> </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-24"> </div>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-12"> </div>
+                                </td>
+                            </tr>
+                            <!-- 6 -->
+                            <tr class="px-4">
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                  <div class="ml-2">
+                                    <div class="mx-4"> -</div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                <div class="mx-24"> </div>
+                              </td>
+                              <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-24"> </div>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                  <div class="mx-12"> </div>
+                                </td>
+                            </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>  
+  </div>
+    
+</body>
+
+  <!-- navbar -->
+  <nav class="absolute bg-white shadow-lg font-semibold w-full">
+    <div class="px-3 max-auto my-auto text-2xl items-center">
+        <div class="flex justify-between items-center">
+            <div class="text-blue-500 px-5 py-2 justify-center items-center">Reservations</div>
+            <div class="flex space-x-1">
+              <a href="#" class="hover:bg-blue-400 hover:underline hover:text-white text-blue-500 px-3 py-2" aria-current="page">Need help?</a>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+  </div>
+</html>

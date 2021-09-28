@@ -1,0 +1,245 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Overview</title>
+</head>
+
+
+<div class="relative min-h-screen md:flex bg-gray-300">
+  
+  <!-- sidebar -->
+  <div class="sidebar bg-gray-400 text-gray-900 w-48 space-y-6 py-2 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+
+    <!-- profile -->
+    <div class="flex items-center justify-center">    
+      <img src="img/000kurorepia.jpg" alt="userimg" class="border border-white shadow-lg object-contain w-24 rounded-full mt-20">
+    </div>
+    <!-- username -->
+    <div class="flex items-center justify-center font-medium text-2xl">KuroRepia</div>
+    <a href="#" class="pl-12 hover:underline hover:text-gray-500 px-7 text-sm">Edit profile</a>
+
+    <!-- nav.options -->
+    <nav class="pt-10 font-semibold">
+      <!-- overview -->
+      <a href="#" class="bg-gray-600 text-white  opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.overview.png" alt="svg" class="pr-2 h-6">
+        Overview</a>
+
+      <!-- bookflight -->
+      <a href="book.html" class="hover:bg-gray-600 hover:text-white opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.ticket.png" alt="svg" class="pr-2 h-6">
+        Book Flight</a>
+
+      <!-- reserve -->
+      <a href="reservations.html" class="hover:bg-gray-600 hover:text-white opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.reserve.png" alt="svg" class="pr-2 h-6">
+        Reservations</a>
+        
+      <!-- payment -->
+      <a href="payments.html" class="hover:bg-gray-600 hover:text-white opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.payment.png" alt="reserve" class="pr-2 h-6">
+        Payments</a>
+
+      <!-- logout -->
+      <a href="login.html" class="hover:bg-gray-600 hover:text-white opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.logout.png" alt="logout" class="pr-2 h-6">
+        Logout</a>
+    </nav>
+  </div>
+
+  <!-- content -->
+  <div class="flex-1 text-2xl mt-8 font-bold sm\:w-full">
+            <!-- START.flights -->
+            <div class="block">
+              <div class="max-w-7xl py-2 sm:px-6 lg:px-8 w-full mt-8">
+          
+                  <div class="flex flex-col w-max">
+                      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                          <!-- test.start.01 -->
+                          <!-- <div class="flex flex-wrap content-start">
+                          <div><img src="img/ph.nobg.png" alt="test" class="bg-gray-400 rounded-l-lg"></div>
+                          <div>the flights tab</div>
+                          </div> -->
+                          <!-- test.end.01 -->
+
+                          <!-- flights tab -->
+                          <div class="pt-2 shadow-lg overflow-hidden border-b border-gray-200 sm:rounded-r-lg bg-gradient-to-r bg-gray-400 to-gray-500 w-full">
+                              <!-- image -->
+                              <!-- <img src="img/ph.nobg.png" alt="phimg" class="w-auto h-64 sm:hidden md:hidden lg:hidden"> -->
+                              <!-- <img src="img/illuminati.nobg.png" alt="phimg" class="w-auto h-64 sm:hidden md:hidden lg:hidden"> -->
+                              
+                              <!-- edit this -->
+                            <table class="min-w-full divide-y divide-black text-xl text-gray-900 font-medium">
+                              <thead class="bg-white">
+                                <span class="text-xl font-medium px-4 pt-4 text-gray-900 ">Active Flights</span>
+                              </thead>
+                              <tbody class="divide-y divide-black bg-gray-300">
+
+                                <!-- flgt.content01 -->
+                                <tr>
+                                  <td class="whitespace-nowrap flex items-center py-4">
+                                      <a href="#" class="mx-4 hover:underline">FN 09</a>
+                                  </td>
+                                  <td class="whitespace-nowrap px-8">
+                                    <div class="mx-10">from Davao to Manila</div>
+                                  </td>
+                                  <td class="whitespace-nowrap px-4">
+                                    <button class="py-2 px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-gray-100"> INFLIGHT </button>
+                                  </td>
+                                </tr>
+
+                                <!-- flgt.content02 -->
+                                <tr>
+                                  <td class="whitespace-nowrap flex items-center py-4">
+                                      <a href="#" class="mx-4 hover:underline">FN 11</a>
+                                  </td>
+                                  <td class="whitespace-nowrap px-8">
+                                    <div class="mx-10">from CDO to Manila</div>
+                                  </td>
+                                  <td class="whitespace-nowrap px-4">
+                                    <button class="py-2 px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-gray-100"> INFLIGHT </button>
+                                  </td>
+                                </tr>
+
+                                <!-- flgt.content03 -->
+                                <tr>
+                                  <td class="whitespace-nowrap flex items-center py-4">
+                                      <a href="#" class="mx-4 hover:underline">FN 2001</a>
+                                  </td>
+                                  <td class="whitespace-nowrap px-8">
+                                    <div class="mx-10">from Cebu to Manila</div>
+                                  </td>
+                                  <td class="whitespace-nowrap px-4">
+                                    <button class="py-2 px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-gray-100"> INFLIGHT </button>
+                                  </td>
+                                </tr>
+
+                                <!-- flgt.content04 -->
+                                <tr>
+                                  <td class="whitespace-nowrap flex items-center py-3">
+                                    <div class="mx-4"><a href="#" class="text-2xl">+ </div>
+                                  </td>
+                                  <td class="whitespace-nowrap px-8">
+                                    <div class="mx-10"></div>
+                                  </td>
+                                  <td class="whitespace-nowrap px-4">
+                                    <!-- <button class="py-2 px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700  text-white"> INFLIGHT </button> -->
+                                  </td>
+                                </tr>
+
+                                <!-- flgt.showmore -->
+                                <tr>
+                                  <td class="whitespace-nowrap flex items-center py-4">
+                                      <div class="mx-4"></div>
+                                  </td>
+                                  <td class="whitespace-nowrap px-8">
+                                    <a href="#" class="mx-10 flex items-center text-base pl-8 hover:underline">Show More</a>
+                                  </td>
+                                  <td class="whitespace-nowrap px-4">
+                                    <!-- <button class="py-2 px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700  text-white"> INFLIGHT </button> -->
+                                  </td>
+                                </tr>
+                    
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>  
+          </div>
+          <!-- END.flights -->
+
+
+          <!-- START.notice -->
+          <div class="block">
+            <div class="mt-12 max-w-7xl py-2 sm:px-6 lg:px-8 w-full">
+        
+                <div class="flex flex-col w-full">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                        <div class="shadow-lg overflow-hidden border-b border-gray-200 sm:rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 w-full">
+                            <!-- image -->
+                            <!-- <img src="img/ph.nobg.png" alt="phimg" class="w-auto h-64 sm:hidden md:hidden lg:hidden"> -->
+                            <!-- <img src="img/illuminati.nobg.png" alt="phimg" class="w-auto h-64 sm:hidden md:hidden lg:hidden"> -->
+                            
+                            <!-- edit this -->
+                          <table class="min-w-full divide-y divide-black text-xl text-gray-700 font-medium">
+                            <thead class="bg-gray-400 text-gray-900">
+                              <tr>
+                                <th class="text-xl font-medium px-4 py-1">Active Maintenance</th>
+                                <th class="text-xl font-medium px-4 py-1">Alert</th>
+                              </tr>
+                            </thead>
+
+                            <tbody class="bg-gray-300 divide-y divide-black">
+                              <!-- notice.01 -->
+                              <tr>
+                                <td class="whitespace-nowrap flex items-center py-4">
+                                    <div class="mx-4"><a href="#" class="hover:underline">FN 12</a> from Cebu to CDO <button class="text-gray-900 text-lg inline-flex font-semibold bg-gray-100 rounded-full ml-52 px-2 py-2">SOLVING</button></div>
+                                </td>
+                                <td class="whitespace-nowrap">
+                                  <div class=""><a href="#" class="hover:underline">FN 09 </a> Delayed due to terrorist attack</div>
+                                </td>
+                              </tr>
+                              
+                              <!-- notice.02 -->
+                              <tr>
+                                <td class="whitespace-nowrap flex items-center py-3">
+                                    <div class="mx-4 text-2xl"><a href="#">+ </div>
+                                </td>
+                                <td class="whitespace-nowrap">
+                                  <div class=""><a href="#" class="hover:underline">FN 11 </a> Delayed due to terrorist attack</div>
+                                </td>
+                              </tr>
+
+                              <!-- notice.03 -->
+                              <tr>
+                                <td class="whitespace-nowrap flex items-center py-4">
+                                    <div class="mx-4 hover:underline">..</div>
+                                </td>
+                                <td class="whitespace-nowrap">
+                                  <div class=""><a href="#" class="hover:underline">FN 2001 </a> Delayed due to terrorist attack</div>
+                                </td>
+                              </tr>
+
+                                <!-- notice.showmore -->
+                                <tr>
+                                  <td class="whitespace-nowrap px-8">
+                                    <a href="#" class="mx-10 flex items-center text-base pl-16 hover:underline">Show more </a>
+                                  </td>
+                                  <td class="whitespace-nowrap px-8">
+                                    <a href="#" class="mx-10 flex items-center text-base pl-16 hover:underline">Show more</a>
+                                  </td>
+
+                                </tr>
+                  
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+          
+  </div>
+  <!-- navbar -->
+  <nav class="absolute bg-white shadow-lg font-semibold w-full">
+    <div class="px-3 max-auto my-auto text-2xl items-center">
+        <div class="flex justify-between items-center">
+            <div class="text-blue-500 px-5 py-2 justify-center items-center">Overview</div>
+            <div class="flex space-x-1">
+              <a href="#" class="hover:bg-blue-400 hover:underline hover:text-white text-blue-500 px-3 py-2" aria-current="page">Need help?</a>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+</div>
+</html>

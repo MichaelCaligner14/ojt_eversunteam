@@ -1,0 +1,133 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Book flight</title>
+</head>
+
+<div class="relative min-h-screen md:flex bg-gray-300">
+
+  
+  <!-- sidebar -->
+  <div class="sidebar bg-gray-400 text-gray-900 w-48 space-y-6 py-2 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+
+    <!-- profile -->
+    <div class="flex items-center justify-center">    
+      <img src="img/000kurorepia.jpg" alt="userimg" class="border border-white shadow-lg object-contain w-24 rounded-full mt-20">
+    </div>
+    <!-- username -->
+    <div class="flex items-center justify-center font-medium text-2xl">KuroRepia</div>
+    <a href="#" class="pl-12 hover:underline hover:text-gray-500 px-7 text-sm">Edit profile</a>
+
+    <!-- nav.options -->
+    <nav class="pt-10 font-semibold">
+      <!-- overview -->
+      <a href="overview.html" class="hover:bg-gray-600 hover:text-white  opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.overview.png" alt="svg" class="pr-2 h-6">
+        Overview</a>
+
+      <!-- bookflight -->
+      <a href="book.html" class="bg-gray-600 text-white opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.ticket.png" alt="svg" class="pr-2 h-6">
+        Book Flight</a>
+
+      <!-- reserve -->
+      <a href="reservations.html" class="hover:bg-gray-600 hover:text-white opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.reserve.png" alt="svg" class="pr-2 h-6">
+        Reservations</a>
+        
+      <!-- payment -->
+      <a href="payments.html" class="hover:bg-gray-600 hover:text-white opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.payment.png" alt="reserve" class="pr-2 h-6">
+        Payments</a>
+
+      <!-- logout -->
+      <a href="login.html" class="hover:bg-gray-600 hover:text opacity-95 flex items-center py-2.5 px-2 mt-1 rounded transition duration-200">
+        <img src="img/icon.logout.png" alt="logout" class="pr-2 h-6">
+        Logout</a>
+    </nav>
+  </div>
+  
+      <!-- content -->
+  <body>
+    <!-- start here -->
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto mt-8">
+        <div class="mt-10 relative px-4 py-10 bg-white shadow-xl sm:rounded-3xl sm:p-20 text-gray-700">
+            <!-- content start -->
+          <div class="max-w-md mx-auto w-screen">
+            <div class="flex space-x-2">
+                <a href="#" class="flex">One-way<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg></a>
+
+                <a href="#" class="flex">1 Adult<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg></a>
+
+                <a href="" class="flex">Economy<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg></a>
+            </div>
+            <!-- destination -->
+            <div class="mt-4 flex justify-center space-x-4">
+                <div>
+                    <label for="block font-semibold" class="ml-1">From</label>
+                    <input type="text" placeholder="From"  class="rounded-md border w-full h-5 px-3 py-5 hover:outline-none focus:outline-none focus:ring-2 focus:ring-blue-500" >
+                </div>
+                <div>
+                    <label for="block font-semibold" class="ml-1">To</label>
+                    <input type="text" placeholder="To" class="rounded-md border w-full h-5 px-3 py-5 hover:outline-none focus:outline-none focus:ring-2 focus:ring-blue-500" >
+                </div>
+            </div>
+
+            <!-- sched -->
+            <div class="mt-2 flex justify-center space-x-4">
+              <div>
+                  <label for="block font-semibold" class="ml-1">Departure Date</label>
+                  <input type="text" placeholder="Date"  class="rounded-md border w-full h-5 px-3 py-5 hover:outline-none focus:outline-none focus:ring-2 focus:ring-blue-500" >
+              </div>
+              <div>
+                  <label for="block font-semibold" class="ml-1">Departure Time</label>
+                  <input type="text" placeholder="Time" class="rounded-md border w-full h-5 px-3 py-5 hover:outline-none focus:outline-none focus:ring-2 focus:ring-blue-500" >
+              </div>
+          </div>
+
+            <div>
+                <button type="submit" class="font-medium w-40 mt-10 bg-blue-500 text-white hover:bg-blue-500 py-2 px-6 rounded-md">
+                    <a href="#">Search flights</a>
+                  </button>
+            </div>
+
+          </div>
+        </div>
+    </div>
+    
+</body> 
+
+  <!-- navbar -->
+  <nav class="absolute bg-white shadow-lg font-semibold w-full">
+    <div class="px-3 max-auto my-auto text-2xl items-center">
+        <div class="flex justify-between items-center">
+            <div class="text-blue-500 px-5 py-2 justify-center items-center">Book flight</div>
+            <div class="flex space-x-1">
+              <a href="#" class="hover:bg-blue-400 hover:underline hover:text-white text-blue-500 px-3 py-2" aria-current="page">Need help?</a>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+  
+  </div>
+</html>
+
+
+<!-- this is where return stops -->
