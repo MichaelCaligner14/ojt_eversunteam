@@ -19,11 +19,16 @@ Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/login', [CustomAuthController:: class, 'login']);
-Route::get('/registration', [CustomAuthController:: class, 'registration']);
+
+Route::get('/login', [CustomAuthController:: class, 'login'])->middleware('alreadyLoggedIn');
+Route::get('/registration', [CustomAuthController:: class, 'registration'])->middleware('alreadyLoggedIn');
 Route::post('/register-user',[CustomAuthController:: class,'registerUser'])->name('register-user');
 Route::post('/login-user',[CustomAuthController:: class,'loginUser'])->name('login-user');
-Route::get('/home',[CustomAuthController:: class,'home']);
+Route::get('/home',[CustomAuthController:: class,'home'])->middleware('isLoggedIn');
 Route::get('/logout',[CustomAuthController:: class,'logout']);
+Route::get('/user',[CustomAuthController:: class,'user']);
+Route::get('/loans',[CustomAuthController:: class,'loans']);
+
+
 
 
