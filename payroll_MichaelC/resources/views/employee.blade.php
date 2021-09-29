@@ -30,7 +30,7 @@
          
          <!-- nav -->
           <nav class="text-center pb-24">
-            <a href="{ url('employee') }}" class="block py-4 m-3 rounded transition duration-200 justify-center flex hover:bg-blue-400 pl-8">
+            <a href="employee" class="block py-4 m-3 rounded transition duration-200 justify-center flex hover:bg-blue-400 pl-8">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
               </svg><span class="px-6">EMPLOYEES</span></a>
@@ -85,7 +85,9 @@
         </div>
         <div class="grid grid-cols-1 mx-auto">
           <div>
-            <form class="w-full bg-gray-600 text-white max-w-sm  p-8 mt-6">
+
+            <form class="w-full bg-gray-600 text-white max-w-sm  p-8 mt-6" action="{{route('add-employee')}}" method="POST">
+              @csrf
               <p class="text-xl font-bold text-white mb-4 text-center">NEW EMPLOYEE</p>
     
               <div class="flex flex-wrap -mx-3 mb-4">
@@ -94,7 +96,8 @@
                     Name
                   </label>
                   <input class="appearance-none block text-base w-full bg-white text-black border 
-                  border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-username" type="text" placeholder="Full Name">
+                  border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-username" name="fullname" type="text" placeholder="Full Name">
+                  <span class="text-red-300">@error('fullname'){{$message}}@enderror</span>
                 </div>
               </div>
               
@@ -104,7 +107,8 @@
                     Address
                   </label>
                   <input class="appearance-none block w-full bg-white text-black border 
-                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-password" type="address" placeholder="Davao City...">
+                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-password" name="address" type="text" placeholder="Davao City...">
+                  <span class="text-red-300">@error('address'){{$message}}@enderror</span>
                 </div>
               </div>
     
@@ -113,7 +117,8 @@
                   <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-age">
                    Age
                   </label>
-                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-age" type="number" min="1" max="100">
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-age" name="age" type="number" min="1" max="100">
+                  <span class="text-red-300">@error('age'){{$message}}@enderror</span>
                 </div>
                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-sex">
@@ -134,11 +139,11 @@
                   <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-rate">
                    Rate
                   </label>
-                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-rate" type="number" min="100">
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-rate" name="rate" type="number" min="100">
                 </div>
              
               </div>
-              <button class="bg-blue-500 hover:bg-blue-700 w-full text-white text-base font-bold mt-6 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+              <button class="bg-blue-500 hover:bg-blue-700 w-full text-white text-base font-bold mt-6 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                 Submit
               </button>
             </form>

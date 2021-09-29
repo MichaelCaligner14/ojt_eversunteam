@@ -24,3 +24,4 @@ Route::post('/register-user',[CustomAuthController::class,'registerUser'])->name
 Route::post('/login-user',[CustomAuthController::class,'loginUser'])->name('login-user');
 Route::get('/employee',[CustomAuthController::class,'employee'])->middleware('isLoggedIn');
 Route::get('/logout',[CustomAuthController::class,'logout']);
+Route::post('/employee/add-employee',[CustomAuthController::class,'addEmployee'])->name('add-employee');

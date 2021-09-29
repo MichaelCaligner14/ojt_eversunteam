@@ -24,14 +24,11 @@
           @csrf
             <div class="flex flex-wrap -mx-3 mb-4">
               <div class="w-full px-3">
-              
                 <input class="appearance-none rounded-3xl block text-base w-full bg-white text-black border 
                 border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="username" type="text" value="{{old('username')}}">
                 <label class="block uppercase tracking-wide text-xs font-bold mb-2">
                   Username
                 </label>
-                
-                
               </div>
             </div>
             
@@ -74,7 +71,7 @@
           @if(Session::has('fail'))
           <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-500">{{Session::get('fail')}}</div>
           @endif
-</div>
+      </div>
 </div>
       </div>
     </div>
