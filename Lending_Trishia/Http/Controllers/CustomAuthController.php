@@ -60,4 +60,14 @@ class CustomAuthController extends Controller
            return redirect('index'); 
         }
     }
+     public function user(){
+        $data = array();
+        if(Session::has('loginId')){
+            $data = user::where('id','=',Session::get('loginId'))->first();
+        }
+        return view('user',compact('data'));
+    }
+    public function loans(){
+        return view('loans');
+    }
 }
