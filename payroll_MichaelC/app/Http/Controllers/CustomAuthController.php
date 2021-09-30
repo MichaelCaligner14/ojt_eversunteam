@@ -62,7 +62,8 @@ class CustomAuthController extends Controller
             return redirect('login');
         }
     }
-    public function addEmployee(){
-       echo "ASDASD";
+    public function attendance(){
+        return view("attendance");
     }
+   
 }
