@@ -17,7 +17,7 @@ use App\Http\Controllers\Employeelist;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/login',[CustomAuthController::class,'login'])->middleware('alreadyLoggedIn');
@@ -34,3 +34,5 @@ Route::get('edit/{id}',[Employeelist::class,'edit']);
 
 
 Route::get('/attendance',[Employeelist::class,'attendance']);
+Route::get('/records',[Employeelist::class,'records']);
+Route::get('/salary',[Employeelist::class,'salary']);

@@ -62,8 +62,6 @@ class CustomAuthController extends Controller
             return redirect('login');
         }
     }
-    public function attendance(){
-        return view("attendance");
-    }
+  
    
 }

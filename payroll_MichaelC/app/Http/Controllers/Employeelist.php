@@ -57,5 +57,10 @@ class Employeelist extends Controller
     public function attendance(){
         return view("attendance");
     }
-  
+    public function records(){
+        return view("records");
+    }
+    public function salary(){
+        return view("salary");
+    }
 }
