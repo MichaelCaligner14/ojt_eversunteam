@@ -81,9 +81,18 @@
             <div class="bg-black-900 pt-1" style="width: full; height: 5px;"></div>
 
             <div class="bg-white lg:w-3/4 mx-auto lg:px-16 xs:px-6 sm:px-6 md:px-10 pt-16 justify-start">
-           
-    
-                <form  class="flex">
+
+            @if (Session::has('success'))
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">{{Session::get('success')}}</div>
+                @endif
+                @if (Session::has('fail'))
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">{{Session::get('fail')}}</div>
+                @endif
+                
+                <form action="addemp" method="post" class="flex">
+                
+                    @csrf
+
                    <div class="w-60 px-1">
                        <label class="text-gray-600">ID</label>
                         <input type="text" placeholder="" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
@@ -92,16 +101,18 @@
                           </div>
 
                           <div class="w-60 px-1">
-                              <label class="text-gray-600">NAME</label>
+                              <label class="text-gray-600">Name</label>
                               <input type="text" placeholder="" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                               text-gray-700 "/>
+                              <span class="text-red-800">@error('name') {{$message}} @enderror </span>
 
                           </div>
 
                           <div class="w-60 px-1">
                      <label class="text-gray-600 ">Phone</label>
-                              <input type="text" placeholder="" name="order" value="{{old('order')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
+                              <input type="text" placeholder="" name="phone" value="{{old('phone')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
                               text-gray-700 "/>
+                              <span class="text-red-800">@error('phone') {{$message}} @enderror </span>
 
                           </div>  
 
@@ -110,14 +121,16 @@
                       <div class="flex pl-64">
                         <div class="w-60 px-1">
                             <label class="text-gray-600">Email</label>
-                            <input type="text" placeholder="" name="price" value="{{old('price')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <input type="text" placeholder="" name="email" value="{{old('email')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-600 "/>
+                            <span class="text-red-800">@error('email') {{$message}} @enderror </span>
 
                         </div>
                         <div class="w-60 px-1">
                             <label class="text-gray-600">Position</label>
-                            <input type="text" placeholder="" name="qty" value="{{old('qty')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <input type="text" placeholder="" name="position" value="{{old('position')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-700 ">
+                            <span class="text-red-800">@error('position') {{$message}} @enderror </span>
 
                         </div>
 
@@ -146,30 +159,35 @@
                   </tr>
               </thead>
               <tbody>
-
+              @foreach ($list as $item)
                   <tr class="bg-hint-of-green-500 lg: flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
                     <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
+                        {{$item->id}}
 
                     </td>
 
                     <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Name</span>
+                        {{$item->name}}
 
                     </td>
 
                     <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Phone</span>
+                        {{$item->phone}}
 
                     </td>
 
                       <td class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Email</span>
+                        {{$item->email}}
 
                       </td>
 
                       <td class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Position</span>
+                        {{$item->position}}
 
                       </td>
 
@@ -183,7 +201,7 @@
                           </svg></a>
                     </td>
                 </tr>
-
+                @endforeach
               </tbody>
           </table>
         </body>
