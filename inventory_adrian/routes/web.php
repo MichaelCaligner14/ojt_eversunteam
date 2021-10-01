@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\EmployeeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,16 +25,24 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class,'login'])->middleware('alreadyLogIn');
 Route::post('/login-user',[AuthController::class, 'loginuser'])->name('login-user');
 
+/*Auth/register*/
 Route::get('/registration',[AuthController::class,'registration'])->middleware('alreadyLogIn');
 Route::post('/register-user',[AuthController::class, 'registeruser'])->name('register-user');
 
+/*logout*/
 Route::get('/logout',[AuthController::class, 'logout']);
 
+/*home*/
 Route::get('/home',[AuthController::class, 'home'])->middleware('isLoggedIn');
 
+/*user*/
 Route::get('/user',[AuthController::class, 'user'])->middleware('isLoggedIn');
-Route::get('/employee',[AuthController::class, 'employee'])->middleware('isLoggedIn');
 
+/*order*/
 Route::get('order',[OrderController::class, 'order'])->middleware('isLoggedIn');
 Route::post('add',[OrderController::class, 'add']);
 Route::get('edit/{id}', [OrderController::class, 'edit']);
+
+/*employee*/
+Route::get('employee',[EmployeeController::class, 'employee'])->middleware('isLoggedIn');
+Route::post('addemp',[EmployeeController::class, 'addemp']);
