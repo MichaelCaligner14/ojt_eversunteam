@@ -86,9 +86,6 @@ class AuthController extends Controller
         }
     }
 
-    public function employee(){
-        return view('employee');
-    }
 
 
         

@@ -46,9 +46,10 @@ class OrderController extends Controller
         $row =DB::table('orders')->where('id',$id)
             ->first();
         $data = [
-            'Info'=>$row
+            'Info'=>$row,
+            'Title' => 'Edit'
         ];
 
-        return view('', $data);
+        return view('edit', $data);
     }
 }
