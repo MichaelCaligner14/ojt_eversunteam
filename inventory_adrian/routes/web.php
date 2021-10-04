@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-/*Auth*/
+/*Auth/login*/
 Route::get('/login', [AuthController::class,'login'])->middleware('alreadyLogIn');
 Route::post('/login-user',[AuthController::class, 'loginuser'])->name('login-user');
 
@@ -41,8 +41,11 @@ Route::get('/user',[AuthController::class, 'user'])->middleware('isLoggedIn');
 /*order*/
 Route::get('order',[OrderController::class, 'order'])->middleware('isLoggedIn');
 Route::post('add',[OrderController::class, 'add']);
-Route::get('edit/{id}', [OrderController::class, 'edit']);
+Route::get('update', [OrderController::class, 'update']);
+Route::get('delete/{id}', [OrderController::class,'delete']);
 
 /*employee*/
 Route::get('employee',[EmployeeController::class, 'employee'])->middleware('isLoggedIn');
 Route::post('addemp',[EmployeeController::class, 'addemp']);
+Route::get('delete/{id}', [EmployeeController::class,'delete']);
+
