@@ -33,19 +33,19 @@ class Employeelist extends Controller
         ]);
         if($query){
             return back()->with('success', 'You have registered successfuly');
-        } else{
+        }else{
             return back()->with('fail','Something wrong');
         }
         
     }
     public function delete($id){
-        $delete = DB::table('add_emps')
+        $delete = db::table('add_emps')
                 ->where('id', $id)
                 ->delete();
                 return redirect('employee');
     }
     public function edit($id){
-        $row = DB::table('add_emps')
+        $row = db::table('add_emps')
                 ->where('id',$id)
                 ->first();
         $data = [
@@ -54,9 +54,26 @@ class Employeelist extends Controller
         ];
         return view('edit', $data);
     }
+    public function update(Request $request){
+
+        $updating = db::table('add_emps')
+                        ->where('id',$request->input('id'))
+                        ->update([
+                            'name'=>$request->input('name'),
+                            'address'=>$request->input('address'),
+                            'age'=>$request->input('age'),
+                            'sex'=>$request->input('sex'),
+                            'rate'=>$request->input('rate')
+                        ]);
+                        return redirect('add_emps');
+    }
+
+
+
     public function attendance(){
         return view("attendance");
     }
+
     public function records(){
         return view("records");
     }
