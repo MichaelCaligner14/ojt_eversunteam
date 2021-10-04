@@ -32,7 +32,7 @@
             
             
             <nav class="pt-6">    
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
+                <a href="home" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
 
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -43,7 +43,7 @@
                         <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
                       </svg>BORROWERS</a>
 
-                <a href="loans" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
+                <a href="loan" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6 " viewBox="0 0 20 20" fill="currentColor"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
                             <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
                         </svg>LOAN</a>
@@ -53,7 +53,7 @@
                 <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clip-rule="evenodd" />
                 </svg>LOAN REPORT</a>
 
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
+                <a href="payments" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                       </svg>PAYMENTS</a>
@@ -115,15 +115,8 @@
             </div>   
         </div>
     </div>
-    <script>
-        const btn = document.querySelector(".mobile-menu");
-        const sidebar = document.querySelector(".sidebar");
-
-        btn.addEventListener("click" , () => {
-        sidebar.classList.toggle("-translate-x-full");
-    });
-    </script>
-     
+   
+    <script src="js/sidebar.js"></script>
 
 </body>
 </html>
