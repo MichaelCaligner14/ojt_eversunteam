@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use  App\Http\Controllers\CustomAuthController;
-
+use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\BorrowerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +27,17 @@ Route::post('/login-user',[CustomAuthController:: class,'loginUser'])->name('log
 Route::get('/home',[CustomAuthController:: class,'home'])->middleware('isLoggedIn');
 Route::get('/logout',[CustomAuthController:: class,'logout']);
 Route::get('/user',[CustomAuthController:: class,'user']);
-Route::get('/loans',[CustomAuthController:: class,'loans']);
+Route::get('/loanreport',[CustomAuthController:: class,'loanreport']);
+Route::get('payments',[CustomAuthController:: class,'payments']);
+Route::get('sample',[CustomAuthController:: class,'sample']);
+Route::get('loan',[CustomAuthController:: class,'loan']);
+
+
+
+Route::get('borrowers',[BorrowerController:: class,'borrowers']);
+Route::post('add',[BorrowerController:: class,'add']);
+Route::get('delete/{id}',[BorrowerController:: class,'delete']);
+
 
 
 
