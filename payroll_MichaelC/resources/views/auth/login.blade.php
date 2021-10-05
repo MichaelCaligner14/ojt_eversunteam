@@ -16,7 +16,7 @@
   
 <div class="grid grid-cols-1 mx-auto">
     <div class="mx-auto">
-    <p class="w-36 py-6 text-white w-52 text-2xl">Good Day, <span class="text-yellow-600">Admin!</span></p>
+    <p class="py-6 text-white w-52 text-2xl">Good Day, <span class="text-yellow-600">Admin!</span></p>
   </div>
       <div>
         <div class="bg-gray-600 shadow rounded-3xl" style="width: 500px; height: 650px;">
@@ -27,7 +27,7 @@
               <div class="w-full px-3">
               <span class="text-red-300">@error('username'){{$message}}@enderror</span>
                 <input class="appearance-none rounded-3xl block text-base w-full bg-white text-black border 
-                border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="username" type="text" value="{{old('username')}}">
+                border-red-500  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="username" type="text" value="{{old('username')}}">
                 <label class="block uppercase tracking-wide text-xs font-bold mb-2" >
                   Username
                 </label>
@@ -38,7 +38,7 @@
               <div class="w-full px-3">
               <span class="text-red-300">@error('password'){{$message}}@enderror</span>
                 <input class="appearance-none rounded-3xl block w-full bg-white text-black border 
-                border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="password" type="password">
+                border-red-500 text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="password" type="password">
                 <label class="block uppercase tracking-wide text-xs font-bold mb-2" >
                   Password
                 </label>
