@@ -31,7 +31,7 @@ Route::post('/add',[Employeelist::class,'add']);
 Route::get('delete/{id}',[Employeelist::class,'delete']);
 
 Route::get('edit/{id}',[Employeelist::class,'edit']);
-Route::post('/update',[Employeelist::class,'update']);
+Route::post('update',[Employeelist::class,'update'])->name('update');
 
 
 Route::get('/attendance',[Employeelist::class,'attendance']);

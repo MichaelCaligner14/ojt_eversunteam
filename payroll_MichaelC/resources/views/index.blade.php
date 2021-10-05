@@ -12,13 +12,15 @@
   <title>Payroll System</title>
 </head>
 <body style="background-image: url('img/bg1.png');">
-<div class="text-9xl text-center font-bold py-48">
-    <h1 class="text-white text-gray-700">PAYROLL SYSTEM</h1>
+<div class="text-8xl text-center font-bold py-56">
+    <h1 class=" text-gray-700">PAYROLL SYSTEM</h1>
     <div class="justify-center py-24 gap-6">
-   <button class="btnreg" type="submit">
+   <a href="login"><button class="btnlog" type="submit">
               Login
-              </button>
-             
+              </button></a>
+  <a href="registration"><button class="btnreg" type="submit">
+              Signup
+              </button></a>
 </div>
 </body>
 </html>

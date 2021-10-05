@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\db;
+use Illuminate\Support\Facades\DB;
 use App\Models\AddEmp;
 
 class Employeelist extends Controller
@@ -11,7 +11,7 @@ class Employeelist extends Controller
    
     public function employee(){
        $data = array(
-           'list'=> db::table('add_emps')->get());
+           'list'=> DB::table('add_emps')->get());
        return view('employee', $data);
     }
     public function add(Request $request){
@@ -23,7 +23,7 @@ class Employeelist extends Controller
             'sex'=>'required',
             'rate'=>'required'
         ]);
-        $query = db::table('add_emps')->insert([
+        $query = DB::table('add_emps')->insert([
             'name'=>$request->input('name'),
             'address'=>$request->input('address'),
             'age'=>$request->input('age'),
@@ -39,24 +39,24 @@ class Employeelist extends Controller
         
     }
     public function delete($id){
-        $delete = db::table('add_emps')
+        $delete = DB::table('add_emps')
                 ->where('id', $id)
                 ->delete();
                 return redirect('employee');
     }
     public function edit($id){
-        $row = db::table('add_emps')
+        $row = DB::table('add_emps')
                 ->where('id',$id)
                 ->first();
         $data = [
-            'Info' => $row,
+            'data' => $row,
             'Title'=>'Edit',
         ];
         return view('edit', $data);
     }
     public function update(Request $request){
 
-        $updating = db::table('add_emps')
+        $updating = DB::table('add_emps')
                         ->where('id',$request->input('id'))
                         ->update([
                             'name'=>$request->input('name'),
@@ -65,7 +65,7 @@ class Employeelist extends Controller
                             'sex'=>$request->input('sex'),
                             'rate'=>$request->input('rate')
                         ]);
-                        return redirect('add_emps');
+                        return redirect('employee');
     }
 
 

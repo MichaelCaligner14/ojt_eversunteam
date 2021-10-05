@@ -15,9 +15,7 @@
         <div class="bg-gray-800 text-gray-100 flex justify-between md:hidden">
           <a href="index.html" class="block p-4 text-white font-bold">Payroll</a>
           <button class="mobile-menu-button p-4 focus:outline-none focus:bg-gray-700">
-            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+           
           </button>
         </div>
       
@@ -46,17 +44,18 @@
         <div class="grid grid-cols-1 gap-4">
         <div class="mx-auto">
             
-        <form action="update" method="POST">
-            
-            <h1 class="py-12">{{$Title}} | EMPLOYEE INFORMATION</h1>
+        <form action="{{route('update')}}" method="post">
+            @csrf
+            <h1 class="py-12">EDIT | EMPLOYEE INFORMATION</h1>
+            <input type="hidden" name="id" value="{{$data->id}}">
         <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full px-3">
-                <input type="text" name="empname" value="{{$Info->id}}">
-                  <label class="block uppercase tracking-wide text-xs font-bold mb-2 mr-8" >
+                  <label class="block uppercase tracking-wide text-xs font-bold mb-2 mr-8">
                     Name
                   </label>
                   <input class="appearance-none block text-base w-full bg-white text-black border 
-                  border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" name="name" placeholder="Full Name" value="{{$Info->name}}">
+                  border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                   type="text" name="name" value="{{$data->name}}">
                 </div>
               </div>
               
@@ -66,7 +65,8 @@
                     Address
                   </label>
                   <input class="appearance-none block w-full bg-white text-black border 
-                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="address" type="text" placeholder="Davao City..." value="{{$Info->address}}">
+                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none
+                   focus:bg-white" name="address" type="text" placeholder="Davao City..." value="{{$data->address}}">
                
                 </div>
               </div>
@@ -78,7 +78,7 @@
                   </label>
                   <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 
                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
-                   type="number" min="1" max="100" name="age" value="{{$Info->age}}">
+                   type="number" min="1" max="100" name="age" value="{{$data->age}}">
                   
                 </div>
                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -86,7 +86,7 @@
                     Sex
                   </label>
                   <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 rounded py-2 px-4 
-                  leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="sex" type="text" min="100" value="{{$Info->sex}}">
+                  leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="sex" type="text" min="100" value="{{$data->sex}}">
                
                 </div>
                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -94,14 +94,17 @@
                    Rate
                   </label>
                   <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 rounded py-2 
-                  px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="rate" type="number" min="100" value="{{$Info->rate}}">
+                  px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="rate" type="number" min="100" value="{{$data->rate}}">
                 </div>
               </div>
-              <button class="bg-blue-500 hover:bg-blue-700 w-full text-white text-base font-bold mt-6 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+              <div class="mt-16">
+              <button href="update" class="bg-blue-500 hover:bg-blue-700 w-full text-white text-base font-bold py-2 px-56  rounded focus:outline-none focus:shadow-outline">
                 UPDATE RECORDS
-              </button>
+</button>
+</div>
         </div>
 </form>
+
 </div>
 </div>
 </div>
