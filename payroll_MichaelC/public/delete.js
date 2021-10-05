@@ -1,15 +1,8 @@
-window.addEventListener('DOMContentLoaded', () =>{
-    const overlay = document.querySelector('#overlay')
-    const delBtn = document.querySelector('#delete-btn')
-    const closeBtn = document.querySelector('#close-modal')
-    
+const buttons = document.querySelectorAll("#buttonmodal");
 
-    const toggleModal = () => {
-        overlay.classList.toggle('hidden')
-        overlay.classList.toggle('flex')
-    }
-
-    delBtn.addEventListener('click', toggleModal)
-
-    closeBtn.addEventListener('click', toggleModal)
+    buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        modal.classList.add('scale-100');
+    });
+    closebutton.addEventListener('click',()=>modal.classList.remove('scale-100'))
 })
