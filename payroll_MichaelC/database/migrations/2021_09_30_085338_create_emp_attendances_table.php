@@ -15,8 +15,8 @@ class CreateEmpAttendancesTable extends Migration
     {
         Schema::create('emp_attendances', function (Blueprint $table) {
             $table->id();
-            $table->index('emp_id');
-            $table->foreign('emp_id')->references('id')->on('add_emps')->onDelete('cascade');
+            $table->index('addemps_id');
+            $table->foreign('addemps_id')->references('id')->on('add_emps')->onDelete('cascade');
             $table->integer('hours');
             $table->string('date');
             $table->timestamps();
