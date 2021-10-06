@@ -34,6 +34,6 @@ Route::get('edit/{id}',[Employeelist::class,'edit']);
 Route::post('update',[Employeelist::class,'update'])->name('update');
 
 
-Route::get('/attendance',[Employeelist::class,'attendance']);
-Route::get('/records',[Employeelist::class,'records']);
-Route::get('/salary',[Employeelist::class,'salary']);
+Route::get('/attendance',[Employeelist::class,'attendance'])->middleware('isLoggedIn');
+Route::get('/records',[Employeelist::class,'records'])->middleware('isLoggedIn');
+Route::get('/salary',[Employeelist::class,'salary'])->middleware('isLoggedIn');
