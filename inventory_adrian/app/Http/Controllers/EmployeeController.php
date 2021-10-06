@@ -41,7 +41,7 @@ class EmployeeController extends Controller
 
     }
 
-    public function edit($id){
+    public function empedit($id){
         $row = DB::table('employees')
                 ->where('id',$id)
                 ->first();
@@ -49,10 +49,10 @@ class EmployeeController extends Controller
             'item' => $row,
             'Title'=>'Edit',
         ];
-        return view('employee', $data);
+        return view('empedit', $data);
     }
 
-    public function update(Request $request){
+    public function empupdate(Request $request){
 
         $updating = DB::table('employees')
                         ->where('id',$request->input('empid'))

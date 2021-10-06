@@ -65,6 +65,7 @@ class OrderController extends Controller
                         ]);
                         return redirect('order');
     }
+    
 
     public function delete($id){
 
