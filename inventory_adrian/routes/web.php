@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -51,4 +52,11 @@ Route::post('addemp',[EmployeeController::class, 'addemp']);
 Route::get('empedit/{id}', [EmployeeController::class,'empedit']);
 Route::post('empupdate', [EmployeeController::class,'empupdate'])->name('empupdate');
 Route::get('deletes/{id}', [EmployeeController::class,'deletes']);
+
+/*Product*/
+Route::get('product',[ProductController::class, 'product'])->middleware('isLoggedIn');
+Route::post('addprod',[ProductController::class, 'addprod']);
+Route::get('editprod/{id}', [ProductController::class,'editprod']);
+Route::post('produpdate', [ProductController::class,'produpdate'])->name('produpdate');
+Route::get('proddelete/{id}', [EmployeeController::class,'proddelete']);
 
