@@ -5,11 +5,11 @@
   <!-- ... -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{asset('css/app.css')}}" rel="stylesheet">
   <title>Payroll System</title>
 </head>
 <body>
-    <div class="relative min-h-screen md:flex">
+    <div class="relative min-h-screen bg-gray-100 md:flex">
 
         <!-- responsive -->
         <div class="bg-gray-800 text-gray-100 flex justify-between md:hidden">
@@ -40,32 +40,33 @@
 
         </div>
 
-<div class="grid md:grid-flow-col gap-4 ">
-        <div class="grid grid-cols-1 gap-4">
-        <div class="mx-auto">
+<div class="grid md:grid-flow-col pl-12 pr-12 ">
+        <div class="grid grid-cols-1 gap-4  py-12">
+        <div class=" bg-gray-200 px-12 py-12">
             
         <form action="{{route('update')}}" method="post">
             @csrf
-            <h1 class="py-12">EDIT | EMPLOYEE INFORMATION</h1>
+            <h1 class="pb-12">EDIT | EMPLOYEE INFORMATION <hr style="height:2px; background-color:black;" class="mt-6"></h1>
+            
             <input type="hidden" name="id" value="{{$data->id}}">
         <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full px-3">
-                  <label class="block uppercase tracking-wide text-xs font-bold mb-2 mr-8">
+                  <label class="block uppercase tracking-wide text-sm font-bold mb-2 mr-8">
                     Name
                   </label>
                   <input class="appearance-none block text-base w-full bg-white text-black border 
-                  border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                    type="text" name="name" value="{{$data->name}}">
                 </div>
               </div>
               
               <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full px-3">
-                  <label class="block uppercase tracking-wide text-xs font-bold mb-2">
+                  <label class="block uppercase tracking-wide text-sm font-bold mb-2">
                     Address
                   </label>
                   <input class="appearance-none block w-full bg-white text-black border 
-                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none
+                  border-gray-300 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none
                    focus:bg-white" name="address" type="text" placeholder="Davao City..." value="{{$data->address}}">
                
                 </div>
@@ -73,34 +74,40 @@
     
               <div class="flex flex-wrap -mx-3 mb-2">
                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide  text-xs font-bold mb-2">
+                  <label class="block uppercase tracking-wide  text-sm font-bold mb-2">
                    Age
                   </label>
-                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-300 
                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
                    type="number" min="1" max="100" name="age" value="{{$data->age}}">
                   
                 </div>
                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide  text-xs font-bold mb-2">
+                  <label class="block uppercase tracking-wide  text-sm font-bold mb-2">
                     Sex
                   </label>
-                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 rounded py-2 px-4 
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-300 rounded py-2 px-4 
                   leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="sex" type="text" min="100" value="{{$data->sex}}">
                
                 </div>
                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide  text-xs font-bold mb-2">
+                  <label class="block uppercase tracking-wide  text-sm font-bold mb-2">
                    Rate
                   </label>
-                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 rounded py-2 
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-300 rounded py-2 
                   px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="rate" type="number" min="100" value="{{$data->rate}}">
                 </div>
+                
+                <div class="flex mx-auto justify-between w-full md:w-1/3 gap-6 px-3 mb-6 md:mb-0 mt-24">
+                <button href="update" class="bg-blue-500 hover:bg-gray-600 block  text-white text-base font-bold py-4 w-full rounded focus:outline-none focus:shadow-outline">
+                UPDATE RECORDS</button>
+              <button href="employee" class="bg-red-500  hover:bg-gray-600  text-white text-base font-bold py-4 w-full rounded focus:outline-none focus:shadow-outline">
+                CANCEL</button>
+              
+                </div>
               </div>
-              <div class="mt-16">
-              <button href="update" class="bg-blue-500 hover:bg-blue-700 w-full text-white text-base font-bold py-2 px-56  rounded focus:outline-none focus:shadow-outline">
-                UPDATE RECORDS
-</button>
+           
+             
 </div>
         </div>
 </form>
