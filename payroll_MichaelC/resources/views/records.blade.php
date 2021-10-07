@@ -22,8 +22,9 @@
         </div>
       
         <!-- sidebar -->
-        <div  class="sidebar absolute text-white w-64 bg-gray-700 space-y-6 py-7 px-2 inset-y-0 left-0 
-        transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+        <div  class="sidebar absolute text-white w-64 bg-gray-700 h-screenspace-y-6 py-7 px-2 inset-y-0 left-0 
+        transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out 
+        ">
 
          <img src="img/admin.png" class=" mx-auto py-4 w-48 h-36">
          <h1 class="text-center font-bold">Payroll Manager</h1>
@@ -104,119 +105,26 @@
                             <th class="px-4 py-3">ID</th>
                             <th class="px-4 py-3">NAME</th>
                             <th class="px-4 py-3">RATE</th>
-                            <th class="px-4 py-3">WORKDAYS</th>
-                            <th class="px-4 py-3">ABSENCES</th>
-                            <th class="px-4  py-3">ACTION</th>
+                            <th class="px-4 py-3">Hours</th>
+                            
                           </tr>
                         </thead>
                         <tbody class="bg-white">
+                     
+                        @foreach($data as $item)
                           <tr class="text-gray-700 border-black">
-                            <td class="px-4 py-3">
-                              <h1 class="">1333</h1>
+                            <td class="px-4 py-3 font-semibold border">
+                              <h1 class="">{{$item->id}}</h1>
                             </td>
-                            <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
+                            <td class="px-4 py-3 font-semibold border">{{$item->name}}</td>
                             <td class="px-4 py-3 border">
-                              <h1>300</h1>
+                              <h1>{{$item->rate}}</h1>
                             </td>
-                            <td class="px-4 py-3 border">15</td>
-                            <td class="px-4 py-3 border">3</td>
-                            <td class="px-4 py-3 border"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg></td>
-                          </tr>
-
-                          <tr class="text-gray-700">
-                            <td class="px-4 py-3 border">
-                              <h1 class="">1333</h1>
-                            </td>
-                            <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
-                            <td class="px-4 py-3 border">
-                              <h1>300</h1>
-                            </td>
-                            <td class="px-4 py-3 border">15</td>
-                            <td class="px-4 py-3 border">3</td>
-                            <td class="px-4 py-3 border"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg></td>
-                          </tr>
-
-                           <tr class="text-gray-700">
-                            <td class="px-4 py-3 border">
-                              <h1 class="">1333</h1>
-                            </td>
-                            <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
-                            <td class="px-4 py-3 border">
-                              <h1>300</h1>
-                            </td>
-                            <td class="px-4 py-3 border">15</td>
-                            <td class="px-4 py-3 border">3</td>
-                            <td class="px-4 py-3 border"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg></td>
-                          </tr>
-
-                           <tr class="text-gray-700">
-                            <td class="px-4 py-3 border">
-                              <h1 class="">1333</h1>
-                            </td>
-                            <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
-                            <td class="px-4 py-3 border">
-                              <h1>300</h1>
-                            </td>
-                            <td class="px-4 py-3 border">15</td>
-                            <td class="px-4 py-3 border">3</td>
-                            <td class="px-4 py-3 border"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg></td>
-                          </tr>
-
-                          <tr class="text-gray-700">
-                            <td class="px-4 py-3 border">
-                              <h1 class="">1333</h1>
-                            </td>
-                            <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
-                            <td class="px-4 py-3 border">
-                              <h1>300</h1>
-                            </td>
-                            <td class="px-4 py-3 border">15</td>
-                            <td class="px-4 py-3 border">3</td>
-                            <td class="px-4 py-3 border"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg></td>
-                          </tr>
-
-                           <tr class="text-gray-700">
-                            <td class="px-4 py-3 border">
-                              <h1 class="">1333</h1>
-                            </td>
-                            <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
-                            <td class="px-4 py-3 border">
-                              <h1>300</h1>
-                            </td>
-                            <td class="px-4 py-3 border">15</td>
-                            <td class="px-4 py-3 border">3</td>
-                            <td class="px-4 py-3 border"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg></td>
-                          </tr>
-
-                           <tr class="text-gray-700">
-                            <td class="px-4 py-3 border">
-                              <h1 class="">1333</h1>
-                            </td>
-                            <td class="px-4 py-3 font-semibold border">Michael John Caligner</td>
-                            <td class="px-4 py-3 border">
-                              <h1>300</h1>
-                            </td>
-                            <td class="px-4 py-3 border">15</td>
-                            <td class="px-4 py-3 border">3</td>
-                            <td class="px-4 py-3 border"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                            </svg></td>
-                          </tr>
-
+                            <td class="px-4 py-3 border">{{$item->hours}}</td>
                         
-                         
+                            
+                          </tr>
+                          @endforeach
                         </tbody>
                       </table>
 

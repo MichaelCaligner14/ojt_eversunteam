@@ -84,8 +84,10 @@
         </div>
         <div class="grid grid-cols-1 mx-auto">
           <div>
-            <form class="w-full bg-gray-600 text-white max-w-sm  p-8 mt-6">
-              <p class="text-xl font-bold text-white mb-4 text-center">NEW EMPLOYEE</p>
+         
+            <form class="w-full bg-gray-600 text-white max-w-sm  p-8 mt-6" action="addattendance" method="POST">
+              @csrf
+              <p class="text-xl font-bold text-white mb-4 text-center">ATTENDANCE</p>
     
               <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full px-3">
@@ -93,7 +95,8 @@
                     Employee ID
                   </label>
                   <input class="appearance-none block text-base w-full bg-white text-black border 
-                  border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text">
+                  border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="addemps_id" type="text" value="{{old('addemps_id')}}">
+                  <span class="text-red-300 text-sm">@error('addemps_id'){{$message}}@enderror</span>
                 </div>
               </div>
               
@@ -103,7 +106,7 @@
                     Hours Rendered
                   </label>
                   <input class="appearance-none block w-full bg-white text-black border 
-                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text">
+                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="hours"  type="text" value="{{old('hours')}}">
                 </div>
               </div>
     
@@ -113,21 +116,26 @@
                     Date
                   </label>
                   <input class="appearance-none block w-full bg-white text-black border 
-                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="date" type="date" placeholder="Davao City...">
+                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="date" type="date" value="{{old('date')}}">
                 </div>
                 <div class="w-full px-3 mb-6 md:mb-0">
                   
                   <div class="relative">
-                    <button class="bg-blue-500 hover:bg-blue-700 w-full text-white text-base font-bold mt-6 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    <button class="bg-blue-500 hover:bg-blue-700 w-full text-white text-base font-bold mt-6 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                       Submit
                     </button>
+                    @if(Session::has('success'))
+          <div class="text-white  text-center mt-6 text-sm border-0 rounded relative mb-4 ">{{Session::get('success')}}</div>
+          @endif
+          @if(Session::has('fail'))
+          <div class="text-white text-sm text-center mt-6 border-0 rounded relative mb-4">{{Session::get('fail')}}</div>
+          @endif
                   </div>
+
                 </div>
-               
-             
               </div>
-              
             </form>
+            
           </div>
         </div>
   

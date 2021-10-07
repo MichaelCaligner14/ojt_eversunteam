@@ -119,7 +119,9 @@
                   <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
                    Age
                   </label>
-                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="age" type="number" min="1" max="100" value="{{old('age')}}">
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    name="age" type="number" min="1" max="100" value="{{old('age')}}">
                   
                 </div>
                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -192,31 +194,19 @@
                       </svg></a>
 
                       
-                      <a href="#" id="buttonmodal"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
+                      <a href="delete/{{ $item->id }}" id="buttonmodal"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                     </svg></a>
 
-        
+              
 
                   </td>
                   </tr>
-                @endforeach
+                  @endforeach
                 </tbody>
               </table>
 
-              <div id="modal" class="fixed top-0 left-0 bg-black bg-opacity-50
-               w-screen h-screen flex items-center justify-center  transform
-                scale-0">
-    <!-- Modal content -->
-    <div class="bg-gray-200 w-auto rounded h-auto p-6"> 
-        <!-- Test content -->
-        <p>Delete this employee from table?</p>
-        <div class="mt-6">
-        <div class="mt-3 flex justify-end space-x-3">
-                <button id="closebutton" class="px-3 py-1 rounded bg-black text-white hover:bg-red-300 hover:bg-opacity-50 hover:text-red-900 text-base">Cancel</button>
-                <a href="delete/{{ $item->id }}"  class="px-3 py-1 bg-red-800 text-gray-200 hover:bg-red-600 rounded text-base">delete</a>
-        </div>
-    </div>
+            
 </div>
 </div>
 
