@@ -11,10 +11,14 @@
     <title>Users</title>
 </head>
 <body class="bg-gray-100">
-
+<img
+      src="images/wave.png"
+      class="fixed hidden ml-40 lg:block inset-10 h-full"
+      style="ml-20";
+/>
 
     <div class="relative min-h-screen md:flex">
-
+    
         <div class="bg-primarycolor text-white flex justify-between md:hidden">
             <a href="#" class="block p-4 text-white font-bold">DVOFINDS</a>
             <button class="mobile-menu p-4 focus:outline-none focus:bg-gray-700">
@@ -31,106 +35,81 @@
             <span class="text-lg font-primary font-semibold">DVOFINDS</span> </a>
            
            
-            <nav class="pt-6">    
-                <a href="home" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
+             
+            <nav class="pt-6">
 
+                <a href="home" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                       </svg>HOME</a>
 
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6 " viewBox="0 0 20 20" fill="currentColor"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                            <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
-                        </svg>LOANS</a>
-                        
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
+                <a href="borrowers" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6 " viewBox="0 0 20 20" fill="currentColor">
                         <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
                       </svg>BORROWERS</a>
-                      
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
+
+                <a href="loan" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6 " viewBox="0 0 20 20" fill="currentColor"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                            <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
+                        </svg>LOAN</a>
+
+                <a href="loanreport" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6 " viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clip-rule="evenodd" />
+                    </svg>LOAN REPORT</a>
+
+
+                <a href="payments" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                       </svg>PAYMENTS</a>
 
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
+                <a href="user" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
                       </svg>USER</a>
-                      
-                <a href="logout" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
+
+                <a href="index" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-600 text-white font-third">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block justify-between mr-4 ml-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                       </svg>LOGOUT</a>
             </nav>
         </div>
-        
+       
         <div class="flex-1  w-full">
+       
             <header class="bg-gray-300 p-4 font-bold text-right">LENDING SYSTEM</header>
             <div class="p-8">
-                <h1 class="font-fourth font-bold text-3xl tracking-widest">MY ACCOUNT</h1>
+            
                 
                
-                   
-
-                <table class="border-collapse shadow-md w-full mt-8">
-                    <thead>
-                        <tr>
-                            <th class="p-3 font-bold text-sm uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">#</th>
-                            <th class="p-3 font-bold text-sm uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Name</th>
-                            <th class="p-3 font-bold text-sm uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Username</th>
-                            <th class="p-3 font-bold text-sm uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                            <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
-                                <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">#</span>
-                                1
-                            </td>
-                            <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
-                                <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Name</span>
-                                {{$data->name}}
-                            </td>
-                            <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
-                                <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Username</span>
-                                {{$data->email}}
-                            </td>
-                              
-                            <td class="w-full lg:w-auto p-1.5 text-gray-800  border border-b text-sm text-center lg:table-cell  lg:static">
-                                <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
-                                <a href="#" class="text-blue-400 hover:text-blue-600 underline"><svg xmlns="http://www.w3.org/2000/svg" 
-                                    class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                                  </svg></a>
-                                <a href="#" class="text-blue-400 hover:text-blue-600 underline pl-6"><svg xmlns="http://www.w3.org/2000/svg" 
-                                    class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                  </svg></a>
-                            </td>
-                        </tr>
-
-                        
-                       
-
-
-                        
-
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
+            <div class=" flex flex-col justify-center lg:grid lg:grid-cols-2 px-6">
+            
+            <form class="shadow-lg bg-white  flex flex-col justify-center pl-2  font-third h-full lg:w-full xs:pt-10 sm:w-2/3 md:w-1/2 ">
+                <div class="flex items-center">
+                    <img src="images/img9.png"class="w-1/2"/>
+                    <div>
+                        <h2 class="font-display font-third font-bold text-lg text-black text-left "> {{$data->name}}</h2>
+                        <h2 class="font-display font-third font-bold text-base text-black text-left">{{$data->email}}</h2>
+                    </div>
+                </div>    
+            <br>
+            <div class="px-4">
+                <footer class="bg-blue-100 p-4 font-bold text-left">
+                <p class="font-bold mt-4">DVOFINDS</p>
+                <p class="text-sm xs:mb-10 text-primarycolor">DVOFinds is committed to uplift the lives of the society by providing the needs for health, education and sustainable livelihood.</p>
+                </footer></div>
+         </form>
+            <img src="images/img8.png" class="hidden lg:block " />
+           
     </div>
+  
+</div>
 
-    <script>
-    const btn = document.querySelector(".mobile-menu");
-    const sidebar = document.querySelector(".sidebar");
+            
+    
 
-    btn.addEventListener("click" , () => {
-    sidebar.classList.toggle("-translate-x-full");
-    });
-    </script>
-     
+    <script src="js/sidebar.js"></script>
 
 </body>
 </html>
