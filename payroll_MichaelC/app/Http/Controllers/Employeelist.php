@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\AddEmp;
+use App\Models\EmpAttendance;
 
 class Employeelist extends Controller
 {
@@ -14,6 +15,7 @@ class Employeelist extends Controller
            'list'=> DB::table('add_emps')->get());
        return view('employee', $data);
     }
+   
     public function add(Request $request){
 
         $request->validate([
@@ -73,10 +75,30 @@ class Employeelist extends Controller
     public function attendance(){
         return view("attendance");
     }
+    public function addattendance(Request $request){
 
-    public function records(){
-        return view("records");
+        $request->validate([
+            'addemps_id'=>'required|unique:emp_attendances',
+            'hours'=>'required',
+            'date'=>'required'
+         
+        ]);
+        $query = DB::table('emp_attendances')->insert([
+            'addemps_id'=>$request->input('addemps_id'),
+            'hours'=>$request->input('hours'),
+            'date'=>$request->input('date')
+         
+
+        ]);
+        if($query){
+            return back()->with('success', 'Saved successfully!');
+        }else{
+            return back()->with('fail','Something wrong');
+        }
+        
     }
+ 
+   
     public function salary(){
         return view("salary");
     }
