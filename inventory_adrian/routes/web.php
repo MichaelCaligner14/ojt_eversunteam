@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 
 /*
@@ -58,5 +59,7 @@ Route::get('product',[ProductController::class, 'product'])->middleware('isLogge
 Route::post('addprod',[ProductController::class, 'addprod']);
 Route::get('editprod/{id}', [ProductController::class,'editprod']);
 Route::post('produpdate', [ProductController::class,'produpdate'])->name('produpdate');
-Route::get('proddelete/{id}', [EmployeeController::class,'proddelete']);
+Route::get('proddelete/{id}', [ProductController::class,'proddelete']);
 
+/*Category*/
+Route::get('category',[CategoryController::class,'category']);
