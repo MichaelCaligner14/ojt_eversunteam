@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Employeelist;
+use App\Http\Controllers\JointableController;
 
 
 /*
@@ -21,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login',[CustomAuthController::class,'login'])->middleware('alreadyLoggedIn');
-Route::get('/registration',[CustomAuthController::class,'registration']);
+Route::get('/registration',[CustomAuthController::class,'registration'])->middleware('alreadyLoggedIn');
 Route::post('/register-user',[CustomAuthController::class,'registerUser'])->name('register-user');
 Route::post('/login-user',[CustomAuthController::class,'loginUser'])->name('login-user');
 Route::get('/logout',[CustomAuthController::class,'logout']);
@@ -35,5 +36,7 @@ Route::post('update',[Employeelist::class,'update'])->name('update');
 
 
 Route::get('/attendance',[Employeelist::class,'attendance'])->middleware('isLoggedIn');
-Route::get('/records',[Employeelist::class,'records'])->middleware('isLoggedIn');
+Route::post('/addattendance',[Employeelist::class,'addattendance']);
+
+Route::get('/records',[JointableController::class,'records'])->middleware('isLoggedIn');
 Route::get('/salary',[Employeelist::class,'salary'])->middleware('isLoggedIn');
