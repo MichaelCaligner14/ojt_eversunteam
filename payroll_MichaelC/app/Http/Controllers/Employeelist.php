@@ -78,7 +78,7 @@ class Employeelist extends Controller
     public function addattendance(Request $request){
 
         $request->validate([
-            'addemps_id'=>'required|unique:emp_attendances',
+            'addemps_id'=>'required',
             'hours'=>'required',
             'date'=>'required'
          
