@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\AddEmp;
 use App\Models\EmpAttendance;
+
+use ProtoneMedia\LaravelCrossEloquentSearch\Search;
 class JointableController extends Controller
 {
     public function records(){
@@ -14,4 +16,15 @@ class JointableController extends Controller
                       
     return view('records',compact('data'));
                     }
+                  
+public function searchRecord(Request $request){
+
+    $data = Search::addMany([[AddEmp::class,'name'],[EmpAttendance::class,'id']])
+->beginWithWildcard()
+->paginate()
+->get($request->get(key:'term'));
+
+        return view('records', compact('data'));
+    }
+    
 }
