@@ -39,4 +39,6 @@ Route::get('/attendance',[Employeelist::class,'attendance'])->middleware('isLogg
 Route::post('/addattendance',[Employeelist::class,'addattendance']);
 
 Route::get('/records',[JointableController::class,'records'])->middleware('isLoggedIn');
+Route::post('/search-record',[JointableController::class,'searchRecord']) ->name('search-record');
+
 Route::get('/salary',[Employeelist::class,'salary'])->middleware('isLoggedIn');
