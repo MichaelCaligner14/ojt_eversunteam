@@ -22,13 +22,17 @@
                   <div class="flex-1">
                       <h1 class="w-full ">LIST OF EMPLOYEES</h1>
                   </div>
+                  <form action="{{route('search-record')}}" method="post">
+                    @csrf
                   <div>
-                       <input type="search"
-                  class=" pl-10 pr-4 py-1 text-base border-2 border-black-900 focus:outline-none text-black "
-                  placeholder="........."><button class="bg-blue-700 text-base px-6 py-1 text-white">Search</button>
+                 
+                       <input type="search" name="name" class=" pl-3 pr-4 py-1 text-base border-2 border-black-900 focus:outline-none text-black "
+                  placeholder=".........">
+                  <button class="bg-blue-700 text-base px-6 py-1 text-white" type="submit">Search</button>
                   </div>
+                  </form>
 </div>
-            
+     
 
                 <section class="container mx-auto pb-24 pt-6  font-sans">
                   <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
