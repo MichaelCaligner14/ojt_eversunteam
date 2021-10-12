@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\AddEmp;
-use App\Models\EmpAttendance;
+use App\Models\Employee;
 
 class Employeelist extends Controller
 {
    
     public function employee(){
        $data = array(
-           'list'=> DB::table('add_emps')->get());
+           'list'=> DB::table('empadd')->get());
        return view('employee', $data);
     }
    
@@ -25,7 +24,7 @@ class Employeelist extends Controller
             'sex'=>'required',
             'rate'=>'required'
         ]);
-        $query = DB::table('add_emps')->insert([
+        $query = DB::table('empadd')->insert([
             'name'=>$request->input('name'),
             'address'=>$request->input('address'),
             'age'=>$request->input('age'),
@@ -41,13 +40,13 @@ class Employeelist extends Controller
         
     }
     public function delete($id){
-        $delete = DB::table('add_emps')
+        $delete = DB::table('empadd')
                 ->where('id', $id)
                 ->delete();
                 return redirect('employee');
     }
     public function edit($id){
-        $row = DB::table('add_emps')
+        $row = DB::table('empadd')
                 ->where('id',$id)
                 ->first();
         $data = [
@@ -58,7 +57,7 @@ class Employeelist extends Controller
     }
     public function update(Request $request){
 
-        $updating = DB::table('add_emps')
+        $updating = DB::table('empadd')
                         ->where('id',$request->input('id'))
                         ->update([
                             'name'=>$request->input('name'),
@@ -70,35 +69,6 @@ class Employeelist extends Controller
                         return redirect('employee');
     }
 
-
-
-    public function attendance(){
-        return view("attendance");
-    }
-    public function addattendance(Request $request){
-
-        $request->validate([
-            'addemps_id'=>'required',
-            'hours'=>'required',
-            'date'=>'required'
-         
-        ]);
-        $query = DB::table('emp_attendances')->insert([
-            'addemps_id'=>$request->input('addemps_id'),
-            'hours'=>$request->input('hours'),
-            'date'=>$request->input('date')
-         
-
-        ]);
-        if($query){
-            return back()->with('success', 'Saved successfully!');
-        }else{
-            return back()->with('fail','Something wrong');
-        }
-        
-    }
- 
-   
     public function salary(){
         return view("salary");
     }

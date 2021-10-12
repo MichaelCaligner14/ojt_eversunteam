@@ -27,8 +27,8 @@
                     Employee ID
                   </label>
                   <input class="appearance-none block text-base w-full bg-white text-black border 
-                  border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="addemps_id" type="text" value="{{old('addemps_id')}}">
-                  <span class="text-red-300 text-sm">@error('addemps_id'){{$message}}@enderror</span>
+                  border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="empAdd_id" type="text" value="{{old('empAdd_id')}}">
+                  <span class="text-red-300 text-sm">@error('empAdd_id'){{$message}}@enderror</span>
                 </div>
               </div>
               
