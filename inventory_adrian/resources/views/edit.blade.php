@@ -51,19 +51,6 @@
                               <span class="text-red-800">@error('order') {{$message}} @enderror </span>
                           </div>  
 
-  
-                        <div class="w-96 px-1">
-                            <label class="text-gray-600">PRICE</label>
-                            <input type="text" placeholder="" name="price" value="{{ $Info->price }}" id="price" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
-                            text-gray-600 "/>
-                            <span class="text-red-800">@error('price') {{$message}} @enderror </span>
-                        </div>
-                        <div class="w-96 px-1">
-                            <label class="text-gray-600">QTY</label>
-                            <input type="text" placeholder="" name="qty" value="{{ $Info->qty }}" id="qty" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
-                            text-gray-700 ">
-                            <span class="text-red-800">@error('qty') {{$message}} @enderror </span>
-                        </div>
                         <div class="w-96 px-1">
                             <label class="text-gray-600">DATE</label>
                             <input type="text" placeholder="" name="date" value="{{ $Info->date }}" id="date" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md

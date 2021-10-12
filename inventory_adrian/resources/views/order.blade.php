@@ -3,35 +3,34 @@
 @section('content')
         <script src="script.js"></script>
         <!--HEADER CONTENT-->
-        <div class="flex-1 p-10 font-bold justify-center items-center">
+        <div class="flex-1 p-5 font-bold justify-center items-center">
 
 
 
-            <div class="bg-white pt-16 justify-start">
+            <div class="bg-white pt-16 justify-start pr-24">
             
            
             @include('layouts.flash')
                 
-                <form action="add" method="post" class="flex justify-center ">
+                <form action="add" method="post" class="flex justify-center">
                 @csrf
     
+                    <div class="w-60 px-1">
+                         <label class="text-gray-600">NAME</label>
+                          <input type="text" placeholder="Name" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                          text-gray-700 "/>
+                          <span class="text-red-800">@error('name') {{$message}} @enderror </span>
+                    </div>
 
                           <div class="w-60 px-1">
-                              <label class="text-gray-600">NAME</label>
-                              <input type="text" placeholder="Name" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
-                              text-gray-700 "/>
-                              <span class="text-red-800">@error('name') {{$message}} @enderror </span>
-                          </div>
-
-                          <div class="w-60 px-1">
-                     <label class="text-gray-600 ">ORDER</label>
-                              <input type="text" placeholder="Order" name="order" value="{{old('order')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
+                     <label class="text-gray-600 ">ITEM</label>
+                              <input type="text" placeholder="Item" name="order" value="{{old('order')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
                               text-gray-700 "/>
                               <span class="text-red-800">@error('order') {{$message}} @enderror </span>
                           </div>  
                           <div class="w-60 px-1">
                             <label class="text-gray-600">PRICE</label>
-                            <input type="text" placeholder="Price" name="price" value="{{old('price')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <input type="text" placeholder="Price" id="price" name="price" value="{{old('price')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-600 "/>
                             <span class="text-red-800">@error('price') {{$message}} @enderror </span>
                         </div>
@@ -41,11 +40,19 @@
                       <div class="flex justify-center">
                         
                         <div class="w-60 px-1">
-                            <label class="text-gray-600">QTY</label>
-                            <input type="text" placeholder="Quantity" name="qty" value="{{old('qty')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <label class="text-gray-600">QUANTITY</label>
+                            <input type="text" placeholder="Quantity" id="qty" name="qty" value="{{old('qty')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-700 ">
                             <span class="text-red-800">@error('qty') {{$message}} @enderror </span>
                         </div>
+
+                        <div class="w-60 px-1">
+                        <label class="text-gray-600">TOTAL</label>
+                          <input name="total" value="{{old('total')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            text-gray-700 " id="total">
+                            <span class="text-red-800">@error('total') {{$message}} @enderror </span>
+                        </div>
+
                         <div class="w-60 px-1">
                             <label class="text-gray-600">DATE</label>
                             <input type="text" placeholder="Date" name="date" value="{{old('date')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
@@ -54,13 +61,13 @@
                         </div>
 
                         <div class="">
-                        <button type="submit" class="lg:w-60 xs:w-24 sm:w-24 md:w-24 w-60 mt-8 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
+                        <button type="submit" class="xs:w-24 sm:w-24 md:w-24 w-60 mt-8 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
                           
                       </div>
                     </div>
   
                 </form>
-  
+            
 
             <br>
             <br>
@@ -72,11 +79,11 @@
                   <tr>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">#</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Name</th>
-                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Order</th>
+                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Items</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Price</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Quantity</th>
+                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Total</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Date</th>
-                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Sales</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Actions</th>
                   </tr>
               </thead>
@@ -94,28 +101,28 @@
                     </td>
 
                     <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
-                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Order</span>
+                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Items</span>
                         {{$item->order}}
                     </td>
 
-                      <td class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
+                      <td  class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Price</span>
                         {{$item->price}}
                       </td>
 
-                      <td class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
+                      <td id="quantity" class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Quantity</span>
                         {{$item->qty}}
+                      </td>
+
+                      <td id="total" class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
+                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Sales</span>
+                        {{$item->total}}
                       </td>
 
                       <td class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Date</span>
                         {{$item->date}}
-                      </td>
-
-                      <td class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
-                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Sales</span>
-                        5.000
                       </td>
 
                     <td class="w-full lg:w-auto p-1.5 text-gray-800  border border-b text-sm text-center lg:table-cell  lg:static">
@@ -133,8 +140,21 @@
                 @endforeach
               </tbody>
           </table>
-</div>
+        </div>
+<script src="js/jquery-3.5.0.min.js"></script>
+    <script>
+		$(document).ready(function(){
+    	$("#price, #qty").keyup(function(){
 
+    	var total=0;    	
+    	var x = Number($("#price").val());
+    	var y = Number($("#qty").val());
+    	var total=x * y;
 
+    	$('#total').val(total);
+
+    });
+});
+</script>
 @endsection
 

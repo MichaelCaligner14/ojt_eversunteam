@@ -16,23 +16,13 @@
                   <label class="block uppercase tracking-wide text-black text-xs font-bold mb-2">
                     Brand Names
                   </label>
-                    <select class="block appearance-none w-full bg-white border border-gray-20e text-black 
+                    <select class="block appearance-none w-full bg-white border border-black-900 text-black 
                     py-2 text-base px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="name">
                     <option>Gucci</option>
                       <option>Chanel</option>
                       <option>Hermès</option>
                       <option>Dior</option>
                       <option>Louis Vuitton</option>
-                      <option>Rolex</option>
-                      <option>Tiffany</option>
-                      <option>Prada</option>
-                      <option>Versace</option>
-                      <option>Armani</option>
-                      <option>Valentino</option>
-                      <option>Balenciaga</option>
-                      <option>Cartier</option>
-                      <option>Burberry</option>
-                      <option>Omega</option>
                     </select>
                 </div>
                   
@@ -40,23 +30,13 @@
                   <label class="block uppercase tracking-wide text-black text-xs font-bold mb-2">
                     Category
                   </label>
-                    <select class="block appearance-none w-full bg-white border border-gray-20e text-black 
+                    <select class="block appearance-none w-full bg-white border border-black-900 text-black 
                     py-2 text-base px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="category">
                     <option>Fashion</option>
                       <option>Fashion</option>
                       <option>Fashion</option>
                       <option>Fashion</option>
                       <option>Fashion</option>
-                      <option>Watch</option>
-                      <option>Jewellery</option>
-                      <option>Fashion</option>
-                      <option>Fashion</option>
-                      <option>Fashion</option>
-                      <option>Fashion</option>
-                      <option>Fashion</option>
-                      <option>Jewellery</option>
-                      <option>Fashion</option>
-                      <option>Watch</option>
                     </select>
                 </div>
                 <div class='md:w-60 px-3 mb-6 md:mb-0 mt-5'>

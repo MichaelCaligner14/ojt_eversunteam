@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
 
-
 class OrderController extends Controller
 {
     public function order()
@@ -25,6 +24,7 @@ class OrderController extends Controller
             'order'=>'required',
             'price'=>'required',
             'qty'=>'required',
+            'total'=>'required',
             'date'=>'required'
         ]);
 
@@ -33,10 +33,11 @@ class OrderController extends Controller
             'order'=>$request->input('order'),
             'price'=>$request->input('price'),
             'qty'=>$request->input('qty'),
+            'total'=>$request->input('total'),
             'date'=>$request->input('date'),
         ]);
         if($query){
-            return back()->with('success', 'Data have been save. ');
+            return back()->with('success', 'Data have been save.');
         }else{
             return back()->with('fail', 'Something went wrong');
         }
@@ -61,8 +62,6 @@ class OrderController extends Controller
                         ->update([
                             'name'=>$request->input('name'),
                             'order'=>$request->input('order'),
-                            'price'=>$request->input('price'),
-                            'qty'=>$request->input('qty'),
                             'date'=>$request->input('date')
                         ]);
                         return redirect('order');
