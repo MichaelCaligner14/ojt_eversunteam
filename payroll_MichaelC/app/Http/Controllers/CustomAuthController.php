@@ -53,9 +53,7 @@ class CustomAuthController extends Controller
             return back()->with('fail','username not yet Registered');
         }
     }
-    public function employee(){
-        return view("employee");
-    }
+
     public function logout(){
         if(Session::has('loginID')){
             Session::pull('loginID');
