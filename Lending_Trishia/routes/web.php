@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\BorrowerController;
+use App\Http\Controllers\JointableController;
+use App\Http\Controllers\CalculatorController;
+use App\Http\Controllers\LoanController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,17 +32,32 @@ Route::post('/login-user',[CustomAuthController:: class,'loginUser'])->name('log
 Route::get('/home',[CustomAuthController:: class,'home'])->middleware('isLoggedIn');
 Route::get('/logout',[CustomAuthController:: class,'logout']);
 Route::get('/user',[CustomAuthController:: class,'user']);
-Route::get('/loanreport',[CustomAuthController:: class,'loanreport']);
-Route::get('payments',[CustomAuthController:: class,'payments']);
-Route::get('sample',[CustomAuthController:: class,'sample']);
-Route::get('loan',[CustomAuthController:: class,'loan']);
 
-
-
+//BORROWERS
 Route::get('borrowers',[BorrowerController:: class,'borrowers']);
 Route::post('add',[BorrowerController:: class,'add']);
+Route::get('edit/{id}',[BorrowerController:: class,'edit']);
+Route::post('update',[BorrowerController:: class,'update'])->name('update');
 Route::get('delete/{id}',[BorrowerController:: class,'delete']);
 
+//LOAN
+Route::get('loan',[LoanController:: class,'loan']);
+Route::post('addLoan',[LoanController:: class,'addLoan']);
+
+//LOANREPORT
+Route::get('loanreport',[JointableController:: class,'loanreport']);
+
+//PAYMENTS
+Route::get('payments',[CustomAuthController:: class,'payments']);
+
+
+///SAMPLE AREA
+Route::get('search-by-name', [BorrowerController::class, 'searchbyname'])->name('searchbyname');
+Route::get('sample',[CustomAuthController:: class,'sample']);
+Route::get('sample1',[BorrowerController:: class,'sample1']);
+Route::get('sample2',[BorrowerController:: class,'sample2']);
+Route::post('formula',[CalculatorController:: class,'calc']);
+Route::get('sidebar',[BorrowerController:: class,'sidebar']);
 
 
 

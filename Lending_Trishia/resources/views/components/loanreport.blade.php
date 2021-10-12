@@ -25,10 +25,12 @@
                 <thead>
                     <tr>
                         <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">#</th>
-                        <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Borrower</th>
+                        <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Borrower ID</th>
                         <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Loan Type</th>
+                        <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Loan Amount</th>
                         <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">M-I</th>
-                        <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Amount</th>
+                        <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Total Amount</th>
+                        <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Monthly Amount</th>
                         <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Status</th>
                         <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Manage</th>
                     </tr>
@@ -41,27 +43,36 @@
                                 <h1 class="">{{$item->id}}</h1>
                             </td> 
                         <td class="w-full lg:w-auto text-center p-1.5 text-gray-800  border border-b text-sm block lg:table-cell  lg:static">
-                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Borrower</span>
+                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Fullname</span>
                             <h1 class="">{{$item->lname}}, {{$item->fname}} {{$item->mname}}.</h1>
                         </td>
                         <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
-                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">M - I </span>
+                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Loan Type</span>
                             <h1 class="">{{$item->loanType}}</h1>
                         </td>
                         <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
-                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">M - I </span>
-                            <h1 class="">{{$item->loanMonth}}</h1>
-                        </td>
-                        <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
-                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Amount</span>
+                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Loan Amount</span>
                             <h1 class="">{{$item->loanAmount}}</h1>
                         </td>
+                        <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">M-I</span>
+                            {{$item->loanMonth}} - {{$item->loanInterest}}
+                        </td>
+                        <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Total Amount</span>
+                            <h1 class="">{{$item->totalAmount}}</h1>
+                        </td>
+                        <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Montly Amount</span>
+                            <h1 class="">{{$item->monthlyPay}}</h1>
+                        </td>
+                       
                           <td class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
                             <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
                             <h1 class="">{{$item->loanStatus}}</h1>
                           </td>
                         <td class="w-full lg:w-auto p-1.5 text-gray-800  border border-b text-sm text-center lg:table-cell  lg:static">
-                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
+                            <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Manage</span>
                             <a href="#" class="text-blue-400 hover:text-blue-600 underline"><svg xmlns="http://www.w3.org/2000/svg" 
                                 class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                               </svg></a>
