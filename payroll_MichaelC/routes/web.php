@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Employeelist;
-use App\Http\Controllers\JointableController;
+use App\Http\Controllers\Attendance;
+use App\Http\Controllers\Records;
 
 
 /*
@@ -35,10 +36,10 @@ Route::get('edit/{id}',[Employeelist::class,'edit']);
 Route::post('update',[Employeelist::class,'update'])->name('update');
 
 
-Route::get('/attendance',[Employeelist::class,'attendance'])->middleware('isLoggedIn');
-Route::post('/addattendance',[Employeelist::class,'addattendance']);
+Route::get('/attendance',[Attendance::class,'attendance'])->middleware('isLoggedIn');
+Route::post('/addattendance',[Attendance::class,'addattendance']);
 
-Route::get('/records',[JointableController::class,'records'])->middleware('isLoggedIn');
-Route::post('/search-record',[JointableController::class,'searchRecord']) ->name('search-record');
+Route::get('/records',[Records::class,'records'])->middleware('isLoggedIn');
+Route::post('/search-record',[Records::class,'searchRecord']) ->name('search-record');
 
 Route::get('/salary',[Employeelist::class,'salary'])->middleware('isLoggedIn');
