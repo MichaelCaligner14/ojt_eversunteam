@@ -8,10 +8,11 @@ use App\Models\Employee;
 
 class Records extends Controller
 {
+    
     public function records(){
         $data = DB::table('empAdd')
                             ->join('empAttendance', 'empattendance.empAdd_id','=','empadd.id')
-                            ->select('empadd.id','empadd.name','empadd.rate','empattendance.hours')
+                            ->select('empadd.id','empadd.name','empadd.rate')
                             ->get();                 
         return view('records',compact('data'));
                         }

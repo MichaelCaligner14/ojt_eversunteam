@@ -80,16 +80,20 @@
         
         </div>
      
-        <div class="flex justify-between px-4 pt-8 pb-4">
-          <div class="px-8">
-            <h1 class="w-full ">LIST OF SALARIES</h1>
-        </div></div>
-        
-        <div class="flex justify-end px-16 ">
-             <input type="search"
-        class=" pl-10 pr-4 py-1 text-base border-2 border-black-900 focus:outline-none text-black "
-        placeholder="........."><button class="bg-blue-700 text-base px-6 py-1 text-white">Search</button>
-        </div>
+       
+        <div class="flex px-16 py-6 mt-6 gap-6 justify-between">
+                  <div class="flex-1">
+                      <h1 class="w-full ">LIST OF EMPLOYEES</h1>
+                  </div>
+                 
+                  <div>
+                 
+                       <input type="search" name="name" class=" pl-3 pr-4 py-1 text-base border-2 border-black-900 focus:outline-none text-black "
+                  placeholder=".........">
+                  <button class="bg-blue-700 text-base px-6 py-1 text-white " type="submit">Search</button>
+                  </div>
+                 
+</div>
           
         <section class="container mx-auto font-sans">
           <div class="w-full overflow-hidden rounded-lg shadow-lg">

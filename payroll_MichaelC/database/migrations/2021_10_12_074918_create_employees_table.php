@@ -26,8 +26,10 @@ class CreateEmployeesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('empAdd_id');
             $table->foreign('empAdd_id')->references('id')->on('empAdd')->onDelete('cascade');
-            $table->integer('hours');
-            $table->string('date');
+            $table->string('datefrom');
+            $table->string('dateto');
+            $table->string('absent');
+            $table->string('workdays');
             $table->timestamps();
         });
         Schema::create('empRecords', function (Blueprint $table) {
