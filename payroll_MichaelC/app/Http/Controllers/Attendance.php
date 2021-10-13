@@ -16,17 +16,22 @@ class Attendance extends Controller
 
         $request->validate([
             'empAdd_id'=>'required',
-            'hours'=>'required',
-            'date'=>'required'
+            'datefrom'=>'required',
+            'dateto'=>'required',
+            'absent'=>'required',
+            'workdays'=>'required'
          
         ]);
         $query = DB::table('empattendance')->insert([
             'empAdd_id'=>$request->input('empAdd_id'),
-            'hours'=>$request->input('hours'),
-            'date'=>$request->input('date')
-         
+            'datefrom'=>$request->input('datefrom'),
+            'dateto'=>$request->input('dateto'),
+            'absent'=>$request->input('absent'),
+            'workdays'=>$request->input('workdays')
+        
 
         ]);
+        
         if($query){
             return back()->with('success', 'Saved successfully!');
         }else{
