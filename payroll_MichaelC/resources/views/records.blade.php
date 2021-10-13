@@ -12,12 +12,10 @@
             <p class="w-full text-lg font-bold">EMPLOYEE RECORDS</p>
           </div>
           
-                <div class="flex-1 justify-between px-24 pt-16 pb-4 ">
-                <div class="px-16">
-         
-</div>
-                 </div>
-                  
+          
+       <div class="py-16">
+          <form action="addprod" method="post" class="text-gray-600 font-bold">
+                @csrf
                   <div class="flex px-16 gap-6 justify-between">
                   <div class="flex-1">
                       <h1 class="w-full ">LIST OF EMPLOYEES</h1>
@@ -28,7 +26,8 @@
                  
                        <input type="search" name="name" class=" pl-3 pr-4 py-1 text-base border-2 border-black-900 focus:outline-none text-black "
                   placeholder=".........">
-                  <button class="bg-blue-700 text-base px-6 py-1 text-white" type="submit">Search</button>
+                  
+                  <button class="bg-blue-700 text-base px-6 py-1 text-white " type="submit">Search</button>
                   </div>
                   </form>
 </div>
@@ -43,7 +42,8 @@
                             <th class="px-4 py-3">ID</th>
                             <th class="px-4 py-3">NAME</th>
                             <th class="px-4 py-3">RATE</th>
-                            <th class="px-4 py-3">Hours</th>
+                            <th class="px-4 py-3">Workdays</th>
+                            <th class="px-4 py-3">Action</th>
                             
                           </tr>
                         </thead>
@@ -58,7 +58,6 @@
                             <td class="px-4 py-3 border">
                               <h1>{{$item->rate}}</h1>
                             </td>
-                            <td class="px-4 py-3 border">{{$item->hours}}</td>
                         
                             
                           </tr>

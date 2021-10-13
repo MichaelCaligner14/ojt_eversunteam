@@ -17,10 +17,10 @@
         <div class="grid grid-cols-1 mx-auto">
           <div>
          
-            <form class="w-full bg-gray-600 text-white max-w-sm  p-8 mt-6" action="addattendance" method="POST">
+            <form class="w-full bg-gray-600 text-white max-w-lg  p-8 mt-6" action="addattendance" method="POST">
               @csrf
               <p class="text-xl font-bold text-white mb-4 text-center">ATTENDANCE</p>
-    
+
               <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full px-3">
                   <label class="block uppercase tracking-wide text-xs font-bold mb-2">
@@ -31,25 +31,46 @@
                   <span class="text-red-300 text-sm">@error('empAdd_id'){{$message}}@enderror</span>
                 </div>
               </div>
-              
-              <div class="flex flex-wrap -mx-3 mb-4">
-                <div class="w-full px-3">
-                  <label class="block uppercase tracking-wide text-xs font-bold mb-2">
-                    Hours Rendered
-                  </label>
-                  <input class="appearance-none block w-full bg-white text-black border 
-                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="hours"  type="text" value="{{old('hours')}}">
-                </div>
-              </div>
-    
               <div class="flex flex-wrap -mx-3 mb-2">
-                <div class="w-full px-3">
-                  <label class="block uppercase tracking-wide text-xs font-bold mb-2" >
-                    Date
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
+                   date from
                   </label>
-                  <input class="appearance-none block w-full bg-white text-black border 
-                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="date" type="date" value="{{old('date')}}">
+                  <input class=" text-base appearance-none block w-full bg-white text-black border border-gray-200
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="datefm"
+                    name="datefrom" type="date">
+                  
                 </div>
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
+                    date to
+                  </label>
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
+                   rounded py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="datetoo"
+                    name="dateto" type="date">
+                </div>
+
+                <div class="w-full md:w-1/2 px-3 mt-4 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
+                   Absences
+                  </label>
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    name="absent" type="text">
+                  
+                </div>
+                <div class="w-full md:w-1/2 px-3 mt-4 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
+                   Workdays
+                  </label>
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="total"
+                    name="workdays">
+                  
+                </div>
+                
+</div>
+              <div class="flex flex-wrap -mx-3 mb-2">
                 <div class="w-full px-3 mb-6 md:mb-0">
                   
            
@@ -105,4 +126,6 @@
         </div>  </div>
 </div>
         <script src="sidebar.js"></script>
+        <script src="jquery-3.5.0.min.js"></script>
+        <script src="workdays.js"></script>
 @endsection
