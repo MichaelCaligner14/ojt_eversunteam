@@ -41,6 +41,7 @@ class CustomAuthController extends Controller
             'username'=>'required',
             'password'=>'required|min:5|max:20'
         ]);
+  
         $user = User::where('username','=', $request->username)->first();
         if($user){
             if(Hash::check($request->password, $user->password)){

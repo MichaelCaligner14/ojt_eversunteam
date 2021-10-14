@@ -10,10 +10,16 @@ class Records extends Controller
 {
     
     public function records(){
+    
+
         $data = DB::table('empAdd')
                             ->join('empAttendance', 'empattendance.empAdd_id','=','empadd.id')
-                            ->select('empadd.id','empadd.name','empadd.rate')
-                            ->get();                 
+                            ->select('empattendance.id','empadd.name','empattendance.rate','empattendance.workdays','empattendance.initialamount')
+                            ->get();
+
+
+
+                                             
         return view('records',compact('data'));
                         }
                       
@@ -29,5 +35,12 @@ class Records extends Controller
 
         }
         return view('records', compact('data'));
+        }
+        
+        public function deleterecord($id){
+            $delete = DB::table('empAttendance')
+                    ->where('id', $id)
+                    ->delete();
+                    return redirect('records');
         }
 }
