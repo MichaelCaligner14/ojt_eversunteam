@@ -18,16 +18,20 @@ class Attendance extends Controller
             'empAdd_id'=>'required',
             'datefrom'=>'required',
             'dateto'=>'required',
+            'rate'=>'required',
             'absent'=>'required',
-            'workdays'=>'required'
+            'workdays'=>'required',
+            'initialamount'=>'required',
          
         ]);
         $query = DB::table('empattendance')->insert([
             'empAdd_id'=>$request->input('empAdd_id'),
             'datefrom'=>$request->input('datefrom'),
             'dateto'=>$request->input('dateto'),
+            'rate'=>$request->input('rate'),
             'absent'=>$request->input('absent'),
-            'workdays'=>$request->input('workdays')
+            'workdays'=>$request->input('workdays'),
+            'initialamount'=>$request->input('initialamount'),
         
 
         ]);

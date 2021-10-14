@@ -22,14 +22,14 @@ class Employeelist extends Controller
             'address'=>'required',
             'age'=>'required',
             'sex'=>'required',
-            'rate'=>'required'
+
         ]);
         $query = DB::table('empadd')->insert([
             'name'=>$request->input('name'),
             'address'=>$request->input('address'),
             'age'=>$request->input('age'),
-            'sex'=>$request->input('sex'),
-            'rate'=>$request->input('rate')
+            'sex'=>$request->input('sex')
+   
 
         ]);
         if($query){
@@ -64,7 +64,6 @@ class Employeelist extends Controller
                             'address'=>$request->input('address'),
                             'age'=>$request->input('age'),
                             'sex'=>$request->input('sex'),
-                            'rate'=>$request->input('rate')
                         ]);
                         return redirect('employee');
     }

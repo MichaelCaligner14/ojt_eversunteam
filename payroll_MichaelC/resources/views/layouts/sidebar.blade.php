@@ -6,9 +6,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="jquery.datetimepicker.min.css" />
-<script src="jquery.js"></script>
-<script src="jquery.datetimepicker.full.js"></script>
+  
+
+
     <title>Document</title>
 </head>
 <body>
@@ -63,12 +63,13 @@
                   </svg><span class="px-5">LOGOUT</span></a>
             
           </nav>
-      
+        
           <p class="w-full h-5 text-sm text-white px-4">Contact Us</p>
           <hr style="border:solid;height: 5px;background-color: white;" class="m-4">
           <p class="w-full h-5 text-sm text-white px-4">Eversun Software</p>
           <p class="patrick.v@agentsofvalue.com w-48 h-5 text-sm text-white px-4">patrick.v@agentsofvalue.com</p>
           <p class="agentsofvalue.com w-32 h-6 text-sm text-white px-4">agentsofvalue.com</p>
+
             </div>
             @yield('sidebarnav') 
           
