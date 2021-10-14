@@ -27,7 +27,7 @@
         <div class="grid grid-cols-1 mx-auto">
           <div>
 
-            <form class="w-full bg-gray-600 text-white max-w-sm  p-8 " action="add" method="POST">
+            <form class=" bg-gray-600  w-96 text-white max-w-sm  p-8 " action="add" method="POST">
   
               @csrf
               <p class="text-xl font-bold text-white mb-4 text-center">NEW EMPLOYEE</p>
@@ -55,7 +55,7 @@
               </div>
     
               <div class="flex flex-wrap -mx-3 mb-2">
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
                    Age
                   </label>
@@ -64,7 +64,7 @@
                     name="age" type="number" min="1" max="100" value="{{old('age')}}">
                   
                 </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
                     Sex
                   </label>
@@ -74,12 +74,8 @@
                       <option>Female</option>
                     </select>
                 </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
-                   Rate
-                  </label>
-                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="rate" type="number" min="100" value="{{old('rate')}}">
-                </div>
+               
+          
              
               </div>
               <button class="bg-blue-500 hover:bg-blue-700 w-full text-white text-base font-bold mt-6 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
@@ -94,7 +90,7 @@
           
         <section class="container mx-auto p-6 font-sans">
           <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-            <div class="w-full overflow-y-auto">
+            <div class="w-full overflow-y-auto h-96">
               <table class="w-full text-base">
                 <thead>
                   <tr class=" font-semibold tracking-wide text-left text-white bg-gray-700 uppercase border-b border-gray-600">
@@ -103,7 +99,6 @@
                     <th class="px-4 py-3">ADDRESS</th>
                     <th class="px-4 py-3">AGE</th>
                     <th class="px-4 py-3">SEX</th>
-                    <th class="px-4 py-3">RATE</th>
                     <th class="px-4 py-3">ACTION</th>
                    
                   </tr>
@@ -121,7 +116,6 @@
                       <h1>{{$item->age}}</h1>
                     </td>
                     <td class="px-4 py-3 border">{{$item->sex}}</td>
-                    <td class="px-4 py-3 border">{{$item->rate}}</td>
                 
                     <td class="px-4 py-3 border">
                       <a href="edit/{{$item->id}}"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 float-left" viewBox="0 0 20 20" fill="currentColor">

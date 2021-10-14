@@ -14,8 +14,7 @@
           
           
        <div class="py-16">
-          <form action="addprod" method="post" class="text-gray-600 font-bold">
-                @csrf
+         
                   <div class="flex px-16 gap-6 justify-between">
                   <div class="flex-1">
                       <h1 class="w-full ">LIST OF EMPLOYEES</h1>
@@ -35,7 +34,7 @@
 
                 <section class="container mx-auto pb-24 pt-6  font-sans">
                   <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-                    <div class="w-full overflow-x-auto">
+                    <div class="w-full overflow-y-auto h-screen">
                       <table class="w-full text-base">
                         <thead>
                           <tr class=" font-semibold tracking-wide text-left text-white bg-gray-700 uppercase border-b border-gray-600">
@@ -43,6 +42,7 @@
                             <th class="px-4 py-3">NAME</th>
                             <th class="px-4 py-3">RATE</th>
                             <th class="px-4 py-3">Workdays</th>
+                            <th class="px-4 py-3">Initial Amount</th>
                             <th class="px-4 py-3">Action</th>
                             
                           </tr>
@@ -58,7 +58,18 @@
                             <td class="px-4 py-3 border">
                               <h1>{{$item->rate}}</h1>
                             </td>
-                        
+                            <td class="px-4 py-3 border">
+                              <h1>{{$item->workdays}}</h1>
+                            </td>
+                          
+                            <td class="px-4 py-3 border"> 
+                            <h1>{{$item->initialamount}}</h1></a>
+                  </td>
+                    <td class="px-4 py-3 border"> 
+                      <a href="deleterecord/{{ $item->id }}" id="buttonmodal"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg></a>
+                  </td>
                             
                           </tr>
                           @endforeach

@@ -31,41 +31,57 @@
                   <span class="text-red-300 text-sm">@error('empAdd_id'){{$message}}@enderror</span>
                 </div>
               </div>
+              
+              
               <div class="flex flex-wrap -mx-3 mb-2">
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
                    date from
                   </label>
                   <input class=" text-base appearance-none block w-full bg-white text-black border border-gray-200
-                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="datefm"
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="datefrom"
                     name="datefrom" type="date">
-                  
                 </div>
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
                     date to
                   </label>
                   <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
-                   rounded py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="datetoo"
+                   rounded py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="dateto"
                     name="dateto" type="date">
                 </div>
-
-                <div class="w-full md:w-1/2 px-3 mt-4 mb-6 md:mb-0">
+                <div class="w-full md:w-1/4 px-3 mt-4 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
+                   Rate
+                  </label>
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="rate"
+                    name="rate" type="number"  min="100" value="{{old('rate')}}">
+                </div>
+                <div class="w-full md:w-1/4 px-3 mt-4 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
                    Absences
                   </label>
                   <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
-                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    name="absent" type="text">
-                  
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="absent"
+                    name="absent" type="number">
                 </div>
-                <div class="w-full md:w-1/2 px-3 mt-4 mb-6 md:mb-0">
+                <div class="w-full md:w-1/4 px-3 mt-4 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
                    Workdays
                   </label>
                   <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
-                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="total"
-                    name="workdays">
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="workdays"
+                    name="workdays" type="number">
+                  
+                </div>
+                <div class="w-full md:w-1/4 px-3 mt-4 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
+                   InitialAmount
+                  </label>
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="initialamount"
+                    name="initialamount" type="number">
                   
                 </div>
                 
@@ -126,6 +142,8 @@
         </div>  </div>
 </div>
         <script src="sidebar.js"></script>
-        <script src="jquery-3.5.0.min.js"></script>
-        <script src="workdays.js"></script>
+        <script src="js/jquery-3.5.0.min.js"></script>
+        <script src="js/workdays.js"></script>
+        <script src="js/initialamount.js"></script>
 @endsection
+
