@@ -41,5 +41,6 @@ Route::post('/addattendance',[Attendance::class,'addattendance']);
 
 Route::get('/records',[Records::class,'records'])->middleware('isLoggedIn');
 Route::post('/search-record',[Records::class,'searchRecord']) ->name('search-record');
+Route::get('deleterecord/{id}',[Records::class,'deleterecord']);
 
 Route::get('/salary',[Employeelist::class,'salary'])->middleware('isLoggedIn');
