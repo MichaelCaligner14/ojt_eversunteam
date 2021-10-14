@@ -19,7 +19,6 @@ class CreateEmployeesTable extends Migration
             $table->string('address');
             $table->integer('age');
             $table->string('sex');
-            $table->integer('rate');
             $table->timestamps();
         });
         Schema::create('empAttendance', function (Blueprint $table) {
@@ -28,8 +27,10 @@ class CreateEmployeesTable extends Migration
             $table->foreign('empAdd_id')->references('id')->on('empAdd')->onDelete('cascade');
             $table->string('datefrom');
             $table->string('dateto');
-            $table->string('absent');
-            $table->string('workdays');
+            $table->integer('rate');
+            $table->integer('absent');
+            $table->integer('workdays');
+            $table->integer('initialamount');
             $table->timestamps();
         });
         Schema::create('empRecords', function (Blueprint $table) {
