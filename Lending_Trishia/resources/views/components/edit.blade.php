@@ -18,36 +18,51 @@
 
     <div class="relative min-h-screen md:flex">
 
-
-       
-
-        
-        
         <div class="flex-1  w-full items-center justify-center">
-        <div class="bg-gray-300 flex justify-between  items-center lg:p-4 xs:p-4 sm:p-3 md:p-3">
+        <div class="bg-secondarycolor flex justify-between  items-center lg:p-4 xs:p-4 sm:p-3 md:p-3">
         <div class="flex items-center ">
             <h2 class="font-bold text-black lg:ml-12 xs:ml-2 mr-2">DVOFINDS</h2>
         </div>
         <div class="md:flex justify-end items items-center lg:inline-flex lg:flex-row lg:w-auto" id="navigation">
             <a class="font-bold text-right">LENDING SYSTEM</a>
         </div>
-
-       
         </div>
 
-            <div class="bg-primarycolor py-10 px-10 min-h-screen ">
-            <div class="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto rounded-md">
-            <h1 class="font-fourth font-bold text-3xl tracking-widest mb-10">UPDATE</h1>
-            <form action="{{route('update')}}" method="post">
-            @csrf
+        <div class="p-8 ">
+            </div>
+                
+           
+                    
+           <div>
+            </div>
+            <div class="bg-thirdcolor lg:w-3/4 mx-auto shadow-xl rounded-md pb-6">
+            <div class="flex justify-end bg-gray-100">
+                <a href="home" class="inline justify-end text-md hover:text-red-700 text-gray-600 text-bold">Dashboard /</a>
+                <a href="" class="inline justify-end text-md pl-2 hover:text-red-700  text-bold text-gray-600">Update Loan Information
+                </a>
+            </div>
+                <div class="rounded-t bg-white mb-0 px-6 py-4 ">
+                    <div class="text-center flex justify-between">
+                        <h6 class="text-blueGray-700 text-md font-bold">
+                            UPDATE BORROWER INFORMATION
+                        </h6>
+                    </div>
+                </div>
+                
+            <div class="lg:px-16 xs:px-6 sm:px-6 md:px-10">
+                <div class="py-6">
+                    
+                <form action="{{ route('update') }}" method="post">
+                    @csrf
 
-            <div class="flex">
+                    <div class="flex">
                         <input type="hidden" name="cid" value="{{$info->id}}">
                         <div class="w-1/2 px-1">
                             <label class="text-gray-600 font-light">Firstname</label>
                             <input type="text" placeholder="" name="fname" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md
                             text-gray-600 focus:outline-none focus:border-green-500" value="{{$info->fname}}"/>
                         </div>
+                    
                         <div class="w-1/2 px-1">
                             <label class="text-gray-600 font-light">Lastname</label>
                             <input type="text" placeholder="" name="lname" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 md:py-1 sm:py-1 border rounded-md
@@ -78,24 +93,24 @@
                             text-gray-600 focus:outline-none focus:border-green-500" value="{{$info->contactNo}}"/>
                         </div>
                     </div>
-
-                    <div class="flex justify-end my-4 pt-2">
-                        <button type="submit" class="px-4 bg-transparent p-3 rounded-lg bg-blue-800 hover:bg-indigo-400 text-white mr-2">UPDATE</button>
-                        <button href="borrowers" class="px-4 bg-gray-800 p-3 rounded-lg text-white hover:bg-indigo-400">CANCEL</button>
+                    </div> 
                     </div>
-                </div>
-
-    </form>
-  </div>
-</div>
-        </div>
-    </div>
+                    </div>
+                    <div class="w-3/4 mb-14 mx-auto py-6 flex justify-between">
+                        <div>
+                        <h1 class="font-third">2021 DVOFINDS</h1>
+                        </div>
+                        <div class="justify-end">
+                        <button type="submit" class="py-1 px-14 bg-blue-800 rounded-md text-center mr-4 text-white font-bold uppercase text-lg">SAVE</button>
+                        <button href="borrowers" class="py-1 px-12 bg-gray-800 rounded-md text-center mr-4 text-white font-bold uppercase text-lg">CANCEL</button>
+                        </div>
+                    </div>
+                    </form>
+                </div> 
+            </div>
+     </div>
 </div>
         
-
-
-
-
 
 </body>
 </html>
