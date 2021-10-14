@@ -7,7 +7,7 @@
 
 
             <div class="bg-white lg:w-3/4 mx-auto lg:px-16 xs:px-6 sm:px-6 md:px-10 pt-16 justify-start">
-                <div class="font-bold justify-start lg:px-16 xs:px-6 sm:px-6 md:px-10">
+                <div class="font-bold justify-center xs:px-6 sm:px-6 md:px-10">
 
                 
                 @include('layouts.flash')
@@ -66,6 +66,7 @@
             <br>
 
             <!--TABLE-->
+            
             <table class=" shadow-md border-collapse w-full">
               <thead>
                   <tr>
@@ -79,7 +80,7 @@
               </thead>
               <tbody>
               @foreach ($list as $item)
-                  <tr class="bg-hint-of-green-500 lg: flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+                  <tr class=" bg-hint-of-green-500 lg: flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
                     <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
                         {{$item->id}}

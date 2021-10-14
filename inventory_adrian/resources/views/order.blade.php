@@ -5,16 +5,23 @@
         <!--HEADER CONTENT-->
         <div class="flex-1 p-5 font-bold justify-center items-center">
 
-
+        @include('layouts.flash')
 
             <div class="bg-white pt-16 justify-start pr-24">
             
            
-            @include('layouts.flash')
+            
                 
                 <form action="add" method="post" class="flex justify-center">
                 @csrf
     
+                <div class="w-60 px-1">
+                         <label class="text-gray-600">ORDER ID</label>
+                          <input type="text" placeholder="" name="inventory_id" value="{{old('inventory_id')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                          text-gray-700 "/>
+                          <span class="text-red-800">@error('inventory_id') {{$message}} @enderror </span>
+                    </div>
+
                     <div class="w-60 px-1">
                          <label class="text-gray-600">NAME</label>
                           <input type="text" placeholder="Name" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
@@ -22,12 +29,19 @@
                           <span class="text-red-800">@error('name') {{$message}} @enderror </span>
                     </div>
 
-                          <div class="w-60 px-1">
-                     <label class="text-gray-600 ">ITEM</label>
-                              <input type="text" placeholder="Item" name="order" value="{{old('order')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
-                              text-gray-700 "/>
-                              <span class="text-red-800">@error('order') {{$message}} @enderror </span>
-                          </div>  
+                    <div class="w-60 px-1 mt-3">
+                  <label class="block uppercase tracking-wide text-black text-xs font-bold mb-2">
+                   ITEMS
+                  </label>
+                    <select class=" block appearance-none w-full bg-white border border-black-900 text-black 
+                    py-2 text-base px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="order">
+                    <option>Coke</option>
+                      <option>Sprite</option>
+                      <option>Noodle</option>
+                      <option>Sardines</option>
+                      <option>Spam</option>
+                    </select>
+                </div>
                           <div class="w-60 px-1">
                             <label class="text-gray-600">PRICE</label>
                             <input type="text" placeholder="Price" id="price" name="price" value="{{old('price')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
@@ -53,11 +67,13 @@
                             <span class="text-red-800">@error('total') {{$message}} @enderror </span>
                         </div>
 
-                        <div class="w-60 px-1">
-                            <label class="text-gray-600">DATE</label>
-                            <input type="text" placeholder="Date" name="date" value="{{old('date')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
-                            text-gray-700 "/>
-                            <span class="text-red-800">@error('date') {{$message}} @enderror </span>
+                        <div class="w-60 px-1 pt-2">
+                        <label class="text-gray-600">
+                            DATE
+                          </label>
+                          <input class="appearance-none block w-full text-base bg-white text-black border border-black-900
+                          rounded py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            name="date" type="date">
                         </div>
 
                         <div class="">
@@ -78,6 +94,7 @@
               <thead>
                   <tr>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">#</th>
+                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">inventory_id </th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Name</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Items</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Price</th>
@@ -90,9 +107,14 @@
               <tbody>
                 @foreach ($list as $item)
                   <tr class="bg-hint-of-green-500 lg: flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                  <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
                         {{$item->id}}
+                    </td>
+
+                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
+                        {{$item->inventory_id}}
                     </td>
 
                     <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
@@ -142,19 +164,7 @@
           </table>
         </div>
 <script src="js/jquery-3.5.0.min.js"></script>
-    <script>
-		$(document).ready(function(){
-    	$("#price, #qty").keyup(function(){
-
-    	var total=0;    	
-    	var x = Number($("#price").val());
-    	var y = Number($("#qty").val());
-    	var total=x * y;
-
-    	$('#total').val(total);
-
-    });
-});
-</script>
+    <script src="calcu.js">
+    </script>
 @endsection
 

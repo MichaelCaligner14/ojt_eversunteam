@@ -64,4 +64,15 @@ class CategoryController extends Controller
         $delete = DB::table('categories')->where('id', $id)->delete();
         return redirect('category');
     }
+
+    public function searchRecord (Request $request)
+    {
+        if($request ->isMethod('post'))
+        {
+            $name=$request->get('name');
+            $list= DB::table('categories')->where('name', 'LIKE', '%' . $name . '%')->paginate(5);
+
+        }
+        return view('category', compact('list'));
+    }
 }

@@ -7,8 +7,19 @@ use Illuminate\Support\Facades\DB;
 
 class InventoryController extends Controller
 {
+    
     public function inventory(){
+
+        /**$sales = DB::table('inventories')
+        ->join('orders', 'orders.inventory_id', '=', 'inventories.id')
+        ->select(DB::raw('sum(inventories.quantity-orders.qty) AS result'))
+        ->where('inventories.id', 2)
+        ->where('orders.inventory_id', 2)
+        ->first();
+        dd($sales);*/
+
         $data = array(
+
             'list'=>DB::table('inventories')->get()
         );
         return view('inventory',$data);
@@ -66,4 +77,5 @@ class InventoryController extends Controller
         $delete = DB::table('inventories')->where('id', $id)->delete();
         return redirect('inventory');
     }
+
 }

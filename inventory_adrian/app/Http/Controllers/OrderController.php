@@ -4,22 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Order;
+use App\Models\OrderInventory;
+
 
 class OrderController extends Controller
 {
     public function order()
     {
+        
         $data = array(
             'list'=>DB::table('orders')->get()
         );
         return view('order',$data);
     }
 
+
     public function add(Request $request)
     {
 
         $request->validate([
+            'inventory_id'=>'required',
             'name'=>'required',
             'order'=>'required',
             'price'=>'required',
@@ -29,6 +33,7 @@ class OrderController extends Controller
         ]);
 
         $query = DB::table('orders')->insert([
+            'inventory_id'=>$request->input('inventory_id'),
             'name'=>$request->input('name'),
             'order'=>$request->input('order'),
             'price'=>$request->input('price'),
@@ -40,6 +45,17 @@ class OrderController extends Controller
             return back()->with('success', 'Data have been save.');
         }else{
             return back()->with('fail', 'Something went wrong');
+        }
+        
+
+    }
+
+    public function decreaseQuantities()
+    {
+        foreach(order::content() as $item){
+            $product_name = inventories::find($item->inventory->id);
+
+            $product_name->update(['quantity'=> $product_name->quantity - $item->quantity]);
         }
 
     }

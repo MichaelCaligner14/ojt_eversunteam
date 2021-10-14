@@ -7,7 +7,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InventoryController;
-
+use App\Http\Controllers\Admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,14 +63,15 @@ Route::post('produpdate', [ProductController::class,'produpdate'])->name('produp
 Route::get('proddelete/{id}', [ProductController::class,'proddelete']);
 
 /*Category*/
-Route::get('category',[CategoryController::class,'category']);
+Route::get('category',[CategoryController::class,'category'])->middleware('isLoggedIn');
 Route::post('addctg',[CategoryController::class, 'addctg']);
 Route::get('editctg/{id}', [CategoryController::class,'editctg']);
 Route::post('ctgupdate', [CategoryController::class,'ctgupdate'])->name('ctgupdate');
 Route::get('ctgdelete/{id}', [CategoryController::class,'ctgdelete']);
+Route::post('search-record',[CategoryController::class,'searchRecord']) ->name('search-record');
 
 /*Inventory*/
-Route::get('inventory', [InventoryController::class,'inventory']);
+Route::get('inventory', [InventoryController::class,'inventory'])->middleware('isLoggedIn');
 Route::post('addinventory',[InventoryController::class, 'addinventory']);
 Route::get('editinventory/{id}', [InventoryController::class,'editinventory']);
 Route::post('inventoryupdate', [InventoryController::class,'inventoryupdate'])->name('inventoryupdate');

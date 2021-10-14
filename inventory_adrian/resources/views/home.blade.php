@@ -1,7 +1,7 @@
 @extends('layouts.homenavbar')
 
 @section('content')
-            <div class="flex justify-center font-bold pt-16 pb-16">
+            <div class="flex justify-center items-center font-bold pt-16 pb-16">
             <!--DASHBOARD-->
 
             <div class="flex flex-wrap justify-center gap-x-32">

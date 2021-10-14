@@ -74,9 +74,8 @@
             </a></h1>
                 <div class="bg-black-900 pt-1" style="width: full; height: 5px;"></div>
             </div>
-        <div class="container">
             @yield('content')
-        </div>
+
 
         <div class="flex-1 w-ful pt-16">
         <footer class="bg-casal-500 p-4 font-bold text-white text-right">INVENTORY SYSTEM<br>09458835712<br>EVERSUN </footer>

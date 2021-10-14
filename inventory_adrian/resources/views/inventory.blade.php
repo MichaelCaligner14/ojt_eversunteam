@@ -6,7 +6,7 @@
 
             @include('layouts.flash')
                 
-                <form action="addinventory" method="post" class="text-gray-600 font-bold">
+                <form action="addinventory" method="post" class="text-gray-600 font-bold justify-between">
                 @csrf
 
               <div class="flex">
@@ -31,6 +31,8 @@
                   <div class="px-2 mt-0">
                     <button class="lg:w-24 xs:w-24 sm:w-24 md:w-24 mt-8 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
                 </div>
+
+                
                 </form>
               </div>
               <br>
@@ -50,6 +52,7 @@
               <tbody>
               @foreach ($list as $item)
                   <tr class="bg-hint-of-green-500 lg: flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+                      
                     <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
                         {{$item->id}}

@@ -4,9 +4,11 @@
      
         <script src="script.js"></script>
 
-        <div class="bg-white lg:w-3/4 mx-auto lg:px-16 xs:px-6 sm:px-6 md:px-10 pt-16 justify-center">
+        <div class="bg-white lg:w-3/4 mx-auto lg:px-16 xs:px-6 sm:px-6 md:px-10 pt-16 justify-between">
 
             @include('layouts.flash')
+
+              
                 
                 <form action="addctg" method="post" class="text-gray-600 font-bold">
                 @csrf
@@ -18,11 +20,11 @@
                   </label>
                     <select class="block appearance-none w-full bg-white border border-black-900 text-black 
                     py-2 text-base px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="name">
-                    <option>Gucci</option>
-                      <option>Chanel</option>
-                      <option>Hermès</option>
-                      <option>Dior</option>
-                      <option>Louis Vuitton</option>
+                    <option>Coca Cola</option>
+                      <option>Sprite</option>
+                      <option>Noodle</option>
+                      <option>Sardines</option>
+                      <option>Spam</option>
                     </select>
                 </div>
                   
@@ -32,17 +34,23 @@
                   </label>
                     <select class="block appearance-none w-full bg-white border border-black-900 text-black 
                     py-2 text-base px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="category">
-                    <option>Fashion</option>
-                      <option>Fashion</option>
-                      <option>Fashion</option>
-                      <option>Fashion</option>
-                      <option>Fashion</option>
+                    <option>Food</option>
+                      <option>Drinks</option>
                     </select>
                 </div>
                 <div class='md:w-60 px-3 mb-6 md:mb-0 mt-5'>
                 <button class="px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
                 </div>
                 </form>
+
+                <form action="search-record" class="mt-2" method="post">
+                @csrf
+                    <div>
+                      <input type="text" name="name" placeholder="Search ... " class="w-60 rounded border border-black-900 text-white mt-2 mb-2 px-4 py-2" > 
+                <button type="submit" class="px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">Search</button>
+                </div>
+              </form>
+
               </div>
               <br>
               <br>

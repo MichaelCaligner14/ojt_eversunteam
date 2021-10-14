@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Hash;
 use Session;
 
@@ -44,7 +45,7 @@ class AuthController extends Controller
 
     public function loginuser(Request $request)
     {
-        $credentials =$request->validate([
+        $credentials = $request->validate([
             'email'=>'required|email',
             'password'=>'required|min:5|max:16'
 
