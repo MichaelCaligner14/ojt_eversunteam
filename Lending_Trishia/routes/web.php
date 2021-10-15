@@ -6,6 +6,9 @@ use App\Http\Controllers\BorrowerController;
 use App\Http\Controllers\JointableController;
 use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\LoanController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\LoanRequestController;
+
 
 
 /*
@@ -34,31 +37,27 @@ Route::get('/logout',[CustomAuthController:: class,'logout']);
 Route::get('/user',[CustomAuthController:: class,'user']);
 
 //BORROWERS
+Route::get('details',[BorrowerController:: class,'details']);
 Route::get('borrowers',[BorrowerController:: class,'borrowers']);
 Route::post('add',[BorrowerController:: class,'add']);
 Route::get('edit/{id}',[BorrowerController:: class,'edit']);
 Route::post('update',[BorrowerController:: class,'update'])->name('update');
 Route::get('delete/{id}',[BorrowerController:: class,'delete']);
+Route::post('search-borrower',[BorrowerController::class,'searchBorrower']) ->name('search-borrower');
 
-//LOAN
-Route::get('loan',[LoanController:: class,'loan']);
-Route::post('addLoan',[LoanController:: class,'addLoan']);
+//LOAN REQUEST
+Route::get('loan',[LoanRequestController:: class,'loan']);
+Route::post('addLoan',[LoanRequestController:: class,'addLoan']);
 
-//LOANREPORT
+
+//LOAN REPORT
 Route::get('loanreport',[JointableController:: class,'loanreport']);
+Route::get('editLoan/{id}',[LoanController:: class,'editLoan']);
+Route::post('updateLoan',[LoanController:: class,'updateLoan'])->name('updateLoan');
+Route::get('deleteLoan/{id}',[LoanController:: class,'deleteLoan']);
+
 
 //PAYMENTS
-Route::get('payments',[CustomAuthController:: class,'payments']);
-
-
-///SAMPLE AREA
-Route::get('search-by-name', [BorrowerController::class, 'searchbyname'])->name('searchbyname');
-Route::get('sample',[CustomAuthController:: class,'sample']);
-Route::get('sample1',[BorrowerController:: class,'sample1']);
-Route::get('sample2',[BorrowerController:: class,'sample2']);
-Route::post('formula',[CalculatorController:: class,'calc']);
-Route::get('sidebar',[BorrowerController:: class,'sidebar']);
-
-
-
-
+Route::get('payments',[PaymentController:: class,'payments']);
+Route::post('addPayment',[PaymentController:: class,'addPayment']);
+Route::get('delete/{id}',[PaymentController:: class,'delete']);
