@@ -63,4 +63,5 @@ Route::post('/appoint-page',[appointmentController::class,'appointPage']) ->name
 
 //payment
 Route::get('/payment',[paymentController::class,'payment']);
+Route::post('/payment-page',[paymentController::class,'paymentPage']) ->name('payment-page');
 Route::post('/search-records',[paymentController::class,'searchRecords']) ->name('search-records');
