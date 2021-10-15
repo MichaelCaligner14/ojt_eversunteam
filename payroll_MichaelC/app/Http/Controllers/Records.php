@@ -8,7 +8,7 @@ use App\Models\Employee;
 
 class Records extends Controller
 {
-    
+        
     public function records(){
     
 
