@@ -18,10 +18,8 @@ class OrderController extends Controller
         return view('order',$data);
     }
 
-
     public function add(Request $request)
     {
-
         $request->validate([
             'inventory_id'=>'required',
             'name'=>'required',
