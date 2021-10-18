@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Employeelist;
 use App\Http\Controllers\Attendance;
 use App\Http\Controllers\Records;
+use App\Http\Controllers\Salary;
 
 
 /*
@@ -43,4 +44,5 @@ Route::get('/records',[Records::class,'records'])->middleware('isLoggedIn');
 Route::post('/search-record',[Records::class,'searchRecord']) ->name('search-record');
 Route::get('deleterecord/{id}',[Records::class,'deleterecord']);
 
-Route::get('/salary',[Employeelist::class,'salary'])->middleware('isLoggedIn');
+Route::get('/salary',[Salary::class,'salary'])->middleware('isLoggedIn');
+Route::post('/adds',[Salary::class,'salaryAmount']);

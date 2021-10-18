@@ -32,8 +32,6 @@ class Attendance extends Controller
             'absent'=>$request->input('absent'),
             'workdays'=>$request->input('workdays'),
             'initialamount'=>$request->input('initialamount'),
-        
-
         ]);
         
         if($query){

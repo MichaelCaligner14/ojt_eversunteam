@@ -73,7 +73,7 @@
               </div>
     
               <div class="flex flex-wrap -mx-3 mb-2">
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide  text-sm font-bold mb-2">
                    Age
                   </label>
@@ -82,7 +82,7 @@
                    type="number" min="1" max="100" name="age" value="{{$data->age}}">
                   
                 </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide  text-sm font-bold mb-2">
                     Sex
                   </label>
@@ -90,13 +90,7 @@
                   leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="sex" type="text" min="100" value="{{$data->sex}}">
                
                 </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide  text-sm font-bold mb-2">
-                   Rate
-                  </label>
-                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-300 rounded py-2 
-                  px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="rate" type="number" min="100" value="{{$data->rate}}">
-                </div>
+             
                 
                 <div class="flex mx-auto justify-between w-full md:w-1/3 gap-6 px-3 mb-6 md:mb-0 mt-24">
                 <button href="update" class="bg-blue-500 hover:bg-gray-600 block  text-white text-base font-bold py-4 w-full rounded focus:outline-none focus:shadow-outline">

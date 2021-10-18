@@ -14,7 +14,7 @@ class Records extends Controller
 
         $data = DB::table('empAdd')
                             ->join('empAttendance', 'empattendance.empAdd_id','=','empadd.id')
-                            ->select('empattendance.id','empadd.name','empattendance.rate','empattendance.workdays','empattendance.initialamount')
+                            ->select('empattendance.id','empadd.name','empattendance.rate','empattendance.workdays','empattendance.empAdd_id','empattendance.initialamount')
                             ->get();
 
 

@@ -68,7 +68,4 @@ class Employeelist extends Controller
                         return redirect('employee');
     }
 
-    public function salary(){
-        return view("salary");
-    }
 }

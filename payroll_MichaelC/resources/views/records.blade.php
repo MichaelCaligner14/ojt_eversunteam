@@ -39,6 +39,7 @@
                         <thead>
                           <tr class=" font-semibold tracking-wide text-left text-white bg-gray-700 uppercase border-b border-gray-600">
                             <th class="px-4 py-3">ID</th>
+                            <th class="px-4 py-3">ATTENDANCE ID</th>
                             <th class="px-4 py-3">NAME</th>
                             <th class="px-4 py-3">RATE</th>
                             <th class="px-4 py-3">Workdays</th>
@@ -54,6 +55,7 @@
                             <td class="px-4 py-3 font-semibold border">
                               <h1 class="">{{$item->id}}</h1>
                             </td>
+                            <td class="px-4 py-3 font-semibold border">{{$item->empAdd_id}}</td>
                             <td class="px-4 py-3 font-semibold border">{{$item->name}}</td>
                             <td class="px-4 py-3 border">
                               <h1>{{$item->rate}}</h1>
