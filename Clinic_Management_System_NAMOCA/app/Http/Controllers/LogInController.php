@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Patient;
 use Hash;
 use Session;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
 class LogInController extends Controller
@@ -48,26 +49,26 @@ class LogInController extends Controller
 
     public function loginUser (Request $request)
     {
-        $credentials = $request -> validate ([
+        // $credentials = $request -> validate ([
             
-            'username' => 'required',
-            'password' => 'required|min:5|max:12'
-            ]);
+        //     'username' => 'required',
+        //     'password' => 'required|min:5|max:12'
+        //     ]);
            
-                // if (Auth::attempt($credentials)) {
-                //     $request->session()->regenerate();
+        //          if (Auth::attempt($credentials)) {
+        //             $request->session()->regenerate();
     
-                //     return redirect()->intended('index');
-                // }
-                // return back()->withErrors([
-                //     'username' => 'The provided credentials do not match our records.',
-                // ]);
+        //              return redirect()->intended('index');
+        //          }
+        //          return back()->withErrors([
+        //              'username' => 'The provided credentials do not match our records.',
+        //          ]);
             
 
             $request -> validate ([
             
                  'username' => 'required',
-                'password' => 'required|min:5|max:12'
+             'password' => 'required|min:5|max:12'
                  ]);
                  $user = User::where('username','=', $request -> username) ->first();
                  if($user){
@@ -76,12 +77,12 @@ class LogInController extends Controller
                         return redirect('index');
     
                      }else {
-                         return back() ->with('fail',' Wrong Password.');
+                        return back() ->with('fail',' Wrong Password.');
                     }
 
-            }else{
+             }else{
                     return back() ->with('fail',' This username is not registered.');
-                }
+               }
 
 
     }

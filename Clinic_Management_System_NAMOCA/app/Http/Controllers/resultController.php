@@ -51,7 +51,7 @@ class resultController extends Controller
 
     public function delete($id){
 
-        $delete = DB::table('results')->where('id', $id)->delete();
+        $delete = DB::table('results')->where('patientID', $id)->delete();
         return redirect('result');
 
     }
