@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LaravelCrudStudent;
 use App\Http\Controllers\StudentsController;    
 use App\Http\Controllers\StdntRegController;
 use App\Http\Controllers\SubjectsController;
-
+use App\Http\Controllers\ChatController;
 
 
 /*
@@ -33,7 +34,15 @@ Route::get('/dashboard', [CustomAuthController::class,'dashboard']);
 
 Route::post('/register-user', [CustomAuthController::class,'registerUser']) ->name ('register-user');
 
-Route::post('authenticate',[CustomAuthController::class,'authenticate'])->name('authenticate');
+//Route::post('/authenticate',[CustomAuthController::class,'authenticate'])->name('authenticate');
+
+//Route::post('/authenticate',function(){
+  //  if (Auth::attempt(['email' => 'james09@gmail.com', 'password' => 'james09'])){
+   //     return 'authenticate';
+  //  }
+  //  return 'INVALID';
+
+//});
 
 //home
 Route::get('/homepage',[CustomAuthController::class,'homepage']);
@@ -74,3 +83,9 @@ Route::post('update', [StdntRegController::class,'update'])->name('update');
 
 
 
+//ChatRoom
+Route::middleware('auth:sanctum')->get('/chat/rooms', [ChatController::class,'rooms']);
+
+Route::middleware('auth:sanctum')->get('/chat/room/{roomId}/messages', [ChatController::class,'messages']);
+
+Route::middleware('auth:sanctum')->post('/chat/room/{roomId}/message', [ChatController::class,'newMessage']);

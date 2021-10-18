@@ -108,7 +108,8 @@ public function authenticate(Request $request)
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            
             $request->session()->regenerate();
 
             return redirect()->intended('homepage');
