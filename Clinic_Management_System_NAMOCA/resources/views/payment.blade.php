@@ -8,7 +8,7 @@
    
     <div class=" bg-gray-800 mt-3 mb-5 mr-5 ml-2 w-full rounded-3xl  border-solid" style="border:1px solid; border-color:pink;">
 
-        <h1 class="flex items-center justify-center text-white font-semibold text-4xl mt-10 "> PAYMENT HERE!</h1>
+        <h1 class="flex items-center justify-center text-white font-semibold text-4xl mt-10 "> PAYMENT HERE!</h1><a href="{{ url('paymentShow') }}"><i  class="text-gray-300 float-right mr-40 hover:text-white text-3xl fas fa-arrow-right"></i></a>
         <div class="bg-gray-200 w-4/5 ml-24 mt-10" style=" height: 1px;"></div>
 
 
@@ -27,7 +27,7 @@
             <a href="#" id="delete-btn" > <i style="margin-left: 90%;" class="-mt-60 text-4xl fas fa-money-check"></i></a>
 
 
-<div class=" w-9/12 overflow-y-auto h-44 ml-28 mt-10">
+<div class=" w-9/12 overflow-y-auto h-96 ml-28 mt-10">
             <table class="border-collapse w-full rounded">
     <thead>
         <tr>
@@ -78,70 +78,7 @@
 <div class="bg-gray-200 w-5/5  mt-5" style=" height: 1px; "></div>   
 
 
-<table class="border-collapse w-11/12 mt-5 rounded" style="margin-left: 1%; margin-right:1%;">
-    <thead>
-        <tr>
-            <th class="p-3 font-semisemibold  bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">ID</th>
-            <th class="p-3 font-semibold  bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Fullname</th>
-            <th class="p-3 font-semibold  bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Date</th>
-            <th class="p-3 font-semibold  bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Time</th>
-            <th class="p-3 font-semibold  bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Test</th>
-            <th class="p-3 font-semibold  bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Total Amount</th>
-            <th class="p-3 font-semibold  bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Cash</th>
-            <th class="p-3 font-semibold  bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Change</th>
-         
-  
-        </tr>
-    </thead>
-    <tbody>
-   
-        <tr class="bg-gray-800 lg:hover:bg-gray-700 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-            <td class="w-full lg:w-auto p-3 text-white text-center  border border-b block lg:table-cell  lg:static">
-                <span class="lg:hidden  top-0 left-0 bg-gray-800 px-2 py-1 text-xs font-bold">ID</span>
-               
-            </td>
-            <td class="w-full lg:w-auto p-3 text-white  border border-b text-center block lg:table-cell  lg:static">
-                <span class="lg:hidden  top-0 left-0 bg-gray-800 px-2 py-1 text-xs font-bold uppercase">Fullname</span>
-             
-            </td>
-          	<td class="w-full lg:w-auto p-3  text-white  border border-b text-center block lg:table-cell  lg:static">
-                <span class="lg:hidden  top-0 left-0 bg-gray-800 px-2 py-1 text-xs font-bold uppercase">Date</span>
-               
-          	</td>
-            <td class="w-full lg:w-auto p-3  text-white  border border-b text-center block lg:table-cell  lg:static">
-                <span class="lg:hidden  top-0 left-0 bg-gray-800 px-2 py-1 text-xs font-bold uppercase">Time</span>
-              
-            </td>
-            <td class="w-full lg:w-auto p-3  text-white  border border-b text-center block lg:table-cell  lg:static">
-                <span class="lg:hidden  top-0 left-0 bg-gray-800 px-2 py-1 text-xs font-bold uppercase">Test</span>
-              
-            </td>
 
-            </td>
-            <td class="w-full lg:w-auto p-3  text-white  border border-b text-center block lg:table-cell  lg:static">
-                <span class="lg:hidden  top-0 left-0 bg-gray-800 px-2 py-1 text-xs font-bold uppercase">Total Amount</span>
-              
-            </td>
-
-            </td>
-            <td class="w-full lg:w-auto p-3  text-white  border border-b text-center block lg:table-cell  lg:static">
-                <span class="lg:hidden  top-0 left-0 bg-gray-800 px-2 py-1 text-xs font-bold uppercase">Cash</span>
-              
-            </td>
-
-            </td>
-            <td class="w-full lg:w-auto p-3  text-white  border border-b text-center block lg:table-cell  lg:static">
-                <span class="lg:hidden  top-0 left-0 bg-gray-800 px-2 py-1 text-xs font-bold uppercase">Change</span>
-              
-            </td>
-
-           
-           
-        </tr>
-        
-  
-    </tbody>
-</table>
 
 
 

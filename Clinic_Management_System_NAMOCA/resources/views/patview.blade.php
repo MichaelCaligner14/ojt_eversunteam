@@ -10,7 +10,8 @@
         <div class="bg-gray-200 ml-24 mt-2" style="width:80%; height: 1px;"></div>
 
 
-        <table class="border-collapse w-11/12 mt-10 rounded" style="margin-left: 3%; margin-right:3%;">
+        <div class="w-11/12 overflow-y-auto h-96 ml-10 mt-10">
+        <table class="border-collapse w-full  rounded">
     <thead>
         <tr>
             <th class="p-3 font-semisemibold  bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">ID</th>
@@ -91,9 +92,9 @@
         @endforeach
         </tbody>
 </table>
+</div>
 
-
-  
+<div class="bg-gray-200 w-3/5  mt-10" style=" height: 1px; margin-left: 18%;"></div>    
     
 
         </div>
