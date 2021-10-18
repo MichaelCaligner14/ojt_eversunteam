@@ -7,20 +7,15 @@ use Illuminate\Support\Facades\DB;
 
 class InventoryController extends Controller
 {
-    
+
     public function inventory(){
 
-        /**$sales = DB::table('inventories')
-        ->join('orders', 'orders.inventory_id', '=', 'inventories.id')
-        ->select(DB::raw('sum(inventories.quantity-orders.qty) AS result'))
-        ->where('inventories.id', 2)
-        ->where('orders.inventory_id', 2)
-        ->first();
-        dd($sales);*/
-
         $data = array(
-
-            'list'=>DB::table('inventories')->get()
+            'data'=>DB::table('orders')
+            ->join('inventories', 'orders.inventory_id', '=', 'inventories.id')
+            ->select(DB::raw('inventories.*','sum(inventories.quantity - orders.qty) AS quantity'))
+            ->where('inventories.id', 2)
+            ->get()
         );
         return view('inventory',$data);
     }
@@ -67,7 +62,6 @@ class InventoryController extends Controller
                         ->update([
                             'product_name'=>$request->input('product_name'),
                             'items'=>$request->input('items'),
-                            'quantity'=>$request->input('quantity'),
                         ]);
                         return redirect('inventory');
     }

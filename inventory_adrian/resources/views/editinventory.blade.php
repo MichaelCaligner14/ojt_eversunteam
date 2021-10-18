@@ -51,12 +51,6 @@
                               <span class="text-red-800">@error('category') {{$message}} @enderror </span>
                           </div>
 
-                          <div class="w-96 px-1">
-                              <label class="text-gray-600 ">QUANTITY</label>
-                              <input type="text" placeholder="" name="quantity" value="{{ $Info->quantity }}" id="order" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
-                              text-gray-700 "/>
-                              <span class="text-red-800">@error('qty') {{$message}} @enderror </span>
-                          </div>
 
                         <div class="">
                         <button type="submit" class="float-right w-24 mt-8 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">UPDATE</button>

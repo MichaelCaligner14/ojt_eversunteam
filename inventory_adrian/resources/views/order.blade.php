@@ -16,7 +16,7 @@
                 @csrf
     
                 <div class="w-60 px-1">
-                         <label class="text-gray-600">ORDER ID</label>
+                         <label class="text-gray-600">INVENTORY ID</label>
                           <input type="text" placeholder="" name="inventory_id" value="{{old('inventory_id')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                           text-gray-700 "/>
                           <span class="text-red-800">@error('inventory_id') {{$message}} @enderror </span>
@@ -24,7 +24,7 @@
 
                     <div class="w-60 px-1">
                          <label class="text-gray-600">NAME</label>
-                          <input type="text" placeholder="Name" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                          <input type="text" placeholder="" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                           text-gray-700 "/>
                           <span class="text-red-800">@error('name') {{$message}} @enderror </span>
                     </div>
@@ -44,7 +44,7 @@
                 </div>
                           <div class="w-60 px-1">
                             <label class="text-gray-600">PRICE</label>
-                            <input type="text" placeholder="Price" id="price" name="price" value="{{old('price')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <input type="text" placeholder="" id="price" name="price" value="{{old('price')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-600 "/>
                             <span class="text-red-800">@error('price') {{$message}} @enderror </span>
                         </div>
@@ -55,7 +55,7 @@
                         
                         <div class="w-60 px-1">
                             <label class="text-gray-600">QUANTITY</label>
-                            <input type="text" placeholder="Quantity" id="qty" name="qty" value="{{old('qty')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <input type="text" placeholder="" id="qty" name="qty" value="{{old('qty')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-700 ">
                             <span class="text-red-800">@error('qty') {{$message}} @enderror </span>
                         </div>
@@ -76,8 +76,8 @@
                             name="date" type="date">
                         </div>
 
-                        <div class="">
-                        <button type="submit" class="xs:w-24 sm:w-24 md:w-24 w-60 mt-8 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
+                        <div class="w-60">
+                        <button type="submit" class="xs:w-24 sm:w-24 md:w-24 mt-8 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
                           
                       </div>
                     </div>
