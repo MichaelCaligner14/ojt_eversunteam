@@ -24,7 +24,14 @@ Route::get('/', function () {
 Route::get('/login',[LogInController::class,'login']);
 Route::get('/sign',[LogInController::class,'sign']);
 Route::post('/sign-user',[LogInController::class,'signUser']) ->name('sign-user');
-Route::post('/login-user',[LogInController::class,'loginUser']) ->name('login-user');
+ Route::post('/login-user',[LogInController::class,'loginUser']) ->name('login-user');
+
+Route::get('/login-user',function(){
+    if(Auth::attempt(['username'=>'loginUser@loginUser.loginUser','password' => 'passwordtest'])){
+        return 'authenticate';
+    }});
+
+
 Route::get('/index',[LogInController::class,'index']) ->middleware('isLoggedIn');
 
 Route::get('/logout',[LogInController::class,'logout']);
@@ -65,3 +72,7 @@ Route::post('/appoint-page',[appointmentController::class,'appointPage']) ->name
 Route::get('/payment',[paymentController::class,'payment']);
 Route::post('/payment-page',[paymentController::class,'paymentPage']) ->name('payment-page');
 Route::post('/search-records',[paymentController::class,'searchRecords']) ->name('search-records');
+Route::get('/paymentShow',[paymentController::class,'paymentShow']);
+
+//delete payment
+Route::get('deleted/{id}',[paymentController::class,'deleted']);
