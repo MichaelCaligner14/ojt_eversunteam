@@ -34,7 +34,8 @@
                   </label>
                   <input class="appearance-none block text-base w-full bg-white text-black border 
                   border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                   name="empattendance_id" type="text">
+                   name="empattendance_id" type="text" value="{{old('empattendance_id')}}">
+                   <span class="text-red-300 text-sm">@error('empattendance_id'){{$message}}@enderror</span>
                 </div>
               </div>
               
@@ -61,6 +62,7 @@
                   <input class="appearance-none block w-full bg-white text-black border 
                   border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none 
                   focus:bg-white" name="deductionAmount" type="number">
+                  
                 </div>
               </div>
               
@@ -81,7 +83,7 @@
         </form>
          
        
-        <div class="flex px-16 py-6 mt-6 gap-6 justify-between">
+        <div class="flex px-40 py-6 mt-6 gap-6 justify-between">
                   <div class="flex-1">
                       <h1 class="w-full ">LIST OF EMPLOYEES</h1>
                   </div>
@@ -95,7 +97,7 @@
                  
 </div>
           
-        <section class="container mx-auto font-sans mb-16">
+        <section class="container mx-auto font-sans">
           <div class="w-full overflow-hidden rounded-lg shadow-lg">
             <div class="w-full overflow-y-auto h-96">
               <table class="w-full text-base">
@@ -103,10 +105,9 @@
                   <tr class=" font-semibold tracking-wide text-left text-white bg-gray-700 uppercase border-b border-gray-600">
                     <th class="px-4 py-3">ID</th>
                     <th class="px-4 py-3">Attendance ID</th>
-                    <th class="px-4 py-3">RATE</th>
-                    <th class="px-4 py-3">INITIAL AMOUNT</th>
                     <th class="px-4 py-3">DEDUCTION</th>
                     <th class="px-4 py-3">TOTAL AMOUNT</th>
+                    <th class="px-4 py-3">ACTION</th>
                    
                   </tr>
                 </thead>
@@ -115,12 +116,15 @@
                    <tr class="text-gray-700">
                     <td class="px-4 py-3 border">{{$item->id}}</td>
                     <td class="px-4 py-3 border">{{$item->empattendance_id}}</td>
-                    <td class="px-4 py-3 font-semibold border">{{$item->rate}}</td>
-                    <td class="px-4 py-3 font-semibold border">{{$item->initialamount}}</td>
                     <td class="px-4 py-3 border">
                       <h1>{{$item->deductionAmount}}</h1>
                     </td>
-                    <td class="px-4 py-3 border"></td>
+                    <td class="px-4 py-3 border">{{$item->deducted_salary}}</td>
+                    <td class="px-4 py-3 border">
+                      <a href="deletesalary/{{ $item->id }}" id="buttonmodal"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg></a>
+                  </td>
                     
                   </tr>
                 </tbody>

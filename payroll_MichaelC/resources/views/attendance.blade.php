@@ -5,7 +5,7 @@
         <!-- content -->
         <div class="flex-1  text-2xl font-bold">
         <div class="bg-gray-200 px-6 py-4">
-            <p class="w-80 text-lg font-bold">EMPLOYEE ATTENDANCE</p>
+            <p class="w-80 text-lg font-bold">EMPLOYEE ATTENDANCE </p>
           </div>
       <div class="p-10">
         <div class="grid md:grid-flow-col gap-4 ">
@@ -19,7 +19,7 @@
          
             <form class="w-full bg-gray-600 text-white max-w-lg  p-8 mt-6" action="addattendance" method="POST">
               @csrf
-              <p class="text-xl font-bold text-white mb-4 text-center">ATTENDANCE</p>
+              <p class="text-xl font-bold text-white mb-4 text-center">ATTENDANCE & CALCULATION</p>
 
               <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full px-3">
