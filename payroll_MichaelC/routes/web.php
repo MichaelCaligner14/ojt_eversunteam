@@ -45,4 +45,10 @@ Route::post('/search-record',[Records::class,'searchRecord']) ->name('search-rec
 Route::get('deleterecord/{id}',[Records::class,'deleterecord']);
 
 Route::get('/salary',[Salary::class,'salary'])->middleware('isLoggedIn');
-Route::post('/adds',[Salary::class,'salaryAmount']);
+Route::post('/addsalary',[Salary::class,'addsalary']);
+Route::get('deletesalary/{id}',[Salary::class,'deletesalary']);
+
+Route::group(['middleware' => 'auth:admin'], function () {
+    
+    Route::view('/admin', 'admin');
+});
