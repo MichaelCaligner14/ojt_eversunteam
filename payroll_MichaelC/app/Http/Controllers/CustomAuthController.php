@@ -37,6 +37,7 @@ class CustomAuthController extends Controller
     }
     public function loginUser(Request $request)
     {
+        
         $credentials = $request->validate([
             'username' => ['required'],
             'password' => ['required'],

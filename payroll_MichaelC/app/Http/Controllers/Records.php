@@ -12,11 +12,12 @@ class Records extends Controller
     public function records(){
     
 
-        $data = DB::table('empAdd')
-                            ->join('empAttendance', 'empattendance.empAdd_id','=','empadd.id')
-                            ->select('empattendance.id','empadd.name','empattendance.rate','empattendance.workdays','empattendance.empAdd_id','empattendance.initialamount')
+        $data = $data = DB::table('empadd')
+                            ->join('empattendance', 'empadd.id', '=', 'empattendance.empAdd_id')
+                            ->select('empattendance.id','empattendance.empAdd_id',
+                            'empadd.name','empattendance.rate','empattendance.workdays',
+                            'empattendance.empAdd_id','empattendance.initialamount',)
                             ->get();
-
 
 
                                              
@@ -39,7 +40,7 @@ class Records extends Controller
         
         public function deleterecord($id){
             $delete = DB::table('empAttendance')
-                    ->where('id', $id)
+                    ->where('empAdd_id', $id)
                     ->delete();
                     return redirect('records');
         }
