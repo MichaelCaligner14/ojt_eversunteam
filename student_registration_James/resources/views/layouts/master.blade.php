@@ -21,7 +21,7 @@
           
       
           <!-- mobile menu button -->
-          <button class="mobile-menu-button p-4 focus:outline-none focus:bg-gray-700">
+          <button class=" mobile-menu-button p-4 focus:outline-none focus:bg-gray-700">
 
             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               
@@ -32,8 +32,8 @@
         
       
         <!-- sidebar -->
-        <div class="sidebar bg-gray-800 text-gray-100 w-1/6 space-y-6 py-9 px-8 absolute inset-y-0 left-0 transform -translate-x-full
-         md:relative md:translate-x-0 transition duration-200 ease-in-out">
+        <div  class="sidebar absolute text-white text-base w-64 bg-gray-800 space-y-6 py-9 px-5 inset-y-0 left-0 
+          transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
       
           <!-- logo -->
           <a href="#" class="text-white flex items-center space-x-2 px-4">
@@ -45,8 +45,8 @@
             
           </a>
         
-          <p class="text-xs md:text-center">___________________________________ </p>
-          <p class="text-xs md:text-center">___________________________________ </p>
+          <hr style="height:1px; background-color:white;" class="mb-1">
+          <hr style="height:1px; background-color:white;" class="mb-1">
           <!-- nav -->
           <nav>
             
