@@ -10,11 +10,14 @@ class Salary extends Controller
 {
     
     public function salary(){
+        
         $cust = DB::table('empdeductionsalary')->count();
-        $data = DB::table('empattendance')
-        ->join('empdeductionsalary', 'empdeductionsalary.empattendance_id', '=','empattendance.id')
-        ->select('empdeductionsalary.id','empattendance.rate','empattendance.initialamount','empdeductionsalary.empattendance_id','empdeductionsalary.deductionAmount')
-        ->get();
+        $data = DB::table('empadd')
+            ->join('empattendance', 'empadd.id', '=', 'empattendance.empAdd_id')
+            ->join('empdeductionsalary', 'empattendance.id', '=', 'empdeductionsalary.empattendance_id')
+            ->select('empdeductionsalary.id','empadd.name','empattendance.initialamount',
+            'empdeductionsalary.empattendance_id','empdeductionsalary.deductionAmount', 'empdeductionsalary.deducted_salary')
+            ->get();
 
       return view('salary',compact('data','cust'));
                 
@@ -22,25 +25,47 @@ class Salary extends Controller
     public function addsalary(Request $request){
 
         $request->validate([
-            'empattendance_id'=>'required',
+            'empattendance_id'=>'required||unique:empdeductionsalary',
             'typeDeduction'=>'required',
             'deductionAmount'=>'required',
            
          
         ]);
+       
+        $empattendanceid = $request->input('empattendance_id');
+        $totalquery = DB::table('empattendance')->select('total_salary')
+                ->where('empattendance.id', '=', $empattendanceid)
+                ->first();
+              
+                    
+        $totalquery = $totalquery->total_salary;
+        $deductedAmount = $request->input('deductionAmount');
+        $deducted_salary = $totalquery - $deductedAmount;
+
+
         $query = DB::table('empdeductionsalary')->insert([
             'empattendance_id'=>$request->input('empattendance_id'),
             'typeDeduction'=>$request->input('typeDeduction'),
             'deductionAmount'=>$request->input('deductionAmount'),
-        
-
+            'deducted_salary' => $deducted_salary
+            
         ]);
-        
         if($query){
+
             return back()->with('success', 'Saved successfully!');
+
         }else{
+
             return back()->with('fail','Something wrong');
+            
         }
-        
+    }
+
+    
+    public function deletesalary($id){
+        $delete = DB::table('empdeductionsalary')
+                ->where('id', $id)
+                ->delete();
+                return redirect('salary');
     }
 }
