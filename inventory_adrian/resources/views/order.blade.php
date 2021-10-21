@@ -8,20 +8,17 @@
         @include('layouts.flash')
 
             <div class="bg-white pt-16 justify-start pr-24">
-            
-           
-            
                 
                 <form action="add" method="post" class="flex justify-center">
                 @csrf
-    
                 <div class="w-60 px-1">
                          <label class="text-gray-600">INVENTORY ID</label>
-                          <input type="text" placeholder="" name="inventory_id" value="{{old('inventory_id')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                          <input type="text" placeholder="" name="inventories_id" value="{{old('inventories_id')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                           text-gray-700 "/>
-                          <span class="text-red-800">@error('inventory_id') {{$message}} @enderror </span>
+                          <span class="text-red-800">@error('inventories_id') {{$message}} @enderror </span>
                     </div>
 
+    
                     <div class="w-60 px-1">
                          <label class="text-gray-600">NAME</label>
                           <input type="text" placeholder="" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
@@ -51,13 +48,13 @@
 
                     </div>
   
-                      <div class="flex justify-center">
+                      <div class="flex justify-center pr-24">
                         
                         <div class="w-60 px-1">
                             <label class="text-gray-600">QUANTITY</label>
-                            <input type="text" placeholder="" id="qty" name="qty" value="{{old('qty')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <input type="text" placeholder="" id="qty" name="Order_quantity" value="{{old('Order_quantity')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-700 ">
-                            <span class="text-red-800">@error('qty') {{$message}} @enderror </span>
+                            <span class="text-red-800">@error('Order_quantity') {{$message}} @enderror </span>
                         </div>
 
                         <div class="w-60 px-1">
@@ -73,15 +70,12 @@
                           </label>
                           <input class="appearance-none block w-full text-base bg-white text-black border border-black-900
                           rounded py-2 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="date" type="date">
+                            name="date" value="{{old('date')}}" type="date">
                         </div>
 
-                        <div class="w-60">
-                        <button type="submit" class="xs:w-24 sm:w-24 md:w-24 mt-8 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
-                          
-                      </div>
+                        <div class="">
+                        <button type="submit" class="lg:w-60 xs:w-24 sm:w-24 md:w-24 mt-8 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>                     </div>
                     </div>
-  
                 </form>
             
 
@@ -94,27 +88,28 @@
               <thead>
                   <tr>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">#</th>
-                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">inventory_id </th>
+                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">INVENTORY ID</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Name</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Items</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Price</th>
-                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Quantity</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Total</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Date</th>
+                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Quantity</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Actions</th>
                   </tr>
               </thead>
               <tbody>
                 @foreach ($list as $item)
                   <tr class="bg-hint-of-green-500 lg: flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                  <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
-                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
-                        {{$item->id}}
-                    </td>
 
                     <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
-                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
-                        {{$item->inventory_id}}
+                          <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
+                          {{$item->id}}
+                    </td>
+                    
+                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                          <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
+                          {{$item->inventories_id}}
                     </td>
 
                     <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
@@ -134,18 +129,19 @@
 
                       <td id="quantity" class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Quantity</span>
-                        {{$item->qty}}
+                        {{$item->total}}
                       </td>
 
                       <td id="total" class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
-                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Sales</span>
-                        {{$item->total}}
+                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">total</span>
+                        {{$item->date}}
                       </td>
 
                       <td class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Date</span>
-                        {{$item->date}}
+                        {{$item->Order_quantity}}
                       </td>
+
 
                     <td class="w-full lg:w-auto p-1.5 text-gray-800  border border-b text-sm text-center lg:table-cell  lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Actions</span>

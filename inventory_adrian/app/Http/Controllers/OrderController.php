@@ -21,41 +21,55 @@ class OrderController extends Controller
     public function add(Request $request)
     {
         $request->validate([
-            'inventory_id'=>'required',
+            'inventories_id'=>'required',
             'name'=>'required',
             'order'=>'required',
             'price'=>'required',
-            'qty'=>'required',
+            'Order_quantity'=>'required',
             'total'=>'required',
             'date'=>'required'
         ]);
 
+        $inventories_id = $request->input('inventories_id');
+        
+        $idquery = DB::table('inventories')->select('id')->where('inventories.id', '=', $inventories_id)
+        ->first();
+
+        $totalquery = DB::table('inventories')->select('total_quantity')->where('inventories.id', '=', $inventories_id)
+        ->first();
+
+
+        $totalquery = $totalquery->total_quantity;
+
+        $Order_quantity = $request->input('Order_quantity');
+        $deducted_quantity = $totalquery - $Order_quantity;
+
+
         $query = DB::table('orders')->insert([
-            'inventory_id'=>$request->input('inventory_id'),
+            'inventories_id'=>$request->input('inventories_id'),
             'name'=>$request->input('name'),
             'order'=>$request->input('order'),
             'price'=>$request->input('price'),
-            'qty'=>$request->input('qty'),
             'total'=>$request->input('total'),
             'date'=>$request->input('date'),
+            'Order_quantity'=>$request->input('Order_quantity'),
+            'deducted_quantity' => $deducted_quantity
+
         ]);
+
         if($query){
+
+            $updateOrders = DB::table('inventories')
+            ->where('id', $inventories_id)
+            ->update(['total_quantity' => $deducted_quantity]);
+
             return back()->with('success', 'Data have been save.');
+
         }else{
+            
             return back()->with('fail', 'Something went wrong');
         }
         
-
-    }
-
-    public function decreaseQuantities()
-    {
-        foreach(order::content() as $item){
-            $product_name = inventories::find($item->inventory->id);
-
-            $product_name->update(['quantity'=> $product_name->quantity - $item->quantity]);
-        }
-
     }
 
     public function edit($id){

@@ -46,7 +46,7 @@
                 <form action="search-record" class="mt-2" method="post">
                 @csrf
                     <div>
-                      <input type="text" name="name" placeholder="Search ... " class="w-60 rounded border border-black-900 text-white mt-2 mb-2 px-4 py-2" > 
+                      <input type="text" name="name" placeholder="Search ... " class="w-60 rounded border border-black-900 text-black mt-2 mb-2 px-4 py-2" > 
                 <button type="submit" class="px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">Search</button>
                 </div>
               </form>

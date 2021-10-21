@@ -63,7 +63,7 @@
                     Inventory</a>
             </nav>
         </div>
-        <div class="flex-1 w-full">
+        <div class="flex-1 w-full h-full">
             <header>
                 @component('components.test')
                 @slot('tittle')

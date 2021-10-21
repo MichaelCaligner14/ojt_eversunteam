@@ -50,6 +50,13 @@
                               text-gray-700 "/>
                               <span class="text-red-800">@error('category') {{$message}} @enderror </span>
                           </div>
+                          
+                          <div class="w-60 px-1">
+                            <label class="text-gray-600 ">QUANTITY</label>
+                            <input type="text" placeholder="" name="total_quantity" value="{{$Info->total_quantity}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
+                            text-gray-700 "/>
+                            <span class="text-red-800">@error('Inventory_quantity') {{$message}} @enderror </span>
+                        </div>
 
 
                         <div class="">

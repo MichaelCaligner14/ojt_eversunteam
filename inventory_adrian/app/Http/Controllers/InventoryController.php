@@ -11,11 +11,7 @@ class InventoryController extends Controller
     public function inventory(){
 
         $data = array(
-            'data'=>DB::table('orders')
-            ->join('inventories', 'orders.inventory_id', '=', 'inventories.id')
-            ->select(DB::raw('inventories.*','sum(inventories.quantity - orders.qty) AS quantity'))
-            ->where('inventories.id', 2)
-            ->get()
+            'data'=>DB::table('inventories')->get()
         );
         return view('inventory',$data);
     }
@@ -26,14 +22,15 @@ class InventoryController extends Controller
         $request->validate([
             'product_name'=>'required',
             'items'=>'required',
-            'quantity'=>'required',
+            'Inventory_quantity'=>'required'
 
         ]);
 
         $query = DB::table('inventories')->insert([
             'product_name'=>$request->input('product_name'),
             'items'=>$request->input('items'),
-            'quantity'=>$request->input('quantity'),
+            'Inventory_quantity'=>$request->input('Inventory_quantity'),
+            'total_quantity'=>$request->input('Inventory_quantity')
 
         ]);
         if($query){
@@ -41,6 +38,7 @@ class InventoryController extends Controller
         }else{
             return back()->with('fail', 'Something went wrong');
         }
+
 
     }
 
@@ -62,6 +60,7 @@ class InventoryController extends Controller
                         ->update([
                             'product_name'=>$request->input('product_name'),
                             'items'=>$request->input('items'),
+                            'total_quantity'=>$request->input('total_quantity')
                         ]);
                         return redirect('inventory');
     }
