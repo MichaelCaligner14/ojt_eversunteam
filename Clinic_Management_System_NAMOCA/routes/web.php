@@ -26,10 +26,7 @@ Route::get('/sign',[LogInController::class,'sign']);
 Route::post('/sign-user',[LogInController::class,'signUser']) ->name('sign-user');
  Route::post('/login-user',[LogInController::class,'loginUser']) ->name('login-user');
 
-Route::get('/login-user',function(){
-    if(Auth::attempt(['username'=>'loginUser@loginUser.loginUser','password' => 'passwordtest'])){
-        return 'authenticate';
-    }});
+
 
 
 Route::get('/index',[LogInController::class,'index']) ->middleware('isLoggedIn');
