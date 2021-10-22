@@ -19,7 +19,7 @@
                   <div class="flex-1">
                       <h1 class="w-full ">LIST OF EMPLOYEES</h1>
                   </div>
-                  <form action="{{route('search-record')}}" method="post">
+                  <form action="{{route('records')}}" method="post">
                     @csrf
                   <div>
                  

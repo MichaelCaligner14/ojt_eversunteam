@@ -4,25 +4,25 @@
         <!-- content -->
         
         <div class="flex-1 text-2xl font-bold">
-        <div class="bg-gray-200 px-6 py-4">
+           <div class="bg-gray-200 px-6 py-4">
             <p class="w-full text-lg font-bold">EMPLOYEE SALARY</p>
-          </div>
+        </div>
       
-        <div class="grid sm:grid-flow-col mx-auto gap-4 ">
-        <div class="grid px-12 grid-cols-1 gap-4 ">
-          <div class="py-28 ">
-            <div class="bg-gray-100 py-8 border text-black px-8 shadow">
-
-            <h1> Total Number of Beneficiaries -> {{$cust}} </h1>
-            <hr>
-
-          
+        <div class="grid sm:grid-flow-col pt-10 mx-auto gap-4 ">
+          <div class="grid px-32  grid-cols-1 gap-4 ">        
+          <div class="mt-28 ">
+            <div class="bg-gray-100 py-6 border text-black px-8 shadow">
+            <h1 class="text-xl"> Total Number of Beneficiaries </h1>
           </div>
-         
+          <div class="bg-gray-600 py-8 border text-white px-8 shadow">
+          <h1><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-5 float-left mr-3" viewBox="0 0 20 20" fill="currentColor">
+                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                 </svg><span class="text-2xl">{{$cust}}</span></h1>
+          </div>
         
-        </div>
-        </div>
-        <form class="w-full mx-auto bg-gray-600 text-white max-w-sm  p-8 mt-6" action="addsalary" method="POST">
+          </div>
+          </div>
+          <form class="w-full mx-auto bg-gray-600 text-white max-w-sm  p-8 mt-6" action="addsalary" method="POST">
             @csrf
          <div class="grid grid-cols-1">
           <div>
@@ -78,23 +78,24 @@
          
           </div>
             </div>
+            </form>
            </div>
         
-        </form>
+
          
        
-        <div class="flex px-40 py-6 mt-6 gap-6 justify-between">
+        <div class="flex px-16 py-6 mt-16 gap-6 justify-between ">
                   <div class="flex-1">
                       <h1 class="w-full ">LIST OF EMPLOYEES</h1>
                   </div>
-                 
                   <div>
-                 
-                       <input type="search" name="name" class=" pl-3 pr-4 py-1 text-base border-2 border-black-900 focus:outline-none text-black "
-                  placeholder=".........">
-                  <button class="bg-blue-700 text-base px-6 py-1 text-white " type="submit">Search</button>
+                  <form action="{{route('salary')}}" method="post">
+                    @csrf
+                       <input type="search" name="id" class=" pl-3 pr-4 py-1 text-base border-2 border-black-900 focus:outline-none text-black "
+                  placeholder="Enter Salary ID">
+                  <button class="bg-blue-700 text-base px-6 py-1 text-white" type="submit">Search</button>
                   </div>
-                 
+                  </form>
 </div>
           
         <section class="container mx-auto font-sans">
