@@ -32,15 +32,16 @@ class OrderController extends Controller
 
         $inventories_id = $request->input('inventories_id');
         
-        $idquery = DB::table('inventories')->select('id')->where('inventories.id', '=', $inventories_id)
+        $idquery = DB::table('inventories')->select('id')
+        ->where('inventories.id', '=', $inventories_id)
         ->first();
 
-        $totalquery = DB::table('inventories')->select('total_quantity')->where('inventories.id', '=', $inventories_id)
+        $totalquery = DB::table('inventories')->select('total_quantity')
+        ->where('inventories.id', '=', $inventories_id)
         ->first();
 
 
         $totalquery = $totalquery->total_quantity;
-
         $Order_quantity = $request->input('Order_quantity');
         $deducted_quantity = $totalquery - $Order_quantity;
 

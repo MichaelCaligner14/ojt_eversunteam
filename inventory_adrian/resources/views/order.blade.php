@@ -11,30 +11,36 @@
                 
                 <form action="add" method="post" class="flex justify-center">
                 @csrf
-                <div class="w-60 px-1">
-                         <label class="text-gray-600">INVENTORY ID</label>
-                          <input type="text" placeholder="" name="inventories_id" value="{{old('inventories_id')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
-                          text-gray-700 "/>
-                          <span class="text-red-800">@error('inventories_id') {{$message}} @enderror </span>
-                    </div>
 
-    
-                    <div class="w-60 px-1">
+                <div class="w-60 px-1">
                          <label class="text-gray-600">NAME</label>
                           <input type="text" placeholder="" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                           text-gray-700 "/>
                           <span class="text-red-800">@error('name') {{$message}} @enderror </span>
                     </div>
 
+                <div class="w-60 px-1 mt-2">
+                         <label class="text-gray-600">INVENTORY ID</label>
+                          <select class="block appearance-none w-full bg-white border border-black-900 text-black
+                    py-2 text-base px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="inventories_id" type="number">
+                    <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                          <span class="text-red-800">@error('inventories_id') {{$message}} @enderror </span>
+                </div>
+
                     <div class="w-60 px-1 mt-3">
-                  <label class="block uppercase tracking-wide text-black text-xs font-bold mb-2">
+                  <label class="text-gray-600">
                    ITEMS
                   </label>
                     <select class=" block appearance-none w-full bg-white border border-black-900 text-black 
                     py-2 text-base px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="order">
-                    <option>Coke</option>
+                    <option>Noodle</option>
+                      <option>Coke</option>
                       <option>Sprite</option>
-                      <option>Noodle</option>
                       <option>Sardines</option>
                       <option>Spam</option>
                     </select>
@@ -64,7 +70,7 @@
                             <span class="text-red-800">@error('total') {{$message}} @enderror </span>
                         </div>
 
-                        <div class="w-60 px-1 pt-2">
+                        <div class="px-1 pt-2 lg:w-60 xs:w-24 sm:w-24 md:w-24">
                         <label class="text-gray-600">
                             DATE
                           </label>
@@ -84,17 +90,18 @@
             <br>
 
             <!--TABLE-->
-            <table id="datatable" class=" shadow-md border-collapse w-full justify-center">
+            <div  class="overflow-y-auto h-80 shadow-md justify-center">
+            <table id="datatable" class=" border-collapse w-full">
               <thead>
                   <tr>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">#</th>
-                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">INVENTORY ID</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Name</th>
+                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">ID</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Items</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Price</th>
+                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Quantity</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Total</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Date</th>
-                      <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Quantity</th>
                       <th class="p-3 font-bold text-sm uppercase bg-shark-500 text-white border border-gray-300 hidden lg:table-cell">Actions</th>
                   </tr>
               </thead>
@@ -102,48 +109,46 @@
                 @foreach ($list as $item)
                   <tr class="bg-hint-of-green-500 lg: flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
 
-                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell lg:static">
                           <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
                           {{$item->id}}
                     </td>
+
+                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell lg:static">
+                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Name</span>
+                        {{$item->name}}
+                    </td>
                     
-                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell lg:static">
                           <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">#</span>
                           {{$item->inventories_id}}
                     </td>
 
-                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
-                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Name</span>
-                        {{$item->name}}
-                    </td>
-
-                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                    <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Items</span>
                         {{$item->order}}
                     </td>
 
-                      <td  class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
+                      <td  class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Price</span>
                         {{$item->price}}
                       </td>
 
-                      <td id="quantity" class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
-                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Quantity</span>
-                        {{$item->total}}
-                      </td>
-
-                      <td id="total" class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
-                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">total</span>
-                        {{$item->date}}
-                      </td>
-
-                      <td class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell  lg:static">
+                      <td class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Date</span>
                         {{$item->Order_quantity}}
                       </td>
 
+                      <td id="quantity" class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell lg:static">
+                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Quantity</span>
+                        {{$item->total}}
+                      </td>
 
-                    <td class="w-full lg:w-auto p-1.5 text-gray-800  border border-b text-sm text-center lg:table-cell  lg:static">
+                      <td id="total" class="w-full lg:w-auto p-1.5 text-gray-800 border border-b text-sm text-center block lg:table-cell lg:static">
+                        <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">total</span>
+                        {{$item->date}}
+                      </td>
+                    <td class="w-full lg:w-auto p-1.5 text-gray-800  border border-b text-sm text-center lg:table-cell lg:static">
                         <span class="lg:hidden float-left top-0 left-0 px-2 py-1 text-xs font-bold uppercase">Actions</span>
                         
                         <a href="edit/{{ $item->id }}" class="text-blue-400 hover:text-blue-600 underline" > <svg xmlns="http://www.w3.org/2000/svg" 
@@ -158,6 +163,7 @@
                 @endforeach
               </tbody>
           </table>
+          <div>
         </div>
 <script src="js/jquery-3.5.0.min.js"></script>
     <script src="calcu.js">

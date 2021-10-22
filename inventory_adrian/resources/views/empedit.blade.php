@@ -19,8 +19,8 @@
 
             <div class="bg-black-900 pt-1 justify-center items-center" style="width: full; height: 5px;"></div>
 
-            <div class="flex bg-white lg:w-3/4 mx-auto lg:px-16 xs:px-6 sm:px-6 md:px-10 pt-16 justify-center items-center">
-            <div class="bg-gray-200  py-2 px-3 rounded shadow-xl text-gray-800">
+            <div class="flex bg-white xs:px-6 sm:px-6 md:px-10 pt-16 justify-center items-center">
+            <div class="bg-casal-500 w-2/3 py-2 px-3 rounded shadow-xl text-gray-800">
            
                 @if (Session::has('success'))
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">{{Session::get('success')}}</div>
@@ -36,27 +36,27 @@
                         <input type="hidden" placeholder="" name="empid" value="{{ $item->id }}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                               text-gray-600 "/>
 
-                          <div class="w-96 px-1">
+                          <div class="w-full px-1">
                               <label class="text-gray-600">NAME</label>
                               <input type="text" placeholder="" name="name" value="{{ $item->name }}" id="name" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                               text-gray-700 "/>
                               <span class="text-red-800">@error('name') {{$message}} @enderror </span>
                           </div>
 
-                          <div class="w-96 px-1">
+                          <div class="w-full px-1">
                      <label class="text-gray-600 ">PHONE</label>
                               <input type="text" placeholder="" name="phone" value="{{ $item->phone }}" id="order" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
                               text-gray-700 "/>
                               <span class="text-red-800">@error('order') {{$message}} @enderror </span>
                           </div>  
 
-                        <div class="w-96 px-1">
+                        <div class="w-full px-1">
                             <label class="text-gray-600">EMAIL</label>
                             <input type="text" placeholder="" name="email" value="{{ $item->email }}" id="price" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-600 "/>
                             <span class="text-red-800">@error('price') {{$message}} @enderror </span>
                         </div>
-                        <div class="w-96 px-1">
+                        <div class="w-full px-1">
                             <label class="text-gray-600">POSITION</label>
                             <input type="text" placeholder="" name="position" value="{{ $item->position }}" id="qty" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-700 ">

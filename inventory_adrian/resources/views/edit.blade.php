@@ -20,8 +20,8 @@
 
             <div class="bg-black-900 pt-1 justify-center items-center" style="width: full; height: 5px;"></div>
 
-            <div class="flex bg-black-100 lg:w-3/4 mx-auto lg:px-16 xs:px-6 sm:px-6 md:px-10 pt-16 justify-center items-center">
-            <div class="bg-gray-200 py-2 px-3 rounded shadow-xl text-gray-800">
+            <div class="flex bg-black-100 xs:px-6 sm:px-6 md:px-10 pt-16 justify-center items-center">
+            <div class="bg-casal-500 w-2/3 py-2 px-3 rounded shadow-xl text-gray-800">
            
                 @if (Session::has('success'))
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">{{Session::get('success')}}</div>
@@ -37,21 +37,21 @@
                         <input type="hidden" placeholder="" name="oid" value="{{ $Info->id }}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                               text-gray-600 "/>
 
-                          <div class="w-96 px-1">
+                          <div class="w-full px-1">
                               <label class="text-gray-600">NAME</label>
                               <input type="text" placeholder="" name="name" value="{{ $Info->name }}" id="name" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                               text-gray-700 "/>
                               <span class="text-red-800">@error('name') {{$message}} @enderror </span>
                           </div>
 
-                          <div class="w-96 px-1">
+                          <div class="w-full px-1">
                      <label class="text-gray-600 ">ORDER</label>
                               <input type="text" placeholder="" name="order" value="{{ $Info->order }}" id="order" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
                               text-gray-700 "/>
                               <span class="text-red-800">@error('order') {{$message}} @enderror </span>
                           </div>  
 
-                        <div class="w-96 px-1">
+                        <div class="w-full px-1">
                             <label class="text-gray-600">DATE</label>
                             <input type="text" placeholder="" name="date" value="{{ $Info->date }}" id="date" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
                             text-gray-700 "/>

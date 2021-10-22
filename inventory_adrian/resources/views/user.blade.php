@@ -8,21 +8,21 @@
 
     <div class="flex flex-wrap justify-center gap-x-32">
            
-    <div class="flex w-full justify-center mt-20 float-leftxs:w-full">
+    <div class="flex w-full justify-center mt-20 float-left xs:w-full">
 
-    <form action="user" method="post" class="bg-gray-200 shadow-md rounded px-8 pb-8 mb-4">
+    <form action="user" method="post" class="bg-casal-500 shadow-md rounded px-8 pb-8 mb-4">
                @csrf
     <div class="mb-4">
         <div>
             <img src="img/profile.png" class="h-96"/>
         </div>
-      <label class="block text-gray-700 text-sm font-bold mb-2 mt-4 text-center">
+      <label class="block text-white text-lg font-bold mb-2 mt-4 text-center">
         {{ $data->name }}
       </label>
       
     </div>
     <div class="mb-6">
-      <label class="block text-gray-700 text-sm font-bold mb-2 text-center">
+      <label class="block text-white text-sm font-bold mb-2 text-center">
         {{$data->email}}
       </label>
      

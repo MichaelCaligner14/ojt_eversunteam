@@ -22,7 +22,7 @@
                     
                           <div class="w-60 px-1">
                               <label class="text-gray-600">Name</label>
-                              <input type="text" placeholder="Name" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                              <input type="text" placeholder="" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                               text-gray-700"/>
                               <span class="text-red-800">@error('name') {{$message}} @enderror </span>
 
@@ -30,7 +30,7 @@
 
                           <div class="w-60 px-1">
                               <label class="text-gray-600 ">Phone</label>
-                              <input type="text" placeholder="Phone" name="phone" value="{{old('phone')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
+                              <input type="text" placeholder="" name="phone" value="{{old('phone')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
                               text-gray-700 "/>
                               <span class="text-red-800">@error('phone') {{$message}} @enderror </span>
                           </div>  
@@ -41,14 +41,14 @@
 
                         <div class="w-60 px-1">
                             <label class="text-gray-600">Email</label>
-                            <input type="text" placeholder="Email" name="email" value="{{old('email')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <input type="text" placeholder="" name="email" value="{{old('email')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-600 "/>
                             <span class="text-red-800">@error('email') {{$message}} @enderror </span>
                         </div>
 
                         <div class="w-60 px-1">
                             <label class="text-gray-600">Position</label>
-                            <input type="text" placeholder="Position" name="position" value="{{old('position')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <input type="text" placeholder="" name="position" value="{{old('position')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-700 ">
                             <span class="text-red-800">@error('position') {{$message}} @enderror </span>
                         </div>

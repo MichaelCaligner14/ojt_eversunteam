@@ -43,6 +43,8 @@ class AuthController extends Controller
         }
     }
 
+
+
     public function loginuser(Request $request)
     {
         $credentials = $request->validate([
@@ -50,9 +52,9 @@ class AuthController extends Controller
             'password'=>'required|min:5|max:16'
 
         ]);
-        $user = User::where('email','=',$request->email)->first();
+        $user = User::where('email',$request->email)->first();
         if($user){
-            if(hash::check($request->password,$user->password)){
+            if(Auth::attempt($credentials)){
                 $request->session()->put('loginID', $user->id);
                 return redirect('home');
             }else{
@@ -79,12 +81,14 @@ class AuthController extends Controller
         return view('home');
     }
 
+    public function logout(Request $request){
+        Auth::logout();
 
-    public function logout(){
-        if (Session::has('loginID')){
-            Session::pull('loginID');
-            return redirect('login');
-        }
+        $request->session()->invalidate('loginID');
+    
+        $request->session()->regenerateToken('loginID');
+    
+        return redirect('login');
     }
 
 

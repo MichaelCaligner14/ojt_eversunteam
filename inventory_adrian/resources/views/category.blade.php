@@ -7,16 +7,13 @@
         <div class="bg-white lg:w-3/4 mx-auto lg:px-16 xs:px-6 sm:px-6 md:px-10 pt-16 justify-between">
 
             @include('layouts.flash')
-
-              
-                
-                <form action="addctg" method="post" class="text-gray-600 font-bold">
-                @csrf
+            <form action="addctg" method="post" class="text-gray-600 font-bold">
+               @csrf
 
               <div class="flex">
-              <div class="md:w-60 px-3 mb-6 md:mb-0">
+              <div class="md:w-60 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-black text-xs font-bold mb-2">
-                    Brand Names
+                    BRAND NAMES
                   </label>
                     <select class="block appearance-none w-full bg-white border border-black-900 text-black 
                     py-2 text-base px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="name">
@@ -30,7 +27,7 @@
                   
                 <div class=" md:w-60 px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-black text-xs font-bold mb-2">
-                    Category
+                    CATEGORY
                   </label>
                     <select class="block appearance-none w-full bg-white border border-black-900 text-black 
                     py-2 text-base px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="category">
@@ -38,12 +35,12 @@
                       <option>Drinks</option>
                     </select>
                 </div>
-                <div class='md:w-60 px-3 mb-6 md:mb-0 mt-5'>
+                <div class='md:w-60 mb-6 md:mb-0 mt-5'>
                 <button class="px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
                 </div>
                 </form>
 
-                <form action="search-record" class="mt-2" method="post">
+                <form action="category" class="mt-2" method="post">
                 @csrf
                     <div>
                       <input type="text" name="name" placeholder="Search ... " class="w-60 rounded border border-black-900 text-black mt-2 mb-2 px-4 py-2" > 

@@ -13,7 +13,7 @@
               <div class="flex">
                   <div class="w-60 px-1">
                       <label class="text-gray-600">NAME</label>
-                      <input type="text" placeholder="Product Name" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                      <input type="text" placeholder="" name="name" value="{{old('name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                       text-gray-700 "/>
                       <span class="text-red-800">@error('name') {{$message}} @enderror </span>
                   </div>
@@ -25,7 +25,7 @@
                   </div>
                   <div class="w-60 px-1">
                       <label class="text-gray-600 ">PRICE</label>
-                      <input type="text" placeholder="Price" name="price" value="{{old('price')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
+                      <input type="text" placeholder="" name="price" value="{{old('price')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
                       text-gray-700 "/>
                       <span class="text-red-800">@error('price') {{$message}} @enderror </span>
                   </div>
