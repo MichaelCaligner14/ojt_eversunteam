@@ -54,7 +54,7 @@ Route::post('/result-page',[resultController::class,'resultPage']) ->name('resul
 Route::get('delete/{id}',[resultController::class,'delete']);
 
 //search
-Route::post('/search-record',[resultController::class,'searchRecord']) ->name('search-record');
+Route::post('/result',[resultController::class,'searchRecord']) ->name('search-record');
 
 
 //doctor
@@ -68,7 +68,7 @@ Route::post('/appoint-page',[appointmentController::class,'appointPage']) ->name
 //payment
 Route::get('/payment',[paymentController::class,'payment']);
 Route::post('/payment-page',[paymentController::class,'paymentPage']) ->name('payment-page');
-Route::post('/search-records',[paymentController::class,'searchRecords']) ->name('search-records');
+Route::post('/payment',[paymentController::class,'searchRecords']) ->name('search-records');
 Route::get('/paymentShow',[paymentController::class,'paymentShow']);
 
 //delete payment
