@@ -16,7 +16,7 @@ class Records extends Controller
                             ->join('empattendance', 'empadd.id', '=', 'empattendance.empAdd_id')
                             ->select('empattendance.id','empattendance.empAdd_id',
                             'empadd.name','empattendance.rate','empattendance.workdays',
-                            'empattendance.empAdd_id','empattendance.initialamount',)
+                            'empattendance.initialamount',)
                             ->get();
 
 
@@ -32,6 +32,9 @@ class Records extends Controller
             $name=$request->get('name');
             $data= DB::table('empAdd')
             ->join('empAttendance','empattendance.empAdd_id','=','empadd.id')
+            ->select('empattendance.id','empattendance.empAdd_id',
+                            'empadd.name','empattendance.rate','empattendance.workdays',
+                            'empattendance.initialamount',)
             ->where('name', 'LIKE', '%' . $name . '%')->paginate(5);
 
         }
