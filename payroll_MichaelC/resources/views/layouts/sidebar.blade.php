@@ -26,7 +26,7 @@
       
         <!-- sidebar -->
         <div  class="sidebar absolute text-white text-base w-64 bg-gray-700 space-y-6 py-7 px-2 inset-y-0 left-0 
-        transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+          transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
 
          <img src="img/admin.png" class=" mx-auto py-4 w-48 h-36">
          <p class="text-center  font-bold">Payroll Manager</p>

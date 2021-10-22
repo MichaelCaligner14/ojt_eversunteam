@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Employeelist;
 use App\Http\Controllers\Attendance;
@@ -41,11 +42,12 @@ Route::get('/attendance',[Attendance::class,'attendance'])->middleware('isLogged
 Route::post('/addattendance',[Attendance::class,'addattendance']);
 
 Route::get('/records',[Records::class,'records'])->middleware('isLoggedIn');
-Route::post('/search-record',[Records::class,'searchRecord']) ->name('search-record');
+Route::post('/records',[Records::class,'searchRecord']) ->name('records');
 Route::get('deleterecord/{id}',[Records::class,'deleterecord']);
 
 Route::get('/salary',[Salary::class,'salary'])->middleware('isLoggedIn');
 Route::post('/addsalary',[Salary::class,'addsalary']);
+Route::post('/salary',[Salary::class,'searchSalary']) ->name('salary');
 Route::get('deletesalary/{id}',[Salary::class,'deletesalary']);
 
 Route::group(['middleware' => 'auth:admin'], function () {

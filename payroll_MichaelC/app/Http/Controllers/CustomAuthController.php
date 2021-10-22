@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Hash;
 use Session;
@@ -39,14 +40,15 @@ class CustomAuthController extends Controller
     {
         
         $credentials = $request->validate([
-            'username' => ['required'],
-            'password' => ['required'],
+            'username'=>'required',
+            'password'=>'required|min:5|max:12'
+    
         ]);
 
   
-        $user = User::where('username','=', $request->username)->first();
+        $user = User::where('username', $request->username)->first();
         if($user){
-            if(Hash::check($request->password, $user->password)){
+            if(Auth::attempt($credentials)){
                 $request->session()->put('loginID',$user->id);
                 return redirect('employee');
             }else{
@@ -57,12 +59,15 @@ class CustomAuthController extends Controller
         }
     }
 
-    public function logout(){
-        if(Session::has('loginID')){
-            Session::pull('loginID');
-            return redirect('login');
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate('loginID');
+    
+        $request->session()->regenerateToken('loginID');
+    
+        return redirect('login');
         }
     }
   
    
-}

@@ -44,12 +44,14 @@ class Salary extends Controller
 
 
         $query = DB::table('empdeductionsalary')->insert([
+            
             'empattendance_id'=>$request->input('empattendance_id'),
             'typeDeduction'=>$request->input('typeDeduction'),
             'deductionAmount'=>$request->input('deductionAmount'),
             'deducted_salary' => $deducted_salary
             
         ]);
+
         if($query){
 
             return back()->with('success', 'Saved successfully!');
@@ -63,9 +65,34 @@ class Salary extends Controller
 
     
     public function deletesalary($id){
+
         $delete = DB::table('empdeductionsalary')
                 ->where('id', $id)
                 ->delete();
                 return redirect('salary');
     }
+
+    public function searchSalary(Request $request){
+    
+        
+        if($request ->isMethod('post'))
+
+        {
+            $cust = DB::table('empdeductionsalary')->count();
+            $id=$request->get('id');
+            $data= DB::table('empdeductionsalary')
+            ->where('id', 'LIKE', '%' . $id . '%')->paginate(5);
+
+        }
+        return view('salary', compact('data','cust'));
+        
+        }
+        
+        public function deleterecord($id){
+
+            $delete = DB::table('empAttendance')
+                    ->where('empAdd_id', $id)
+                    ->delete();
+                    return redirect('records');
+        }
 }
