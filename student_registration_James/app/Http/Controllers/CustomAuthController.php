@@ -24,15 +24,8 @@ class CustomAuthController extends Controller
         return view ("subjects");
     }
     
-    public function stdntregcourselist(){
-        return view ("stdntregcourselist");
-    }
-    public function stdntregi(){
-        return view ("stdntregi");
-    }
-    public function stdntregis(){
-        return view ("stdntregis");
-    }
+
+//Registration
     public function registerUser(Request $request){
         $request->validate([
             'name'=>'required',
@@ -58,7 +51,7 @@ class CustomAuthController extends Controller
 
 
 
-  
+//Login
 /**public function loginUser(Request $request){
         $request->validate([
             'email'=>'required|email',
@@ -79,6 +72,25 @@ class CustomAuthController extends Controller
         }
     }
 */
+public function loginUser(Request $request){
+    $credentials = $request->validate([
+        'email'=>'required|email',
+        'password'=>'required|min:5|max:12'
+
+    ]);
+    $user = User::where('email',$request->email)->first();
+    if($user){
+        if(Auth::attempt($credentials)){
+            $request->session()->put('loginId', $user->id);
+            return redirect('homepage');
+            
+        }else{
+            return back()->with('fail','Password is not matches, Please try again !!'); 
+        }
+    }else{
+        return back()->with('fail','This email is not registered');
+    }
+}
 
 
     public function homepage(){
@@ -92,36 +104,17 @@ class CustomAuthController extends Controller
 
 
 
-    public function logout(){
-        if(Session::has ('loginId')){
-            Session::pull('loginId');
-            return redirect('welcome');
+public function logout(){
+    Auth::logout();
+    $request->session()->invalidate('loginId');
+    $request->session()->regenerateToken('loginId');
+        
+        return redirect('welcome');
 
-    }
 }
 
 
-public function authenticate(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            
-            $request->session()->regenerate();
-
-            return redirect()->intended('homepage');
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
-    }  
 }
-
-
 
 
 
