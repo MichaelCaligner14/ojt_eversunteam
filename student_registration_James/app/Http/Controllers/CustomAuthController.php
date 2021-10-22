@@ -52,26 +52,7 @@ class CustomAuthController extends Controller
 
 
 //Login
-/**public function loginUser(Request $request){
-        $request->validate([
-            'email'=>'required|email',
-            'password'=>'required|min:5|max:12'
 
-        ]);
-        $user = User::where('email',$request->email)->first();
-        if($user){
-            if(Hash::check($request->password,$user->password)){
-                $request->session()->put('loginId', $user->id);
-                return redirect('homepage');
-                
-            }else{
-                return back()->with('fail','Password is not matches, Please try again !!'); 
-            }
-        }else{
-            return back()->with('fail','This email is not registered');
-        }
-    }
-*/
 public function loginUser(Request $request){
     $credentials = $request->validate([
         'email'=>'required|email',
@@ -103,7 +84,7 @@ public function loginUser(Request $request){
 
 
 
-
+//Logout
 public function logout(){
     Auth::logout();
     $request->session()->invalidate('loginId');
