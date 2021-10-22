@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Patient;
 use Hash;
 use Session;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+
 
 
 class LogInController extends Controller
@@ -49,51 +49,40 @@ class LogInController extends Controller
 
     public function loginUser (Request $request)
     {
-        // $credentials = $request -> validate ([
-            
-        //     'username' => 'required',
-        //     'password' => 'required|min:5|max:12'
-        //     ]);
-           
-        //          if (Auth::attempt($credentials)) {
-        //             $request->session()->regenerate();
     
-        //              return redirect()->intended('index');
-        //          }
-        //          return back()->withErrors([
-        //              'username' => 'The provided credentials do not match our records.',
-        //          ]);
+             $credentials = $request -> validate ([
             
-
-            $request -> validate ([
-            
-                 'username' => 'required',
+                   'username' => 'required',
              'password' => 'required|min:5|max:12'
-                 ]);
-                 $user = User::where('username','=', $request -> username) ->first();
+               ]);
+                $user = User::where('username','=', $request -> username) ->first();
                  if($user){
-                     if(Hash::check($request->password, $user->password)){
+                      if(Auth::attempt($credentials)){
                          $request ->session() ->put('loginId', $user->id);
                         return redirect('index');
     
-                     }else {
+                    }else {
                         return back() ->with('fail',' Wrong Password.');
                     }
 
-             }else{
-                    return back() ->with('fail',' This username is not registered.');
+               }else{
+                     return back() ->with('fail',' This username is not registered.');
                }
-
 
     }
     public function index(){
         return view ("auth/index");
     }
-    public function logout(){
-        if (Session::has('loginId')) {
-            Session::pull('loginId');
-            return redirect('login');
-        }
+
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate('loginId');
+    
+        $request->session()->regenerateToken('loginId');
+    
+        return redirect('login');
     }
 
     
@@ -101,5 +90,7 @@ class LogInController extends Controller
    
 
 }
+
+
 
 
