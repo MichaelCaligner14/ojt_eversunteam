@@ -34,6 +34,8 @@ Route::get('/dashboard', [CustomAuthController::class,'dashboard']);
 
 Route::post('/register-user', [CustomAuthController::class,'registerUser']) ->name ('register-user');
 
+Route::post('/homepage', [CustomAuthController::class,'loginUser']) ->name ('homepage');
+
 //Route::post('/authenticate',[CustomAuthController::class,'authenticate'])->name('authenticate');
 
 //Route::post('/authenticate',function(){
