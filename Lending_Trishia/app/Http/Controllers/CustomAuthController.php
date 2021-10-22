@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Hash;
 use Session;
+use App\Models\LoanReports;
 
 class CustomAuthController extends Controller
 {
@@ -51,7 +53,14 @@ class CustomAuthController extends Controller
         }
     }
     public function home(){
-        return view('home');
+
+        $cust = DB::table('borrowers')->count();
+        $act = LoanReports::where('approveStatus','=','Active')->count();
+        
+        $rcv = DB::table('payments')
+                ->sum(\DB::raw('payAmount'));
+
+        return view('home', compact('cust', 'act','rcv'));
     }
     public function logout()
     {
@@ -67,10 +76,19 @@ class CustomAuthController extends Controller
         }
         return view('user',compact('data'));
     }
-    public function loans(){
-        return view('loans');
+    
+    public function loanreport(){
+        return view('loanreport');
     }
 
+    public function borrowers(){
+        return view('borrowers');
+    }
     
-
+    public function sample(){
+        return view("components.sample");
+    }
+    
+   
+    
 }
