@@ -55,44 +55,48 @@
                 <form action="{{ route('update') }}" method="post">
                     @csrf
 
+                    <h6 class="text-blueGray-700 text-md font-semibold text-gray-500">
+                            Personal Information
+                        </h6>
                     <div class="flex">
                         <input type="hidden" name="cid" value="{{$info->id}}">
                         <div class="w-1/2 px-1">
                             <label class="text-gray-600 font-light">Firstname</label>
-                            <input type="text" placeholder="" name="fname" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md
+                            <input type="text" placeholder="" name="fname" class="w-full mt-2 mb-2 px-4 lg:py-1.5 xs:py-1 sm:py-1 border rounded-md
                             text-gray-600 focus:outline-none focus:border-green-500" value="{{$info->fname}}"/>
                         </div>
                     
                         <div class="w-1/2 px-1">
                             <label class="text-gray-600 font-light">Lastname</label>
-                            <input type="text" placeholder="" name="lname" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 md:py-1 sm:py-1 border rounded-md
+                            <input type="text" placeholder="" name="lname" class="w-full mt-2 mb-2 px-4 lg:py-1.5 xs:py-1 md:py-1 sm:py-1 border rounded-md
                             text-gray-700 focus:outline-none focus:border-green-500" value="{{$info->lname}}"/>
                         </div>
                         <div class="w-12 px-1">
                             <label class="text-gray-600 font-light">M.I</label>
-                            <input type="text" placeholder=""  name="mname" class="w-full mt-2 mb-2 px-2 lg:py-2 xs:py-1 sm:py-1 border rounded-md
+                            <input type="text" placeholder=""  name="mname" class="w-full mt-2 mb-2 px-2 lg:py-1.5 xs:py-1 sm:py-1 border rounded-md
                             text-gray-700 focus:outline-none focus:border-green-500" value="{{$info->mname}}"/>
                         </div>
                     </div>
 
                     <div class=" w-full px-1 mt-0">
                         <label class="text-gray-600 font-light ">Address</label>
-                        <input type="text" placeholder=""  name="address" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md
+                        <input type="text" placeholder=""  name="address" class="w-full mt-2 mb-2 px-4 lg:py-1.5 xs:py-1 sm:py-1 border rounded-md
                         text-gray-600 focus:outline-none focus:border-green-500"  value="{{$info->address}}"/>
                     </div>
 
                     <div class="flex">
                         <div class=" w-1/2 px-1 mt-0">
                             <label class="text-gray-600 font-light ">Email Address</label>
-                            <input type="text" placeholder=" "  name="email" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md
+                            <input type="text" placeholder=" "  name="email" class="w-full mt-2 mb-2 px-4 lg:py-1.5 xs:py-1 sm:py-1 border rounded-md
                              text-gray-600 focus:outline-none focus:border-green-500" value="{{$info->email}}"/>
                         </div>
                         <div class=" w-1/2 px-1 mt-0">
                             <label class="text-gray-600 font-light ">Contact No</label>
-                            <input type="text" placeholder=""  name="contactNo" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md
+                            <input type="text" placeholder=""  name="contactNo" class="w-full mt-2 mb-2 px-4 lg:py-1.5 xs:py-1 sm:py-1 border rounded-md
                             text-gray-600 focus:outline-none focus:border-green-500" value="{{$info->contactNo}}"/>
                         </div>
                     </div>
+        
                     </div> 
                     </div>
                     </div>

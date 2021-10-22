@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-<title>Loan</title>
+<title>Loan Form</title>
 @stop
 @section('sidebar')
 
@@ -35,6 +35,12 @@
                             <label class="text-gray-600 font-semibold">ID No.</label>
                             <input type="text" placeholder="" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md
                                 text-gray-600 focus:outline-none focus:border-green-500" name="borrowers_id"/>
+                            </div>
+
+                            <div class=" w-1/2 px-1 mt-2">
+                            <label class="text-gray-600 font-semibold">Date</label>
+                            <input type="date" placeholder="" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md
+                                text-gray-600 focus:outline-none focus:border-green-500" name="loanDate"/>
                             </div>
                         </div>
                     
@@ -97,25 +103,7 @@
                         </div>
                     <hr class="-mx-18 mt-6">
 
-                    <div class="flex">
-                    <div class=" w-1/2 px-1 mt-6">
-                            <label class="text-gray-600 font-semibold ">Loan Request Status</label>
-                                <select class="form-control w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md
-                                text-gray-600 focus:outline-none focus:border-green-500" id="" name="loanrqStatus">
-                                <option value="Pending">Pending</option>
-                                
-                            </select>
-                        </div>
-                        <div class=" w-1/2 px-1 mt-6">
-                            <label class="text-gray-600 font-semibold ">Status</label>
-                                <select class="form-control w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md
-                                text-gray-600 focus:outline-none focus:border-green-500" id="" name="status">
-                                <option value="Inactive">Inactive</option>
-                                
-                            </select>
-                        </div>
-                    </div>
-                        
+                    
                     </div>
                     </div>
                     <div class="w-3/4 mx-auto py-6 flex justify-end">

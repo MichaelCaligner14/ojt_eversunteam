@@ -9,11 +9,11 @@
     @stop
 
             <div class="p-8 ">
-                <h1 class="font-fourth font-bold text-3xl tracking-widest">BORROWERS</h1>
-            </div>
+            <h1 class="font-fourth font-bold text-3xl tracking-widest">BORROWERS</h1>
+            
 
 
-            <div class="mx-16">
+            <div class="">
                  @if(Session::has('success'))
                     <div class="bg-green-100 border border-green-400 mb-4x text-green-700 px-4 py-3 rounded relative" role="alert">{{ Session::get('success')}}</div>
                     @endif
@@ -21,9 +21,34 @@
                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">{{ Session::get('fail')}}</div>
                     @endif
 
-            <button class="modal-open mb-2 bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-md">
-                ADD DATA </button>
-               
+                <div class="flex justify-between mt-2">
+
+                    <form action="search-borrower" method="post">
+                        @csrf
+                        <div class=" flex justify-start">      
+                            <div>
+                            <input type="text" name="id" 
+                                    class="lg:w-full sm:w-1/2 inline-block shadow-md mb-2 lg:px-4 xs:px-2 py-1 border rounded-md text-gray-600 focus:outline-none focus:border-green-500"/>
+                            </div>
+                            <div>
+                                <button type="submit" class="bg-blue-700 border rounded-md lg:px-10 xs:px-2 py-1 ml-2 text-white ">Search</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div>
+                    <button class="modal-open mb-1 lg:text-sm xs:text-xs bg-green-700 border border-gray-500 hover:border-indigo-500 text-white hover:text-indigo-500 font-bold py-1.5 px-4 rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4  inline-block" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg> NEW BORROWER</button>
+
+                        
+                    
+                   
+                    
+                    </div>
+
+                </div>  
             </div>
 
 
@@ -95,7 +120,7 @@
 
              <!--Footer-->
                 <div class="flex justify-end pt-2">
-                    <button type="submit" class="px-4 bg-transparent p-3 rounded-lg bg-blue-800 hover:bg-indigo-400 text-white mr-2">SAVE</button>
+                    <button type="submit" class="px-4 bg-transparent p-3 rounded-lg bg-blue-800 hover:bg-indigo-400 text-white mr-2">UPDATE</button>
                     <button class="modal-close px-4 bg-gray-800 p-3 rounded-lg text-white hover:bg-indigo-400">Close</button>
                </div>
 
@@ -104,59 +129,65 @@
             </div>
         </div>
           
-
-                <div class="mx-16 mb-24"> 
+        
+                <div class=" mb-24 overflow-y-auto h-80"> 
+                    
                     <table id="datatable" class="border-collapse shadow-md w-full">
                     <thead>
                         <tr>
-                            <th class="p-3 font-bold text-sm uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">#</th>
-                            <th class="p-3 font-bold text-sm uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Fullname</th>
-                            <th class="p-3 font-bold text-sm uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Address</th>
-                            <th class="p-3 font-bold text-sm uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Email Address</th>
-                            <th class="p-3 font-bold text-sm uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Contact No.</th>
-                            <th class="p-3 font-bold text-sm uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Manage</th>
+                            <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">#</th>
+                            <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Fullname</th>
+                            <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Address</th>
+                            <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Email Address</th>
+                            <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Contact No.</th>
+                            <th class="p-3 font-bold text-xs uppercase bg-gray-700 text-white border border-gray-300 hidden lg:table-cell">Manage</th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($list as $item)
                     <tr class="idCust bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                            <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                            <td class="w-full lg:w-auto p-1.5 text-gray-800 text-center border text-xs border-b block lg:table-cell  lg:static">
                                 <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">#</span>
                                 {{$item->id}}
                             </td>
                             
-                            <td class="lname w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                            <td class="lname w-full lg:w-auto p-1.5 text-gray-800 text-center border text-xs border-b block lg:table-cell  lg:static">
                                 <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Name</span>
                                 {{$item->lname}}, {{$item->fname}} {{$item->mname}}.
                             </td>
                             
-                            <td class="address w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                            <td class="address w-full lg:w-auto p-1.5 text-gray-800 text-center border text-xs border-b block lg:table-cell  lg:static">
                                 <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Username</span>
                                 {{$item->address}}
                             </td>
-                            <td class="email w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                            <td class="email w-full lg:w-auto p-1.5 text-gray-800 text-center border text-xs border-b block lg:table-cell  lg:static">
                                 <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Name</span>
                                 {{$item->email}}
                             </td>
-                            <td class="contactNo w-full lg:w-auto p-1.5 text-gray-800 text-center border text-sm border-b block lg:table-cell  lg:static">
+                            <td class="contactNo w-full lg:w-auto p-1.5 text-gray-800 text-center border text-xs border-b block lg:table-cell  lg:static">
                                 <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Username</span>
                                 {{$item->contactNo}}
                                 
                             </td>
                       
-                            <td class="w-full lg:w-auto p-1.5 text-gray-800  border border-b text-sm text-center lg:table-cell lg:static">
+                            <td class="w-full lg:w-auto p-1.5 text-gray-800  border border-b text-xs text-center lg:table-cell lg:static">
                                 <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
-
-                                <a href="edit/{{ $item->id }}"  class=" text-blue-400 hover:text-blue-600 underline">
+                                
+                         
+                                <a href="edit/{{ $item->id }}"  class=" text-blue-400 hover:text-blue-600 underline px-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                                </svg></a>
-                                
-                                <a href="delete/{{$item->id}}"  class="text-blue-400 hover:text-blue-600 underline pl-6">
+                                </svg></a>              
+                                <a href="delete/{{$item->id}}"  class="text-blue-400 hover:text-blue-600 underline">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block " viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                </svg></a>
+                                </svg></a>                              
+                                
+                                
 
+                               
+
+                               
                             </td>
                         </tr>
                         @endforeach
@@ -166,6 +197,7 @@
             </div>
         </div>
     </div>
+</div>
 
 
 
