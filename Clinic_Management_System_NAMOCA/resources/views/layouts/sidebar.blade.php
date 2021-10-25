@@ -13,7 +13,7 @@
 </head>
 <header class="bg-gray-800 py-1 pr-8 text-gray-300 hover:text-white text-right">
 <i class="px-2 fas fa-clinic-medical"></i>CLINIC MANAGEMENT SYSTEM
-</header>
+</header>                  
 
 
 <body class="bg-gray-600" >
@@ -28,6 +28,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
 </button>
+
 
 
 
@@ -53,9 +54,6 @@
                         <li class="nav-item rounded-sm p-2 hover:bg-gray-500    active">
                             <i class="text-white mr-4 ml-3 hover:text-black fas fa-hospital-user"></i> <a class=" hover:text-black nav-link text-white "href="{{ url('patient') }}">Patients</a>
                         </li>
-                        <li class="nav-item rounded-sm p-2 hover:bg-gray-500  active">
-                            <i class="text-white mr-6 ml-3 hover:text-black fas fa-calendar-check"></i><a class=" hover:text-black nav-link text-white"href="{{ url('appointment') }}">Appointment</a>
-                        </li>
                 
                         <li class="nav-item rounded-sm p-2 hover:bg-gray-500 active">
                             <i class="text-white mr-6 ml-3 hover:text-black fas fa-user-md"></i><a class="hover:text-black nav-link text-white"href="{{ url('doctor') }}">Doctors</a>
@@ -79,7 +77,7 @@
             <i class="ml-4 hover:text-black fas fa-wifi"></i>
             <i class="ml-4 hover:text-black fab fa-bluetooth-b"></i>
             <i class="ml-4 hover:text-black fas fa-volume-up"></i>
-            <a href="{{ url('login') }}"><i class="ml-4 hover:text-black fas fa-power-off"></i></a>
+            <a href="{{ url('logout') }}"><i class="ml-4 hover:text-black fas fa-power-off"></i></a>
 
         </div> 
     </div>

@@ -45,6 +45,7 @@ class CreatePatientResultsTable extends Migration
             $table -> string ('change');
             $table->timestamps();
         });
+        
 
 
     }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+use App\Models\user;
 use App\Models\Patient;
 use Hash;
 use Session;
@@ -27,14 +27,16 @@ class LogInController extends Controller
     public function signUser(Request $request){
 
         $request -> validate ([
-        'fullname' => 'required',
+        'firstname' => 'required',
+        'lastname' => 'required',
         'address' => 'required',
-        'email' => 'required',
+        'email' => 'required|email|unique:users',
         'username' => 'required',
         'password' => 'required|min:5|max:12'
         ]);
         $user = new User();
-        $user ->fullname = $request ->fullname;
+        $user ->firstname = $request ->firstname;
+        $user ->lastname = $request ->lastname;
         $user ->address = $request ->address;
         $user ->email = $request ->email;
         $user ->username = $request ->username;

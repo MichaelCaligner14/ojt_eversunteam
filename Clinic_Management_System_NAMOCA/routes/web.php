@@ -60,10 +60,8 @@ Route::post('/result',[resultController::class,'searchRecord']) ->name('search-r
 //doctor
 Route::get('/doctor',[resultController::class,'doctor']);
 
-//appointment
 
-Route::get('/appointment',[appointmentController::class,'appointment']);
-Route::post('/appoint-page',[appointmentController::class,'appointPage']) ->name('appoint-page');
+
 
 //payment
 Route::get('/payment',[paymentController::class,'payment']);

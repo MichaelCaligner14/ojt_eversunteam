@@ -33,8 +33,12 @@
 
               @csrf
             <div class="flex flex-col mt-2 bg-white p-5 rounded shadow-md">
-                <label  for="fullname" class="text-sm my-2">Fullname </label>
-                <input type="text" name="fullname" value="{{old('fullname')}}" required class="bg-gray-100 border-2 border-gray-200 text-xl rounded">
+                <label  for="FirstName" class="text-sm my-2">FirstName </label>
+                <input type="text" name="firstname" value="{{old('firstname')}}" required class="bg-gray-100 border-2 border-gray-200 text-xl rounded">
+
+                <label  for="LastName" class="text-sm my-2">LastName </label>
+                <input type="text" name="lastname" value="{{old('lastname')}}" required class="bg-gray-100 border-2 border-gray-200 text-xl rounded">
+               
                
 
                 <label for="address" class="text-sm my-2">Address </label>
@@ -42,7 +46,7 @@
                
 
                 <label for="email" class="text-sm my-2">Email </label>
-                <input type="text" name="email" value="{{old('email')}}"  class="bg-gray-100 border-2 border-gray-200 text-xl rounded">
+                <input type="email" name="email" value="{{old('email')}}"  class="bg-gray-100 border-2 border-gray-200 text-xl rounded">
                
 
                 <label for="username" class="text-sm my-2">Username </label>
