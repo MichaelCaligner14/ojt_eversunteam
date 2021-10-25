@@ -38,7 +38,7 @@
                 <input type="password" name="password" value="{{old('password')}}" required class="bg-gray-100 border-2 border-gray-200 text-xl rounded">
                 <div class="flex justify-between mt-4 mb-10">
                     <div>
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     <class="text-xs"> I'm not a robot </>
                     </div>
                     <div>
