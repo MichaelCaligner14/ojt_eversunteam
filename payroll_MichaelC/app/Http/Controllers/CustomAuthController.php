@@ -22,7 +22,7 @@ class CustomAuthController extends Controller
     {
         $request->validate([
             'username'=>'required',
-            'password'=>'required|min:5|max:20',
+            'password'=>'required|min:8|max:20',
             'email'=>'required|email|unique:users'
         ]);
         $user = new User();
@@ -36,12 +36,16 @@ class CustomAuthController extends Controller
             return back()->with('fail','Something wrong');
         }
     }
+
+    public function __construct(){
+        $this->middleware(['auth','verified']);
+    }
     public function loginUser(Request $request)
     {
         
         $credentials = $request->validate([
             'username'=>'required',
-            'password'=>'required|min:5|max:12'
+            'password'=>'required|min:8|max:20'
     
         ]);
 
@@ -58,6 +62,7 @@ class CustomAuthController extends Controller
             return back()->with('fail','username not yet Registered');
         }
     }
+
 
     public function logout(Request $request){
         Auth::logout();
