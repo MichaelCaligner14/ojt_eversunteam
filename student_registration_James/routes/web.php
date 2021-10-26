@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CustomAuthController;
@@ -91,3 +93,12 @@ Route::middleware('auth:sanctum')->get('/chat/rooms', [ChatController::class,'ro
 Route::middleware('auth:sanctum')->get('/chat/room/{roomId}/messages', [ChatController::class,'messages']);
 
 Route::middleware('auth:sanctum')->post('/chat/room/{roomId}/message', [ChatController::class,'newMessage']);
+
+
+
+//Email
+Route::post('/email/verification-notification', function (Request $request) {
+  $request->user()->sendEmailVerificationNotification();
+
+  return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
