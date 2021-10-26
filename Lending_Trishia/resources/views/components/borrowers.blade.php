@@ -9,7 +9,7 @@
     @stop
 
             <div class="p-8 ">
-            <h1 class="font-fourth font-bold text-3xl tracking-widest">BORROWERS</h1>
+            <h1 class="font-fourth font-bold text-3xl tracking-widest mb-10">BORROWERS</h1>
             
 
 
@@ -27,7 +27,7 @@
                         @csrf
                         <div class=" flex justify-start">      
                             <div>
-                            <input type="text" name="id" 
+                            <input type="text" name="id" placeholder="ID"
                                     class="lg:w-full sm:w-1/2 inline-block shadow-md mb-2 lg:px-4 xs:px-2 py-1 border rounded-md text-gray-600 focus:outline-none focus:border-green-500"/>
                             </div>
                             <div>
@@ -70,6 +70,7 @@
                 <!--Title-->
                 <div class="flex justify-between items-center pb-3 mb-6">
                 <p class="text-md font-bold">PERSONAL INFORMATION</p>
+                
                 <div class="modal-close cursor-pointer z-50">
                     <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                     <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
@@ -82,7 +83,7 @@
                 <!--Body-->
                 <form action="add" method="post">
                 @csrf
-                    <div class="flex">
+                    <div class="flex mt-10">
                         <div class="w-1/2 px-1">
                             <label class="text-gray-600 font-light">Firstname</label>
                             <input type="text" placeholder="" name="fname" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md
@@ -106,7 +107,7 @@
                         text-gray-600 focus:outline-none focus:border-green-500"/>
                     </div>
 
-                    <div class="flex">
+                    <div class="flex mb-10">
                         <div class=" w-1/2 px-1 mt-0">
                             <label class="text-gray-600 font-light ">Email Address</label>
                             <input type="text" placeholder=" "  name="email" class="w-full mt-2 mb-2 px-4 lg:py-2 xs:py-1 sm:py-1 border rounded-md text-gray-600 focus:outline-none focus:border-green-500"/>
@@ -120,8 +121,8 @@
 
              <!--Footer-->
                 <div class="flex justify-end pt-2">
-                    <button type="submit" class="px-4 bg-transparent p-3 rounded-lg bg-blue-800 hover:bg-indigo-400 text-white mr-2">UPDATE</button>
-                    <button class="modal-close px-4 bg-gray-800 p-3 rounded-lg text-white hover:bg-indigo-400">Close</button>
+                    <button type="submit" class="px-6 bg-transparent p-2 rounded-lg bg-blue-800 hover:bg-indigo-400 text-white mr-2">Save</button>
+                    <button class="modal-close px-6 bg-gray-800 p-2 rounded-lg text-white hover:bg-indigo-400">Close</button>
                </div>
 
                 </form>
