@@ -30,6 +30,8 @@ Route::post('/register-user',[CustomAuthController::class,'registerUser'])->name
 Route::post('/login-user',[CustomAuthController::class,'loginUser'])->name('login-user');
 Route::get('/logout',[CustomAuthController::class,'logout']);
 
+Auth::routes(['verify' => true]);
+
 Route::get('/employee',[Employeelist::class,'employee'])->middleware('isLoggedIn');
 Route::post('/add',[Employeelist::class,'add']);
 Route::get('delete/{id}',[Employeelist::class,'delete']);
