@@ -18,7 +18,8 @@ class patientController extends Controller
     }
     public function patview(){
         $data = array(
-            'list' => DB::table('patient')->get()
+            'list' => DB::table('patient')
+            ->get()
         );
         return view ('patview', $data);
     }

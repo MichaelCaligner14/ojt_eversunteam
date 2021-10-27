@@ -22,6 +22,8 @@ class LogInController extends Controller
 
     }
 
+
+
    
 
     public function signUser(Request $request){
@@ -87,6 +89,10 @@ class LogInController extends Controller
         return redirect('login');
     }
 
+    public function handle()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
     
    
    
