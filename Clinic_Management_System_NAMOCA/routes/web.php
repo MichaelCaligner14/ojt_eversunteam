@@ -6,6 +6,7 @@ use App\Http\Controllers\patientController;
 use App\Http\Controllers\resultController;
 use App\Http\Controllers\appointmentController;
 use App\Http\Controllers\paymentController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,37 @@ Route::get('/login',[LogInController::class,'login']);
 Route::get('/sign',[LogInController::class,'sign']);
 Route::post('/sign-user',[LogInController::class,'signUser']) ->name('sign-user');
  Route::post('/login-user',[LogInController::class,'loginUser']) ->name('login-user');
+
+
+
+
+
+
+
+ Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/index');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+
+
+
+
+
+
+
 
 
 
