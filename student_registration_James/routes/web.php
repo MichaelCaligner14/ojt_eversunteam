@@ -34,7 +34,7 @@ Route::get('/about', [CustomAuthController::class,'about']);
 
 Route::get('/dashboard', [CustomAuthController::class,'dashboard']);
 
-Route::post('/register-user', [CustomAuthController::class,'registerUser']) ->name ('register-user');
+Route::post('/email', [CustomAuthController::class,'registerUser']) ->name ('email');
 
 Route::post('/homepage', [CustomAuthController::class,'loginUser']) ->name ('homepage');
 
@@ -95,10 +95,12 @@ Route::middleware('auth:sanctum')->get('/chat/room/{roomId}/messages', [ChatCont
 Route::middleware('auth:sanctum')->post('/chat/room/{roomId}/message', [ChatController::class,'newMessage']);
 
 
-
+Auth::routes(['verify' => true]);
 //Email
-Route::post('/email/verification-notification', function (Request $request) {
-  $request->user()->sendEmailVerificationNotification();
+Route::get('/email', function(){
+  Mail::to('davaoojt_4@agentsofvalue.com')->send(new WelcomeMail());
+  return new WelcomeMail();
+});
 
-  return back()->with('message', 'Verification link sent!');
-})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+ 
