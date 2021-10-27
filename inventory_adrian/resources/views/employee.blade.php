@@ -22,50 +22,43 @@
                     @csrf
                     
                           <div class="w-60 px-1">
-                              <label class="text-gray-600"> First Name</label>
-                              <input type="text" placeholder="" name="fname" value="{{old('fname')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                              <input type="text" placeholder="First Name" name="fname" value="{{old('fname')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                               text-gray-700"/>
-                              <span class="text-red-800">@error('name') {{$message}} @enderror </span>
+                              <span class="text-red-800">@error('fname') {{$message}} @enderror </span>
 
                           </div>
 
                           <div class="w-60 px-1">
-                              <label class="text-gray-600">Last Name</label>
-                              <input type="text" placeholder="" name="lname" value="{{old('lname')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                              <input type="text" placeholder="Last Name" name="lname" value="{{old('lname')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                               text-gray-700"/>
-                              <span class="text-red-800">@error('name') {{$message}} @enderror </span>
+                              <span class="text-red-800">@error('lname') {{$message}} @enderror </span>
 
                           </div>
 
                           <div class="w-60 px-1">
-                              <label class="text-gray-600 ">Phone</label>
-                              <input type="text" placeholder="" name="phone" value="{{old('phone')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
+                              <input type="text" placeholder="Phone" name="phone" value="{{old('phone')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
                               text-gray-700 "/>
                               <span class="text-red-800">@error('phone') {{$message}} @enderror </span>
                           </div>  
                           </div>
-
   
                       <div class="flex">
                         <div class="w-60 px-1">
-                            <label class="text-gray-600">Email</label>
-                            <input type="text" placeholder="" name="email" value="{{old('email')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <input type="text" placeholder="Email" name="email" value="{{old('email')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-600 "/>
                             <span class="text-red-800">@error('email') {{$message}} @enderror </span>
                         </div>
 
                         <div class="w-60 px-1">
-                            <label class="text-gray-600">Position</label>
-                            <input type="text" placeholder="" name="position" value="{{old('position')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                            <input type="text" placeholder="Position" name="position" value="{{old('position')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                             text-gray-700 ">
                             <span class="text-red-800">@error('position') {{$message}} @enderror </span>
                         </div>
-                        
-                        <div class="">
-                          <button type="submit" class="lg:w-60 xs:w-24 sm:w-24 md:w-24 mt-8 mb-2 px-4 py-2 border-black-900 rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
-                        </div>
+                      
+                          <button type="submit" class="lg:w-60 xs:w-24 sm:w-24 md:w-24 mt-2 mb-2 px-4 py-2 border-black-900 rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
+
                     </div>
-  
+                  
                 </form>
   
 

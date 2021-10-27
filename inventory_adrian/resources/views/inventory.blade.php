@@ -11,25 +11,22 @@
 
                     <div class="flex">
                   <div class="w-60 px-1">
-                      <label class="text-gray-600">PRODUCT NAME</label>
-                      <input type="text" placeholder="" name="product_name" value="{{old('product_name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
+                      <input type="text" placeholder="Product Name" name="product_name" value="{{old('product_name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                       text-gray-700 "/>
                       <span class="text-red-800">@error('name') {{$message}} @enderror </span>
                   </div>
                   <div class="w-60 px-1">
-                      <label class="text-gray-600 ">ITEMS</label>
-                      <input type="text" placeholder="" name="items" value="{{old('items')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
+                      <input type="text" placeholder="Items" name="items" value="{{old('items')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
                       text-gray-700 "/>
                       <span class="text-red-800">@error('items') {{$message}} @enderror </span>
                   </div>
                   <div class="w-60 px-1">
-                      <label class="text-gray-600 ">QUANTITY</label>
-                      <input type="text" placeholder="" name="Inventory_quantity" value="{{old('Inventory_quantity')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
+                      <input type="text" placeholder="Quantity" name="Inventory_quantity" value="{{old('Inventory_quantity')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
                       text-gray-700 "/>
                       <span class="text-red-800">@error('Inventory_quantity') {{$message}} @enderror </span>
                   </div>
                   <div class="px-2 mt-0">
-                    <button class="lg:w-24 xs:w-24 sm:w-24 md:w-24 mt-8 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
+                    <button class="lg:w-24 xs:w-24 sm:w-24 md:w-24 mt-2 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
                 </div>
 
                 
