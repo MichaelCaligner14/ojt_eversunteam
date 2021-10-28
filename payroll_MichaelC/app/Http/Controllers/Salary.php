@@ -8,15 +8,15 @@ use App\Models\Employee;
 
 class Salary extends Controller
 {
-    
     public function salary(){
         
         $cust = DB::table('empdeductionsalary')->count();
         $data = DB::table('empadd')
             ->join('empattendance', 'empadd.id', '=', 'empattendance.empAdd_id')
             ->join('empdeductionsalary', 'empattendance.id', '=', 'empdeductionsalary.empattendance_id')
-            ->select('empdeductionsalary.id','empadd.name','empattendance.initialamount',
-            'empdeductionsalary.empattendance_id','empdeductionsalary.deductionAmount', 'empdeductionsalary.deducted_salary')
+            ->select('empdeductionsalary.id','empadd.fname','empadd.lname','empattendance.initialamount',
+            'empdeductionsalary.empattendance_id','empdeductionsalary.deductionAmount','empdeductionsalary.typeDeduction', 'empdeductionsalary.deducted_salary')
+            ->orderBy('empdeductionsalary.created_at', 'desc')
             ->get();
 
       return view('salary',compact('data','cust'));
@@ -79,9 +79,11 @@ class Salary extends Controller
 
         {
             $cust = DB::table('empdeductionsalary')->count();
-            $id=$request->get('id');
-            $data= DB::table('empdeductionsalary')
-            ->where('id', 'LIKE', '%' . $id . '%')->paginate(5);
+            $lname=$request->get('lname');
+            $data= DB::table('empadd')
+            ->join('empattendance', 'empadd.id', '=', 'empattendance.empadd_id')
+            ->join('empdeductionsalary', 'empattendance.id', '=', 'empdeductionsalary.empattendance_id')
+            ->where('lname', 'LIKE', '%' . $lname . '%')->paginate(5);
 
         }
         return view('salary', compact('data','cust'));
