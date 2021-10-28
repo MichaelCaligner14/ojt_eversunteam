@@ -48,7 +48,6 @@ class InventoryController extends Controller
                 ->first();
         $data = [
             'Info' => $row,
-            'Title'=>'Edit',
         ];
         return view('editinventory', $data);
     }

@@ -13,7 +13,9 @@ class OrderController extends Controller
     {
         
         $data = array(
-            'list'=>DB::table('orders')->get()
+            'list'=>DB::table('orders')
+            ->latest()
+            ->get()
         );
         return view('order',$data);
     }
@@ -59,7 +61,6 @@ class OrderController extends Controller
         ]);
 
         if($query){
-
             $updateOrders = DB::table('inventories')
             ->where('id', $inventories_id)
             ->update(['total_quantity' => $deducted_quantity]);
@@ -79,7 +80,6 @@ class OrderController extends Controller
                 ->first();
         $data = [
             'Info' => $row,
-            'Title'=>'Edit',
         ];
         return view('edit', $data);
     }

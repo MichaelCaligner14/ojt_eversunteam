@@ -20,14 +20,16 @@ class EmployeeController extends Controller
     {
 
         $request->validate([
-            'name'=>'required',
-            'phone'=>'required',
+            'fname'=>'required',
+            'lname'=>'required',
+            'phone'=>'required|min:12|max:12',
             'email'=>'required',
             'position'=>'required',
         ]);
 
         $query = DB::table('employees')->insert([
-            'name'=>$request->input('name'),
+            'fname'=>$request->input('fname'),
+            'lname'=>$request->input('lname'),
             'phone'=>$request->input('phone'),
             'email'=>$request->input('email'),
             'position'=>$request->input('position'),
@@ -47,7 +49,6 @@ class EmployeeController extends Controller
                 ->first();
         $data = [
             'item' => $row,
-            'Title'=>'Edit',
         ];
         return view('empedit', $data);
     }
@@ -57,7 +58,8 @@ class EmployeeController extends Controller
         $updating = DB::table('employees')
                         ->where('id',$request->input('empid'))
                         ->update([
-                            'name'=>$request->input('name'),
+                            'fname'=>$request->input('fname'),
+                            'lname'=>$request->input('lname'),
                             'phone'=>$request->input('phone'),
                             'email'=>$request->input('email'),
                             'position'=>$request->input('position'),

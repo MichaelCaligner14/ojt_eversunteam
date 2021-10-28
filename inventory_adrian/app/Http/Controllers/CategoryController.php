@@ -43,7 +43,7 @@ class CategoryController extends Controller
                 ->first();
         $data = [
             'Info' => $row,
-            'Title'=>'Edit',
+
         ];
         return view('editctg', $data);
     }

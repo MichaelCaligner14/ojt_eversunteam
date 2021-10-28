@@ -1,6 +1,11 @@
 @extends('layouts.navbar')
 
 @section('content')
+<img
+      src="img/order.png"
+      class="fixed hidden lg:block ml-56 inset-0 h-full"
+      style="z-index: -1;"
+    />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="itempricefunction.js"></script>
         <script src="script.js"></script>
@@ -24,7 +29,7 @@
                           <select class="block appearance-none w-full bg-white border border-black-900 text-black
                     py-2 text-base px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="inventories_id" type="number">
                     <option value="" selected disable>--Select Id--</option>
-                    <option>1</option>
+                      <option>1</option>
                       <option>2</option>
                       <option>3</option>
                       <option>4</option>

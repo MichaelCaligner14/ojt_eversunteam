@@ -46,7 +46,6 @@ class ProductController extends Controller
                 ->first();
         $data = [
             'Info' => $row,
-            'Title'=>'Edit',
         ];
         return view('editprod', $data);
     }

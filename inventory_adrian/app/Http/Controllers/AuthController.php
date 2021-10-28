@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Hash;
 use Session;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\VerifyRegistration;
 
 class AuthController extends Controller
 {
@@ -31,6 +33,14 @@ class AuthController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $verifyData = [
+            'body' => 'You receive a  new notification',
+            'verifyText' => 'You are sucessfully registered',
+            'url' => url('http://127.0.0.1:8000/login'),
+            'thankyou' => 'Welcome'
+        ];
+        Notification::send($user, new VerifyRegistration($verifyData));
+
         $user->password = Hash::make($request->password);
 
         $res = $user->save();
@@ -42,8 +52,6 @@ class AuthController extends Controller
 
         }
     }
-
-
 
     public function loginuser(Request $request)
     {
@@ -90,8 +98,6 @@ class AuthController extends Controller
     
         return redirect('login');
     }
-
-
 
         
 }

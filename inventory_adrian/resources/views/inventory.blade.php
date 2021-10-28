@@ -2,18 +2,19 @@
 
 @section('content')
         <script src="script.js"></script>
-        <div class="bg-white lg:w-3/4 mx-auto lg:px-16 xs:px-6 sm:px-6 md:px-10 pt-16 justify-center">
+        <div class="bg-white lg:w-1/3 mx-auto lg:px-16 xs:px-6 sm:px-6 md:px-10 pt-16">
 
             @include('layouts.flash')
                 
-                <form action="addinventory" method="post" class="text-gray-600 font-bold justify-between">
+                <form action="addinventory" method="post" 
+                class="text-gray-600 bg-indigo-500 font-bold lg:w-96 xs:w-96 sm:w-96 md:w-4 rounded px-8 pb-8 mb-4">
                 @csrf
 
-                    <div class="flex">
-                  <div class="w-60 px-1">
+                  <div class="pl-10">
+                  <div class="w-60 px-1 pt-10">
                       <input type="text" placeholder="Product Name" name="product_name" value="{{old('product_name')}}" class="w-full mt-2 mb-2 px-4 py-2 border border-black-900 rounded-md
                       text-gray-700 "/>
-                      <span class="text-red-800">@error('name') {{$message}} @enderror </span>
+                      <span class="text-red-800">@error('product_name') {{$message}} @enderror </span>
                   </div>
                   <div class="w-60 px-1">
                       <input type="text" placeholder="Items" name="items" value="{{old('items')}}" class="w-full mt-2 mb-2 px-2 py-2 border border-black-900 rounded-md
@@ -26,20 +27,15 @@
                       <span class="text-red-800">@error('Inventory_quantity') {{$message}} @enderror </span>
                   </div>
                   <div class="px-2 mt-0">
-                    <button class="lg:w-24 xs:w-24 sm:w-24 md:w-24 mt-2 mb-2 px-4 py-2 border rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
+                    <button class="lg:w-24 xs:w-24 sm:w-24 md:w-24 mt-2 mb-2 px-4 py-2 border-grey-200 rounded-md bg-blaze-orange-500 text-white font-bold ">ADD</button>
                 </div>
-
-                
                 </form>
               </div>
-              <br>
-              <br>
-              <br>
+              </div>
              <!--TABLE-->
-<div class="flex flex-col">
-  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+<div class="flex flex-col mt-10 justify-center">
+    <div class="py-2 lg:w-3/4 md:w-3/4 sm:w-3/4 mx-auto lg:px-16 xs:px-6 sm:px-6 md:px-10 ">
+      <div class="shadow border-b border-gray-200 sm:rounded-lg">
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
             <tr>
@@ -88,8 +84,6 @@
           </tbody>
         </table>
       </div>
-    </div>
   </div>
-</div>
 </div>
 @endsection
