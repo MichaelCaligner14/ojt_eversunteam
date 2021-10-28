@@ -8,16 +8,17 @@ use App\Models\Employee;
 
 class Records extends Controller
 {
-        
     public function records(){
     
 
-        $data = $data = DB::table('empadd')
+        $data = $data = DB::table('empadd') 
                             ->join('empattendance', 'empadd.id', '=', 'empattendance.empAdd_id')
                             ->select('empattendance.id','empattendance.empAdd_id',
-                            'empadd.name','empattendance.rate','empattendance.workdays',
-                            'empattendance.initialamount',)
+                            'empadd.fname','empadd.lname','empattendance.rate','empattendance.workdays',
+                            'empattendance.absent','empattendance.initialamount')
+                            ->orderBy('empattendance.created_at', 'desc')
                             ->get();
+                          
 
 
                                              
@@ -29,13 +30,13 @@ class Records extends Controller
       
         if($request ->isMethod('post'))
         {
-            $name=$request->get('name');
+            $lname=$request->get('lname');
             $data= DB::table('empAdd')
             ->join('empAttendance','empattendance.empAdd_id','=','empadd.id')
             ->select('empattendance.id','empattendance.empAdd_id',
-                            'empadd.name','empattendance.rate','empattendance.workdays',
+                            'empadd.lname','empadd.fname','empattendance.rate','empattendance.workdays',
                             'empattendance.initialamount',)
-            ->where('name', 'LIKE', '%' . $name . '%')->paginate(5);
+            ->where('lname', 'LIKE', '%' . $lname . '%')->paginate(5);
 
         }
         return view('records', compact('data'));

@@ -8,7 +8,6 @@ use App\Models\Employee;
 
 class Attendance extends Controller
 {
-    
     public function attendance(){
         return view("attendance");
     }

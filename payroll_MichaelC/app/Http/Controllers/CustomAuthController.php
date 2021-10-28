@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\EmailNotification;
 use App\Models\User;
 use Hash;
 use Session;
@@ -20,6 +22,7 @@ class CustomAuthController extends Controller
     }
     public function registerUser(Request $request)
     {
+
         $request->validate([
             'username'=>'required',
             'password'=>'required|min:8|max:20',
@@ -27,8 +30,16 @@ class CustomAuthController extends Controller
         ]);
         $user = new User();
         $user->username =$request -> username;
-        $user->password = Hash::make($request -> password);
         $user->email =$request -> email;
+        $emailnotif = [
+            'body' =>'You Received an new notification',
+            'emailText'=>'You are successfully registered',
+            'url'=>url('http://127.0.0.1:8000/login'),
+            'thankyou'=>'Welcome to my system'
+        
+            ];
+        Notification::send($user, new EmailNotification($emailnotif));
+        $user->password = Hash::make($request -> password);
         $res = $user->save();
         if($res){
             return back()->with('success', 'You have registered successfuly');
@@ -37,9 +48,6 @@ class CustomAuthController extends Controller
         }
     }
 
-    public function __construct(){
-        $this->middleware(['auth','verified']);
-    }
     public function loginUser(Request $request)
     {
         
@@ -73,6 +81,4 @@ class CustomAuthController extends Controller
     
         return redirect('login');
         }
-    }
-  
-   
+}
