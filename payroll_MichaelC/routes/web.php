@@ -7,7 +7,9 @@ use App\Http\Controllers\Employeelist;
 use App\Http\Controllers\Attendance;
 use App\Http\Controllers\Records;
 use App\Http\Controllers\Salary;
-
+use App\Events\Message;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +32,6 @@ Route::post('/register-user',[CustomAuthController::class,'registerUser'])->name
 Route::post('/login-user',[CustomAuthController::class,'loginUser'])->name('login-user');
 Route::get('/logout',[CustomAuthController::class,'logout']);
 
-Auth::routes(['verify' => true]);
 
 Route::get('/employee',[Employeelist::class,'employee'])->middleware('isLoggedIn');
 Route::post('/add',[Employeelist::class,'add']);
@@ -52,7 +53,12 @@ Route::post('/addsalary',[Salary::class,'addsalary']);
 Route::post('/salary',[Salary::class,'searchSalary']) ->name('salary');
 Route::get('deletesalary/{id}',[Salary::class,'deletesalary']);
 
-Route::group(['middleware' => 'auth:admin'], function () {
-    
-    Route::view('/admin', 'admin');
+Route::get('/welcome',[Attendance::class,'welcome']);
+Route::post('/send-message', function(Request $request){
+    event(new Message(
+        $request->input('username'),
+        $request->input('message')
+    )
+);
+return ["sucess" => true];
 });
