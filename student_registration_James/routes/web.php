@@ -12,6 +12,10 @@ use App\Http\Controllers\SubjectsController;
 use App\Http\Controllers\ChatController;
 
 
+use App\Events\Message;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -95,12 +99,22 @@ Route::middleware('auth:sanctum')->get('/chat/room/{roomId}/messages', [ChatCont
 Route::middleware('auth:sanctum')->post('/chat/room/{roomId}/message', [ChatController::class,'newMessage']);
 
 
-Auth::routes(['verify' => true]);
+
 //Email
 Route::get('/email', function(){
   Mail::to('davaoojt_4@agentsofvalue.com')->send(new WelcomeMail());
   return new WelcomeMail();
 });
 
+//CHATROOM
+Route::get('/index',[CustomAuthController::class,'index']);
+Route::post('/send-message', function(Request $request){
+    event(new Message(
+        $request->input('username'),
+        $request->input('message')
+    )
+);
+return ["success" => true];
+});
 
  
