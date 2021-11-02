@@ -9,7 +9,7 @@
     @stop
         
             <div class="p-8">
-                <h1 class="font-fourth font-bold text-2xl tracking-widest">PENDING REQUESTS</h1>
+                <h1 class="font-fourth font-bold text-3xl tracking-widest mb-10">PENDING REQUESTS</h1>
                     
 
                     @if (session()->has('success'))
@@ -22,10 +22,11 @@
 
                 <div class="flex justify-between mt-2">
 
-                <form>
+                <form action="{{route('pendingrq')}}" method="post">
+                    @csrf
                     <div class="flex justify-start">
                         <div>
-                        <input type="text" name="id" id="id" class="lg:w-full sm:w-1/2 inline-block shadow-md mb-2 lg:px-4 xs:px-2 py-1 border rounded-md text-gray-600 focus:outline-none focus:border-green-500"/>
+                        <input type="text" name="lname" id="lname" class="lg:w-full sm:w-1/2 inline-block shadow-md mb-2 lg:px-4 xs:px-2 py-1 border rounded-md text-gray-600 focus:outline-none focus:border-green-500"/>
                         </div>
                         <div>
                         <button type="submit" class="bg-blue-700 border rounded-md lg:px-10 xs:px-2 py-1 ml-2 text-white ">Search</button>
@@ -57,7 +58,7 @@
             <div class="modal-content py-4 text-left px-6">
                 <!--Title-->
                 <div class="flex justify-between items-center pb-3 mb-6">
-                <p class="text-md font-bold">PERSONAL INFORMATION</p>
+                <p class="text-md font-bold">APPROVE APPLICATION</p>
                 <div class="modal-close cursor-pointer z-50">
                     <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                     <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
@@ -175,12 +176,17 @@
                         <td class="w-full lg:w-auto p-1.5 text-gray-800  border border-b text-sm text-center lg:table-cell  lg:static">
                             <span class="lg:hidden float-left top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Manage</span>
                            
-                            <a href="editLoan/{{$item->id}}" class="text-blue-400 inline-block hover:text-blue-600 underline"><svg xmlns="http://www.w3.org/2000/svg" 
-                                class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                            <a href="approveLoan/{{$item->id}}" class=" inline-block hover:text-blue-600 underline p-1">
+                            <svg xmlns="http://www.w3.org/2000/svg"  class="h-5 w-5 inline-block text-red-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg></a>
+                              
+                            <a href="editLoan/{{$item->id}}" class="inline-block hover:text-blue-600 underline"><svg xmlns="http://www.w3.org/2000/svg" 
+                                class="h-5 w-5 inline-block text-green-900" viewBox="0 0 20 20" fill="currentColor"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                               </svg></a>
 
                                 <a href="{{route('deleteLoans',['id'=>$item->id])}}"  class="btn_row_delete text-blue-400 inline-block hover:text-blue-600 underline pl-2"><svg xmlns="http://www.w3.org/2000/svg" 
-                                class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                class="h-5 w-5 inline-block text-black" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                                 </svg></a>
                           
                         </td>

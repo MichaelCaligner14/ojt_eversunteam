@@ -69,6 +69,9 @@ Route::get('pendingrq',[JointableController:: class,'pendingrq']);
 Route::get('pendingrq/delete/{id}',[JointableController::class,'deleteLoans'] )->name("deleteLoans");
 Route::post('pendingrq',[LoanRequestController::class,'searchLoanRq']) ->name('pendingrq');
 
+Route::get('approveLoan/{id}',[LoanRequestController:: class,'approveLoan']);
+Route::post('addApprove',[LoanRequestController:: class,'addApprove'])->name('addApprove');
+
 
 //LOAN REPORT
 Route::get('loanreport',[LoanRecordController:: class,'loanreport']);
