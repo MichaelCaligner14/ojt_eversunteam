@@ -91,7 +91,7 @@ Route::post('update', [StdntRegController::class,'update'])->name('update');
 
 
 
-//ChatRoom
+//ChatRooms
 Route::middleware('auth:sanctum')->get('/chat/rooms', [ChatController::class,'rooms']);
 
 Route::middleware('auth:sanctum')->get('/chat/room/{roomId}/messages', [ChatController::class,'messages']);
