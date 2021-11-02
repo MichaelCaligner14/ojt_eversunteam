@@ -123,20 +123,6 @@
                     </svg></h2>
                 </div>
 
-                <!--Body
-                <header>
-                    <input type="text" name="username" id="username" placeholder="Please enter a username.."
-                    class="w-full text-sm py-2.5 px-5">
-                </header>
-               
-                <div id="messages" class="flex-1 block mb-96"></div>
-                    <form id="message_form" class="flex">
-                        <input type="text" name="message" id="message_input" placeholder="Write a message.."
-                        class="flex w-3/4 text-sm py-2.5 px-5">
-                        <button type="submit" id="message_send" class="w-1/4 bg-gray-700 text-white text-sm">SEND</button> 
-                    </form> 
-                </div>
-                Footer-->
                 <div class="app flex flex-col" style="height: 72vh;">
                     <header1 class="flex items-center flex-col justify-end">
                         <input type="text" name="username" id="username" placeholder="Please enter a username.."
