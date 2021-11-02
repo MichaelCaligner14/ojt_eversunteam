@@ -33,8 +33,8 @@
     {{csrf_field()}}
 
        <div class="text-gray-800">
-           Search ID:
-        <input type="text" name="id" placeholder=" ..." class="rounded-full text-black bg-gray-300 pl-5 h-8" style="width: 25%; border:1px solid; border-color:black;"> 
+           Search:
+        <input type="text" name="id" placeholder="Search ID #" class="rounded-full text-black bg-white-300 pl-5 h-8" style="width: 25%; border:1px solid; border-color:black;"> 
       
        </div>
 </form>

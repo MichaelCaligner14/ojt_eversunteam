@@ -25,6 +25,12 @@ class CustomAuthController extends Controller
     public function subjects(){
         return view ("subjects");   
     }
+
+
+    //chatroom
+    public function index(){
+        return view ("index");   
+    }
     
 
 //Registration
