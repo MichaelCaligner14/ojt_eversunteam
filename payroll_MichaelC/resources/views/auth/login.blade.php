@@ -11,7 +11,7 @@
 </head>
 <body class="bg-gray-700 mx-auto">
 
-<div class="py-28">
+<div class="py-16">
   <div class="grid text-center sm:grid-flow-col gap-6  ">
   
 <div class="grid grid-cols-1 mx-auto">
@@ -27,7 +27,7 @@
               <div class="w-full px-3">
               <span class="text-red-300">@error('username'){{$message}}@enderror</span>
                 <input class="appearance-none rounded-3xl block text-base w-full bg-white text-black border 
-                border-red-500  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="username" type="text" value="{{old('username')}}">
+                  py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" name="username" type="text" value="{{old('username')}}">
                 <label class="block uppercase tracking-wide text-xs font-bold mb-2" >
                   Username
                 </label>
@@ -38,7 +38,7 @@
               <div class="w-full px-3">
               <span class="text-red-300">@error('password'){{$message}}@enderror</span>
                 <input class="appearance-none rounded-3xl block w-full bg-white text-black border 
-                border-red-500 text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="password" type="password">
+                 text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" name="password" type="password">
                 <label class="block uppercase tracking-wide text-xs font-bold mb-2" >
                   Password
                 </label>
@@ -51,7 +51,8 @@
             <div class="pt-6">
             <div class="bg-gray-300 w-full" style="height: 3px;"></div>
             <a href="registration"><p class="pt-3">Create an Admin Account, <span class="text-yellow-500 font-bold">SIGN UP</span></a></p>
-            </div>
+            <a href="index" class="underline text-blue-300 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent;">Return to home</a>
+          </div>
           </div>
           </form>
           <div class="pt-6">

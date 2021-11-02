@@ -5,11 +5,11 @@
       
         <!-- content -->
        
-        <div class="flex-1  text-2xl font-bold">
+        <div class="flex-1  text-2xl">
            
         @component('component.test')
           @slot('title')
-          EMPLOYEES
+          EMPLOYEE LIST
           @endslot
           @endcomponent
   
@@ -32,24 +32,34 @@
               @csrf
               <p class="text-xl font-bold text-white mb-4 text-center">NEW EMPLOYEE</p>
     
-              <div class="flex flex-wrap -mx-3 mb-4">
-                <div class="w-full px-3">
-                  <label class="block uppercase tracking-wide text-xs font-bold mb-2 mr-8" >
-                    Name
+              <div class="flex flex-wrap -mx-3 mb-2">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
+                   First Name
                   </label>
-                  <input class="appearance-none block text-base w-full bg-white text-black border 
-                  border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  name="name" type="text" placeholder="Full Name" value="{{old('name')}}">
-                 
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    name="fname" type="text" value="{{old('fname')}}">
+                  
+                </div>
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
+                   Last Name
+                  </label>
+                  <input class="appearance-none block w-full text-base bg-white text-black border border-gray-200
+                   rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    name="lname" type="text" value="{{old('fname')}}">
                 </div>
               </div>
+         
               
-              <div class="flex flex-wrap -mx-3 mb-4">
+              <div class="flex flex-wrap -mx-3 mb-2 mt-4">
                 <div class="w-full px-3">
                   <label class="block uppercase tracking-wide text-xs font-bold mb-2">
                     Address
                   </label>
                   <input class="appearance-none block w-full bg-white text-black border 
-                  border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="address" type="text" placeholder="Davao City..." value="{{old('address')}}">
+                   rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="address" type="text" value="{{old('address')}}">
                
                 </div>
               </div>
@@ -95,7 +105,8 @@
                 <thead>
                   <tr class=" font-semibold tracking-wide text-left text-white bg-gray-700 uppercase border-b border-gray-600">
                     <th class="px-4 py-3">ID</th>
-                    <th class="px-4 py-3">NAME</th>
+                    <th class="px-4 py-3">LAST NAME</th>
+                    <th class="px-4 py-3">FIRST NAME</th>
                     <th class="px-4 py-3">ADDRESS</th>
                     <th class="px-4 py-3">AGE</th>
                     <th class="px-4 py-3">SEX</th>
@@ -108,9 +119,10 @@
                    <tr class="text-gray-700">
              
                     <td class="px-4 py-3 border">
-                      <h1 class="">{{$item->id}}</h1>
+                      <h1 class="">#{{$item->id}}</h1>
                     </td>
-                    <td class="px-4 py-3 font-semibold border">{{$item->name}}</td>
+                    <td class="px-4 py-3 border">{{$item->lname}}</td>
+                    <td class="px-4 py-3 border">{{$item->fname}}</td>
                     <td class="px-4 py-3 border">{{$item->address}}</td>
                     <td class="px-4 py-3 border">
                       <h1>{{$item->age}}</h1>
@@ -124,7 +136,9 @@
                       </svg></a>
 
                       
-                      <a href="delete/{{ $item->id }}" id="buttonmodal"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
+                      <!--href="delete/{{ $item->id }}"-->
+
+                      <a href="delete/{{ $item->id }}"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current text-red-400 float-left" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                     </svg></a>
                   </td>
@@ -141,12 +155,11 @@
           
 
         </section>
-  
+ 
         </div>
 
         </div>
-
 
       <script src="sidebar.js"></script>
-      <script src="delete.js"></script>
+      
       @endsection
