@@ -18,7 +18,7 @@
     <title>School Registration</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
-<body class="mx-auto">
+<body class="mx-auto bg-gray-800 ">
  
     <div
       class="px-96 w-screen h-screen flex flex-col justify-center items-center lg:grid lg:grid-cols-2"
@@ -64,7 +64,12 @@
         class="py-1 px-3 bg-primarycolor rounded-5 mx-32 text-white hover:bg-blue-400 font-bold uppercase text-lg mt-4 transform bg-black-600 transition-all duration-500 bg-blue-700 bg-opacity-90 rounded" style="width: 80px; height: 37px;"
         >LOGIN</a
       > 
+
+<br>
+<br>
+      <a href="index" class="text-center bg-yellow-400 block py-2 px-4 rounded transition duration-200 hover:bg-yellow-600 hover:text-white">Any Concerns? Kindly Message Us!</a> 
           
+ 
         
       </form>
     </div>

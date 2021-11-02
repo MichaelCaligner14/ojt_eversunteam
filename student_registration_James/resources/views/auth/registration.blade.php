@@ -24,7 +24,7 @@
       
         
         
-        <form action="{{route('register-user')}}" method="post" class="bg-casal-500 w-full h-screen flex flex-col justify-center items-center w-1/2">
+        <form action="{{route('email')}}" method="post" class="bg-casal-500 w-full h-screen flex flex-col justify-center items-center w-1/2">
       
           @if(Session::has('success'))
           <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">{{Session::get('success')}}</div>
@@ -80,10 +80,11 @@
         <button type ="submit"
           class="py-2 px-4 bg-primarycolor rounded-5 text-white font-bold hover:bg-blue-400 uppercase text-lg mt-4 transform bg-black-600 transition-all duration-500 bg-black bg-opacity-90 rounded" style="width: 220px; height: 48px;"
           >Create an Account</button> 
-
+<br>
+        <p>Already Have an Account? </p>
           <a href="login"
-          class="py-2 px-4 bg-primarycolor rounded-5 text-white font-bold hover:bg-red-500 uppercase text-lg mt-4 transform bg-black-600 transition-all duration-500 bg-black bg-opacity-90 rounded" style="width: 150px; height: 40px;"
-          >Login Here!</a> 
+          class="text-white underline hover:text-blue-700"
+          >Login Here</a> 
           
         
       </form>

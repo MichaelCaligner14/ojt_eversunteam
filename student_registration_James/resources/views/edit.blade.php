@@ -1,11 +1,17 @@
-@extends('layouts.master')
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-@section('content')
-        
-
-
-        <div class="flex-1  w-full">    
-        <header class="bg-gray-900 p-4 font-bold text-right text-white  ">{{$Title}}</header>
+   <script src="https://cdn.jsdelivr.net/npm/less@4.1.1" ></script>
+    <title>Dashboard</title>
+    
+    <div class="flex-1 p-10 text-2xl font-bold">
+            <img
+            src=""
+            
+          />
       
         <!-- content -->
        
@@ -44,7 +50,7 @@
                 <span class="text-red-800 text-sm ">@error('last') {{$message}} @enderror </span>
                 
                 <p class="text-lg font-roboto text-gray-800 mb-2 mt-2">Birthday</p>
-                <input class="w-3/5 px-3 py-1 border border-gray-800 rounded-md" type="text" placeholder="Enter Birthday" name="birthday" value="{{$Info->birthday}}">
+                <input class="w-3/5 px-3 py-1 border border-gray-800 rounded-md" type="date" placeholder="Enter Birthday" name="birthday" value="{{$Info->birthday}}">
                 <br>
                 <span class="text-red-800 text-sm ">@error('birthday') {{$message}} @enderror </span>
                
@@ -105,18 +111,7 @@
                </form>
               </div>
                 </div>
-                <footer class="w-full h-15 bg-gray-900 font-bold static bottom-1 text-white text-right">
-                CONTACT US
-       
-                  <br>
-            pinedajamesryan@gmail.com
-                <br>
-                223-2425-114
-      
-        
-</footer>
-      
-
-    <script src="sdbr.js"></script>
-
-    @endsection
+              
+      <script src="script.js"></script>
+</body>
+</html>

@@ -32,7 +32,7 @@
         
       
         <!-- sidebar -->
-        <div  class="sidebar absolute text-white text-base w-64 bg-gray-800 space-y-6 py-9 px-5 inset-y-0 left-0 
+        <div  class="sidebar absolute text-white text-base w-64 bg-gray-800 space-y-10 py-9 px-8 inset-y-0 left-0 
           transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
       
           <!-- logo -->
@@ -90,6 +90,13 @@
                 </span>   </svg>
                 Student
             </a>
+            <a href="index" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white">
+                <span class=" inline-block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+  </span> </svg>
+                Complain
+              </a>
             <a href="about" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white">
                 <span class=" inline-block">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
