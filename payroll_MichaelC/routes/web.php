@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Employeelist;
 use App\Http\Controllers\Attendance;
-use App\Http\Controllers\Records;
+use App\Http\Controllers\Realtimechat;
 use App\Http\Controllers\Salary;
+use App\Http\Controllers\payroll;
 use App\Events\Message;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -22,7 +23,7 @@ use Illuminate\Http\Response;
 |
 */
 
-Route::get('/', function () {
+Route::get('/index', function () {
     return view('index');
 });
 
@@ -43,17 +44,19 @@ Route::post('update',[Employeelist::class,'update'])->name('update');
 
 Route::get('/attendance',[Attendance::class,'attendance'])->middleware('isLoggedIn');
 Route::post('/addattendance',[Attendance::class,'addattendance']);
+Route::post('/attendance',[Attendance::class,'searchAttendance']) ->name('attendance');
+Route::get('deleteattendance/{id}',[Attendance::class,'deleteAttendance']);
 
-Route::get('/records',[Records::class,'records'])->middleware('isLoggedIn');
-Route::post('/records',[Records::class,'searchRecord']) ->name('records');
-Route::get('deleterecord/{id}',[Records::class,'deleterecord']);
+Route::get('/Chat',[Realtimechat::class,'realtimechat'])->middleware('isLoggedIn');
 
 Route::get('/salary',[Salary::class,'salary'])->middleware('isLoggedIn');
 Route::post('/addsalary',[Salary::class,'addsalary']);
 Route::post('/salary',[Salary::class,'searchSalary']) ->name('salary');
 Route::get('deletesalary/{id}',[Salary::class,'deletesalary']);
 
-Route::get('/welcome',[Attendance::class,'welcome']);
+Route::get('/payroll',[payroll::class,'payroll'])->middleware('isLoggedIn');
+Route::post('/payroll',[payroll::class,'searchpayroll']) ->name('payroll');
+
 Route::post('/send-message', function(Request $request){
     event(new Message(
         $request->input('username'),

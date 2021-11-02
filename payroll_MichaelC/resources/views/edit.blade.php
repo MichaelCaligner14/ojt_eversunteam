@@ -9,7 +9,7 @@
   <title>Payroll System</title>
 </head>
 <body>
-    <div class="relative min-h-screen bg-gray-100 md:flex">
+    <div class="relative min-h-screen bg-gradient-to-r from-gray-200 to-gray-300 md:flex">
 
         <!-- responsive -->
         <div class="bg-gray-800 text-gray-100 flex justify-between md:hidden">
@@ -18,45 +18,44 @@
            
           </button>
         </div>
-      
-        <!-- sidebar -->
-        <div  class="sidebar absolute text-white text-base w-64 bg-gray-700 space-y-6 py-7 px-2 inset-y-0 left-0 
-        transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
-
-         
-       
-         
-         <!-- nav -->
-         
-      
-          
-        </div>
+  
       
         <!-- content -->
         <div class="flex-1 p-10 text-2xl font-bold">
             
-            <p class="w-80 h-12 text-2xl font-bold">UPDATE INFORMATION</p>
-            <div class="bg-gray-300" style="width: full; height: 5px;">
+            <p class="w-full h-12 text-2xl px-36 font-bold">UPDATE INFORMATION</p>
+            <div class="bg-gray-800 mx-36" style="width: full; height: 5px;">
 
         </div>
 
-<div class="grid md:grid-flow-col pl-12 pr-12 ">
+<div class="grid md:grid-flow-col px-36 ">
         <div class="grid grid-cols-1 gap-4  py-12">
-        <div class=" bg-gray-200 px-12 py-12">
+        <div class=" bg-gray-700 text-white px-16 py-12">
             
         <form action="{{route('update')}}" method="post">
             @csrf
             <h1 class="pb-12">EDIT | EMPLOYEE INFORMATION <hr style="height:2px; background-color:black;" class="mt-6"></h1>
             
             <input type="hidden" name="id" value="{{$data->id}}">
-        <div class="flex flex-wrap -mx-3 mb-4">
+         <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full px-3">
                   <label class="block uppercase tracking-wide text-sm font-bold mb-2 mr-8">
-                    Name
+                    First Name
                   </label>
                   <input class="appearance-none block text-base w-full bg-white text-black border 
                   border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                   type="text" name="name" value="{{$data->name}}">
+                   type="text" name="fname" value="{{$data->fname}}">
+                </div>
+              </div>
+          
+          <div class="flex flex-wrap -mx-3 mb-4">
+                <div class="w-full px-3">
+                  <label class="block uppercase tracking-wide text-sm font-bold mb-2 mr-8">
+                    Last Name
+                  </label>
+                  <input class="appearance-none block text-base w-full bg-white text-black border 
+                  border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                   type="text" name="lname" value="{{$data->lname}}">
                 </div>
               </div>
               
@@ -102,9 +101,9 @@
               </div>
            
              
-</div>
-        </div>
-</form>
+          </div>
+          </div>
+        </form>
 
 </div>
 </div>

@@ -18,35 +18,36 @@
 <p class=" py-6 text-white w-52 text-2xl"><span class="text-yellow-600">Sign Up</span> Here!</p>
 
 </div>
-      <div class="mx-auto">
-        <div class="bg-gray-600 shadow rounded-3xl" style="width: 500px; height: 600px;">
-          <form class="w-full mx-auto bg-gray-600 text-white max-w-sm  py-16 px-6 mt-4" action="{{route('register-user')}}" method="POST">
+      <div class="mx-auto ">
+        <div class="bg-gray-600 shadow rounded-3xl " style="width: 500px; height: 600px;">
+          <form class="w-full mx-auto bg-gray-600 text-white max-w-sm  py-12 px-6 mt-4" action="{{route('register-user')}}" method="POST">
           @csrf
-            <div class="flex flex-wrap -mx-3 mb-4">
+            <div class="flex flex-wrap -mx-3 mb-2">
               <div class="w-full px-3">
+              <span class="text-red-300">@error('username'){{$message}}@enderror</span>
                 <input class="appearance-none rounded-3xl block text-base w-full bg-white text-black border 
-                border-red-500  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="username" type="text" value="{{old('username')}}">
+                  py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" name="username" type="text" value="{{old('username')}}">
                 <label class="block uppercase tracking-wide text-xs font-bold mb-2">
                   Username
                 </label>
               </div>
             </div>
             
-            <div class="flex flex-wrap -mx-3 mb-4">
+            <div class="flex flex-wrap -mx-3 mb-2">
               <div class="w-full px-3">
               <span class="text-red-300">@error('password'){{$message}}@enderror</span>
                 <input class="appearance-none rounded-3xl block w-full bg-white text-black border 
-                border-red-500  text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="password" type="password">
+                  text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" name="password" type="password">
                 <label class="block uppercase tracking-wide text-xs font-bold mb-2">
                   Password
                 </label>
             </div>
           </div>
-          <div class="flex flex-wrap -mx-3 mb-4">
+          <div class="flex flex-wrap -mx-3 mb-2">
             <div class="w-full px-3">
             <span class="text-red-300">@error('email'){{$message}}@enderror</span>
               <input class="appearance-none rounded-3xl block w-full bg-white text-black border 
-              border-red-500  text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="email" type="email" value="{{old('email')}}">
+                text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" name="email" type="email" value="{{old('email')}}">
               <label class="block uppercase tracking-wide text-xs font-bold mb-2">
                 Email
               </label>
@@ -60,7 +61,8 @@
             
             <div class="bg-gray-300 w-full" style="height: 3px;"></div>
             <a href="login"><p class="pt-3">Already have an account?, <span class="text-yellow-500 font-bold">LOGIN</span></a></p>
-            </div>
+            <a href="index" class="underline text-blue-300 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent;">Return to home</a>
+          </div>
           </div>
          
           </form>
