@@ -17,6 +17,17 @@ class AuthController extends Controller
         return view("auth.login");
 
     }
+
+    public function welcome()
+    {
+        $data = array();
+        if(Session::has('loginID')){
+            $data = user::where('id', '=', Session::get('loginID'))->first();
+        }
+        return view('auth.welcome', compact('data'));
+
+    }
+    
     public function registration()
     {
         return view("auth.registration");

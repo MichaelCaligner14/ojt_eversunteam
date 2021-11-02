@@ -9,6 +9,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ChatController;
+use App\Events\Message;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Admin;
 
 /*
@@ -80,9 +83,12 @@ Route::post('inventoryupdate', [InventoryController::class,'inventoryupdate'])->
 Route::get('inventorydelete/{id}', [InventoryController::class,'inventorydelete']);
 
 /*Chat*/
-Route::middleware(['auth:sanctum', 'verified'])->get('/chat', function(){
-    return Inertia\Inertia::render('Chat/container');
-})->name('chat');
-Route::middleware('auth:sanctum')->get('/chat/rooms', [ChatController::class, 'rooms']);
-Route::middleware('auth:sanctum')->get('/chat/room/{roomId}/messages', [ChatController::class, 'messages']);
-Route::middleware('auth:sanctum')->post('/chat/room/{roomId}/message', [ChatController::class, 'newMessage']);
+Route::get('/welcome',[AuthController::class,'welcome'])->middleware('isLoggedIn');
+Route::post('/send-message', function(Request $request){
+    event(new Message(
+        $request->input('username'),
+        $request->input('message')
+    )
+);
+return ["sucess" => true];
+});

@@ -11,7 +11,9 @@ class ProductController extends Controller
     public function product()
     {
         $data = array(
-            'list'=>DB::table('products')->get()
+            'list'=>DB::table('products')
+            ->latest()
+            ->get()
         );
         return view('product',$data);
     }

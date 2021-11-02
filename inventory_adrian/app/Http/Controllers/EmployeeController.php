@@ -22,7 +22,7 @@ class EmployeeController extends Controller
         $request->validate([
             'fname'=>'required',
             'lname'=>'required',
-            'phone'=>'required|min:12|max:12',
+            'phone'=>'required|min:11|max:11',
             'email'=>'required',
             'position'=>'required',
         ]);

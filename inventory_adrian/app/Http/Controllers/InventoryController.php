@@ -11,7 +11,9 @@ class InventoryController extends Controller
     public function inventory(){
 
         $data = array(
-            'data'=>DB::table('inventories')->get()
+            'data'=>DB::table('inventories')
+            ->latest()
+            ->get()
         );
         return view('inventory',$data);
     }

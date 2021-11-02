@@ -10,7 +10,9 @@ class CategoryController extends Controller
 {
     public function category(){
         $data = array(
-            'list'=>DB::table('categories')->get()
+            'list'=>DB::table('categories')
+            ->latest()
+            ->get()
         );
         return view('category',$data);
     }
