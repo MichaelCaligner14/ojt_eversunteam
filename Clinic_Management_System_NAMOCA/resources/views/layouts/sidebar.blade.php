@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/app.css">
+    
    
     <script src="https://kit.fontawesome.com/c26cd2166c.js"></script>
     <title>  </title>
@@ -66,6 +67,11 @@
                         <li class="nav-item rounded-sm p-2 hover:bg-gray-500 active">
                             <i class="text-white mr-5 ml-3 hover:text-black far fa-credit-card"></i><a class="hover:text-black nav-link text-white"href="{{ url('payment') }}">Payment</a>
                                     </li>
+
+                                    <li class="nav-item rounded-sm p-2 hover:bg-gray-500 active">
+                            <i class="text-white mr-5 ml-3 hover:text-black far fa-envelope"></i><a class="hover:text-black nav-link text-white"href="{{ url('welcome') }}">Chat Me!</a>
+                                    </li>
+                                   
                 
                     </ul>
                
