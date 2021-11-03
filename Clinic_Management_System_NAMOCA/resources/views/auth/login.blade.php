@@ -53,6 +53,7 @@
                 <h1> Register | Forgot Password?</h1>
                 <a href="{{ url('sign') }}"><h1 class="mt-2"> Create Account <i class="fas fa-arrow-right"></i></h1></a>
             </div>
+           
         </div>
 
 

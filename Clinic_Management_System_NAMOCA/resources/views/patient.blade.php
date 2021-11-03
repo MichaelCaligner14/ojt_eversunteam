@@ -21,6 +21,7 @@
         @csrf
         <div class="mt-5 ">
         <ul class="mt-3">
+    
         <label for="fullname" class="text-white ml-40 ">Fullname </label>
         </ul>
         <input  type="text" name="fullname" value="{{old('fullname')}}" required class="rounded-lg text-white  ml-40 mt-3 bg-gray-800 border-2  border-gray-500  " style="width: 68%;">
@@ -30,7 +31,7 @@
             </ul>
             <input  type="text" name="address" value="{{old('address')}}" required class="rounded-lg text-white  ml-40 mt-3 bg-gray-800 border-2  border-gray-500  " style="width: 68%;">
 
-        
+     
 
         <ul class="mt-3">
             <label for="email" class="text-white ml-40">Email </label>
@@ -67,7 +68,7 @@
                     <div>
                         <button type="submit" class="bg-gray-600 px-28  text-white mt-7 py-3 rounded-xl hover:bg-gray-700" style="margin-left:38%">S U B M I T</button>
                     </div>
-                
+            
                    
 
         </div>

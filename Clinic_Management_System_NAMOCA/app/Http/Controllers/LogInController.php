@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\user;
 use App\Models\Patient;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\Verify;
 use Hash;
 use Session;
 
@@ -41,9 +43,19 @@ class LogInController extends Controller
         $user ->lastname = $request ->lastname;
         $user ->address = $request ->address;
         $user ->email = $request ->email;
+        $varify = [
+            'body' => 'You receive a  new notification',
+            'verifyEmail' => 'You are sucessfully registered',
+            'url' => url('http://127.0.0.1:8000/login'),
+            'thankyou' => 'Welcome'
+        ];
+        Notification::send($user, new Verify($varify));
+
         $user ->username = $request ->username;
         $user ->password = Hash::make($request ->password);
         $res = $user ->save();
+
+
         if($res){
             return back()->with('success','You have registered succesfully');
         }else {
@@ -76,6 +88,10 @@ class LogInController extends Controller
     }
     public function index(){
         return view ("auth/index");
+    }
+
+    public function welcome(){
+        return view ("messageUs/welcome");
     }
 
 

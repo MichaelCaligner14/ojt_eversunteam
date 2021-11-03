@@ -25,6 +25,7 @@ class CreatePatientResultsTable extends Migration
             $table -> string ('weight');
             $table -> string ('height');
             $table ->timestamps();
+
         });
 
         Schema::create('results', function (Blueprint $table) {

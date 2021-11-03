@@ -39,6 +39,7 @@
                 <label  for="LastName" class="text-sm my-2">LastName </label>
                 <input type="text" name="lastname" value="{{old('lastname')}}" required class="bg-gray-100 border-2 border-gray-200 text-xl rounded">
                
+                
                
 
                 <label for="address" class="text-sm my-2">Address </label>
@@ -47,11 +48,11 @@
 
                 <label for="email" class="text-sm my-2">Email </label>
                 <input type="email" name="email" value="{{old('email')}}"  class="bg-gray-100 border-2 border-gray-200 text-xl rounded">
-               
+               <span class="text-red-800"> @error('email') {{$message}} @enderror </span>
 
                 <label for="username" class="text-sm my-2">Username </label>
                 <input type="text"  name="username" value="{{old('username')}}"  class="bg-gray-100 border-2 border-gray-200 text-xl rounded">
-               
+                <span class="text-red-800"> @error('username') {{$message}} @enderror </span>
 
                 <label for="password" class="text-sm my-2">Password </label>
                 <input type="password" name="password" value="{{old('password')}}"  class="bg-gray-100 border-2 border-gray-200 text-xl rounded">
