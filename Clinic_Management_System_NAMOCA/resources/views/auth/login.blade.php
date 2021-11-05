@@ -91,9 +91,7 @@
 </div>
 
         <div class="flex flex-col items-center justify-center">
-            <input class=" w-full bg-gray-50 rounded border border-black-300 pb-4 pt-2 text-center text-black" 
-            type="text" name="username" id="username" value="" placeholder="Please Enter Your Name...">
-            </div>
+div>
             <div class="flex-1 p-4 overflow-y-auto h-3/5 mt-4 justify-end" id="messages"></div>
             <form class="flex" id="message_form">
                 <input class="flex-1 font-semibold border shadow-sm bg-gray-200 block w-1/2 pb-4 pt-4 pl-2" 

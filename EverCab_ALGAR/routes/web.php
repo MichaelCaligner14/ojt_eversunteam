@@ -1,6 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\EverMailController;
+use App\Http\Controllers\EverChatController;
+use App\Events\Message;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,50 +23,70 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::middleware('alreadyLoggedIn')->group(function(){
+    Route::get('/login', [CustomAuthController::class, 'login']);
+    Route::get('/register', [CustomAuthController::class, 'register']);
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('login-user');
+
+Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
+
+Route::get('/logout', [CustomAuthController::class, 'logout']);
+
+Route::get('/welcome', [CustomAuthController::class, 'welcome']);
+
+Route::get('/about', [CustomAuthController::class, 'about']);
+
+Route::middleware('isLoggedIn')->group(function(){
+    Route::get('/dashboard', [CustomAuthController::class, 'dashboard']);
+    Route::get('/notifset', [CustomAuthController::class, 'notifset']);   
+    Route::get('/privset', [CustomAuthController::class, 'privset']);   
+    Route::get('/payments', [CustomAuthController::class, 'payments']);   
+    Route::get('/payset', [CustomAuthController::class, 'payset']);
 });
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/profile', [ProfileController::class, 'showProfile'])->name('showprofile');
+
+Route::get('/profset', [ProfileController::class, 'addProfile'])->name('addprofile');
+
+Route::post('/profset', [ProfileController::class, 'saveProfile'])->name('saveprofile');
+
+Route::get('/profedit/{id}', [ProfileController::class, 'editProfile'])->name('editprofile');
+
+Route::get('/profiledelete/{id}', [ProfileController::class, 'deleteProfile'])->name('deleteprofile');
+
+Route::post('/profileupdate', [ProfileController::class, 'updateProfile'])->name('updateprofile');
+
+Route::get('/reservationadd', [ReservationController::class, 'addReservation'])->name('addreservation');
+
+Route::post('/reservationadd', [ReservationController::class, 'saveReservation'])->name('savereservation');
+
+Route::get('/reservationlist', [ReservationController::class, 'listReservation'])->name('listreservation');
+
+Route::get('/reservationedit/{id}', [ReservationController::class, 'editReservation'])->name('editreservation');
+
+Route::get('/reservationcancel/{id}', [ReservationController::class, 'cancelReservation'])->name('cancelreservation');
+
+Route::post('/reservationupdate', [ReservationController::class, 'updateReservation'])->name('updatereservation');
+
+Route::get('/driverapp', [DriverController::class, 'driverApp']);
+
+Route::get('/driverpay', [DriverController::class, 'driverPay']);
+
+Route::get('/send-evermail', [EverMailController::class, 'sendMailNotif']);
+
+Route::get('/everchat', function(){
+    return view('everchat');
 });
 
-Route::get('/register', function () {
-    return view('register');
-});
+Route::post('/send-message', function (Request $request){
+    event(
+        new Message(
+            $request->input('username'), 
+            $request->input('message')
+        )
+    );
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
-Route::get('/notifset', function () {
-    return view('notifset');
-});
-
-Route::get('/p&sset', function () {
-    return view('p&sset');
-});
-
-Route::get('/payments', function () {
-    return view('payments');
-});
-
-Route::get('/payset', function () {
-    return view('payset');
-});
-
-Route::get('/profile', function () {
-    return view('profile');
-});
-
-Route::get('/profset', function () {
-    return view('profset');
-});
-
-Route::get('/reservation', function () {
-    return view('reservation');
+    return ["success" => true];
 });

@@ -16,3 +16,7 @@
 .cashmoney{
     @apply col-start-2 text-lg font-semibold text-green pl-20 pt-2
 }
+
+.btntest{
+    @apply text-xs text-white bg-dark-blue rounded-full py-2 px-4;
+}

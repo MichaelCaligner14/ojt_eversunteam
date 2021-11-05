@@ -5,19 +5,17 @@
     <meta name="viewport" content="width=device-width, initials-scale=1.0">
     <title>Inventory System</title>
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet/less" type="text/css" href="css/styles.less" />
+    <script src="https://cdn.jsdelivr.net/npm/less@4.1.1" ></script>
 </head>
 <body>
   <div class="w-full min-h-screen flex justify-center items-center lg:grid lg:grid-cols-2 p-6 text-black">
       <img src="img/shop.png" class="hidden lg:block" />
      
-      <form action="{{route('register-user')}}" method="post" class=" bg-casal-500 flex flex-col items-center lg:w-full md:w-2/3 h-full p-6 xs:w-full sm:w-2/3 pt-56 pb-56">
-      @if (Session::has('success'))
-      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">{{Session::get('success')}}</div>
-      @endif
-      @if (Session::has('fail'))
-      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">{{Session::get('fail')}}</div>
-      @endif
-        @csrf
+        <form action="{{route('register-user')}}" method="post"
+        class=" bg-casal-500 flex flex-col items-center lg:w-full md:w-2/3 h-full p-6 xs:w-full sm:w-2/3 pt-56 pb-56">
+        @include('layouts.flash')
+            @csrf
 
               <h2 class=" my-8 font-display font-bold text-xl text-white text-center">Create an Account</h2>
       
@@ -41,10 +39,11 @@
               </div>
               
             <br>
-            <br>
-            <button class="bg-black-500 text-white font-bold py-2 px-4 rounded" type="submit">
+            <button class="btnreg" type="submit">
             Create Account
             </button>
+            </button>
+              <h1 class="mt-6 text-gray-400">Already have an Account!<a href="login" class="text-white"> Login</h1></a>
           </form>
       
   </div>

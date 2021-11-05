@@ -6,59 +6,97 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/app.css" >
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link rel="stylesheet/less" type="text/css" href="css/style.less">
+<script src="https://cdn.jsdelivr.net/npm/less@4.1.1" ></script>
   <title>Payroll System</title>
 </head>
-<body class="bg-gray-700 mx-auto">
+<style>
+    .message strong{
+    color: #8C38FF;
+    font-weight: 600;
+    margin:10px;
+   
+  }
+  </style>
+<body  class="bg-gradient-to-r from-gray-200 to-gray-100">
 
-<div class="py-32">
-  <div class="grid text-center sm:grid-flow-col gap-6  ">
-  
-<div class="grid grid-cols-1 mx-auto">
-    <div class="mx-auto">
-    <p class="w-36 py-6 text-white w-52 text-2xl">Good Day, <span class="text-yellow-600">Admin!</span></p>
-  </div>
-      <div>
-        <div class="bg-gray-600 shadow rounded-3xl" style="width: 500px; height: 600px;">
-          <form class="w-full mx-auto bg-gray-600 text-white max-w-sm  p-6 mt-4">
-            <img class="mx-auto pb-12" src="img/login.png">
-  
-            <div class="flex flex-wrap -mx-3 mb-4">
-              <div class="w-full px-3">
-              
-                <input class="appearance-none rounded-3xl block text-base w-full bg-white text-black border 
-                border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-username" type="text">
-                <label class="block uppercase tracking-wide text-xs font-bold mb-2" for="grid-username">
-                  Username
-                </label>
-              </div>
-            </div>
-            
-            <div class="flex flex-wrap -mx-3 mb-4">
-              <div class="w-full px-3">
-               
-                <input class="appearance-none rounded-3xl block w-full bg-white text-black border 
-                border-red-500 rounded text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-password" type="address">
-                <label class="block uppercase tracking-wide text-xs font-bold mb-2" for="grid-address">
-                  Password
-                </label>
-            </div>
-          </div>
-        
-          <a href="{{ url('employee') }}"><button class="bg-white hover:text-white hover:bg-blue-700 w-36 text-black text-base font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+<div class="flex justify-between mt-20 text-black">
+<div class="w-5/6 hidden lg:block">
+        <img src="img/bglnd.png" class="w-full ">
+    </div>
+
+    <div class="w-1/2">   
+        <h2 class=" text-6xl
+        py-6 font-bold  mt-20 text-gray-700">Payroll<br> Management<br> <span class="text-blue-700">System</span></h2>
+        <p class=" text-2xl py-6 font-secondary text-black">Providing a safe payroll administration service <br>and ensuring data security</p>
+        <p class="text-2xl font-secondary text-gray-100"></p>
+        <div class="flex n py-8 mb-8 gap-6">
+   <a href="login"><button class="btnlog float-left" type="submit">
               Login
-          </a></button>
-            <div class="pt-6">
-            <div class="bg-gray-300 w-full" style="height: 3px;"></div>
-            <a href="{{ url('signup') }}"><p class="pt-3">Create an Admin Account, <span class="text-yellow-500 font-bold">SIGN UP</span></a></p>
-            </div>
-          </div>
-          </form>
+              </button></a>
+  <a href="registration"><button class="btnreg float-left" type="submit">
+              Signup
+              </button></a>
 </div>
+      <div class="ml-3">
+        <p class=" text-1xl py-2 font-secondary font-bold text-black">Got some Questions?</p>
+        <a><button id="buttonmodal" class="btnchat float-left" type="submit">
+         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-5 float-left" viewBox="0 0 20 20" fill="currentColor">   
+       <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+       <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+          </svg>Message Us
+              </button></a>
+              
+    </div>
+
+<div id="modal" class="fixed rounded-lg top-0 left-0 w-full h-full px-6 lg:flex items-end justify-end bg-opacity-50 transform scale-0 transition-transform duration-300">
+    <!-- Modal content -->
+    <div class="bg-gradient-to-r from-yellow-500 to-gray-700 w-1/4 rounded-tl-2xl rounded-tr-2xl">
+    <button id="closebutton" type="button" class="focus:outline-none float-right text-gray-200 p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </button>
+    <div class="lg:flex lg:flex-row  p-3"> 
+      <img src="img/admin1.png" class="w-16">
+    <h1 style="text-shadow: 0px 0px 1px #000000;" class="mt-3 ml-6"><span class="text-1xl text-white font-bold">How can we help?</span>
+    <br><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-5 mr-2 float-left text-green-500" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+  </svg><span class="text-sm text-white font-bold">We are online</span></h1>
+  
       </div>
+     
+        <!-- Test content -->
+      <div class="app flex flex-col ">
+        <header class="flex flex-col text-center justify-end shadow">
+            <input type="text" name="username" id="username" class="block w-full bg-gray-300 appearance-none p-2 text-1xl text-black" placeholder="Please enter a username..">
+        </header>
+        <div id="messages" class="block rounded-1xl  overflow-y-auto h-80 bg-gray-100 p-3 shadow-lg">
+        </div>
+            <form id="message_form" class="flex">
+                <input type="text" name="message" id="message_input" class="lg:flex-1 p-3" placeholder="Write a message.."/>
+                <button type="submit" id="message_send" class="appearance-none bg-white text-blue-900 p-3 uppercase transition duration-500 ease-in-out  hover:bg-gray-700 hover:text-white transform hover:-translate-y-1 hover:scale-110">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-10" viewBox="0 0 20 20" fill="currentColor" >
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+</svg>
+</button> 
+     </form>
     </div>
-    
     </div>
-  </div>
+</div>
+</div>
+</div>
 </body>
+<script src="./js/app.js"></script>
+<script> 
+    const button = document.getElementById('buttonmodal')
+    const closebutton = document.getElementById('closebutton')
+    const modal = document.getElementById('modal')
+
+    button.addEventListener('click',()=>modal.classList.add('scale-100'))
+    closebutton.addEventListener('click',()=>modal.classList.remove('scale-100'))
+</script>
 </html>

@@ -6,7 +6,7 @@
     	var total=0;    	
     	var x = Number($("#price").val());
     	var y = Number($("#qty").val());
-    	var total=x - y;  
+    	var total=y - x;  
 
     	$('#change').val(total);
 

@@ -39,7 +39,7 @@ background-color:	#2D3545;
     <div class="flex h-5/6 mt-3" style="flex-direction:column;" >
         <header>
             
-            <input class=" hidden text-center rounded-xl  p-3 text-lg  w-3/4 ml-40" type="text" name="username" id="username"  value="{{$data->firstname}}">
+
         </header>
 
         <div  id="messages" style=" flex: 1 1 0%; overflow: scroll; padding: 16px;"></div>
