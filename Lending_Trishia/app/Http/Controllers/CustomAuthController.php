@@ -9,8 +9,8 @@ use App\Models\LoanReports;
 use Illuminate\Support\Facades\DB;
 use Hash;
 use Session;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\MailNotif;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MailNotification;
 
 
 class CustomAuthController extends Controller
@@ -18,12 +18,11 @@ class CustomAuthController extends Controller
     public function login(){
         return view("auth.login");
     }
+
     public function registration (){
-        
-
         return view("auth.registration");
-
     }
+
     public function registerUser (Request $request){
        $request -> validate([
            'name' => 'required',
@@ -33,19 +32,16 @@ class CustomAuthController extends Controller
        $user = new User();
        $user->name = $request->name;
        $user->email = $request->email;
-       $mailData = [
-        'body' => 'You receieve a new notification',
-        'mailText' => 'You are successfully registered.',
-        'url' => url('http://localhost/LendingSystem/public/login'),
-        'thankyou' => 'Welcome to DVOFINDS!'
-        ];
-        //$user->notify(new MailNotif($mailData));
-        Notification::send($user, new MailNotif($mailData));
+    
+       $data = [
+          'name' => "Admin"
+       ];
 
+        Mail::to($user)->send(new MailNotification($data));
+    
        $user->password = Hash::make($request->password);
        $res = $user->save();
 
-    
        if($res){
            return back()-> with('success','You have registered successfully');
        }else{
@@ -76,7 +72,11 @@ class CustomAuthController extends Controller
     }
    
     public function home(){
-
+        $data = array();
+        if(Session::has('loginId')){
+            $data = user::where('id','=',Session::get('loginId'))->first();
+        }
+       
         $cust = DB::table('borrowers')->count();
         $act = LoanReports::where('approveStatus','=','Active')->count();
         
@@ -86,7 +86,7 @@ class CustomAuthController extends Controller
                 //->where('loan_reports.approveStatus','=','Active')
                 ->sum(\DB::raw('totalAmount'));
 
-        return view('home', compact('cust', 'act','rcv'));
+        return view('home', compact('cust', 'act','rcv','data'));
     }
 
     public function logout(Request $request)
@@ -116,10 +116,9 @@ class CustomAuthController extends Controller
         return view('borrowers');
     }
     
-    public function sample(){
-        return view("components.sample");
-    }
     
-   
+    public function welcome(){
+        return view("welcome");
+    }
     
 }
