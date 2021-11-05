@@ -5,6 +5,7 @@
   <!-- ... -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="img/logo.jpeg">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <title>Payroll System</title>
@@ -25,7 +26,7 @@
             <img class="mx-auto pb-12" src="img/login.png">
             <div class="flex flex-wrap -mx-3 mb-4">
               <div class="w-full px-3">
-              <span class="text-red-300">@error('username'){{$message}}@enderror</span>
+              <span class="text-red-300 text-sm">@error('username'){{$message}}@enderror</span>
                 <input class="appearance-none rounded-3xl block text-base w-full bg-white text-black border 
                   py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" name="username" type="text" value="{{old('username')}}">
                 <label class="block uppercase tracking-wide text-xs font-bold mb-2" >
@@ -36,7 +37,7 @@
             
             <div class="flex flex-wrap -mx-3 mb-4">
               <div class="w-full px-3">
-              <span class="text-red-300">@error('password'){{$message}}@enderror</span>
+              <span class="text-red-300 text-sm">@error('password'){{$message}}@enderror</span>
                 <input class="appearance-none rounded-3xl block w-full bg-white text-black border 
                  text-base py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" name="password" type="password">
                 <label class="block uppercase tracking-wide text-xs font-bold mb-2" >
