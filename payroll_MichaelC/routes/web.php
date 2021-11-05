@@ -8,6 +8,9 @@ use App\Http\Controllers\Attendance;
 use App\Http\Controllers\Realtimechat;
 use App\Http\Controllers\Salary;
 use App\Http\Controllers\payroll;
+
+
+
 use App\Events\Message;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -29,6 +32,7 @@ Route::get('/index', function () {
 
 Route::get('/login',[CustomAuthController::class,'login'])->middleware('alreadyLoggedIn');
 Route::get('/registration',[CustomAuthController::class,'registration'])->middleware('alreadyLoggedIn');
+
 Route::post('/register-user',[CustomAuthController::class,'registerUser'])->name('register-user');
 Route::post('/login-user',[CustomAuthController::class,'loginUser'])->name('login-user');
 Route::get('/logout',[CustomAuthController::class,'logout']);
@@ -47,7 +51,7 @@ Route::post('/addattendance',[Attendance::class,'addattendance']);
 Route::post('/attendance',[Attendance::class,'searchAttendance']) ->name('attendance');
 Route::get('deleteattendance/{id}',[Attendance::class,'deleteAttendance']);
 
-Route::get('/Chat',[Realtimechat::class,'realtimechat'])->middleware('isLoggedIn');
+Route::get('/chat',[Realtimechat::class,'realtimechat'])->middleware('isLoggedIn');
 
 Route::get('/salary',[Salary::class,'salary'])->middleware('isLoggedIn');
 Route::post('/addsalary',[Salary::class,'addsalary']);
