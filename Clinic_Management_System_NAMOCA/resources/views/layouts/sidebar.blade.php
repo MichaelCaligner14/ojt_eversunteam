@@ -61,7 +61,7 @@
                             </li>
     
                         <li class="nav-item rounded-sm p-2 hover:bg-gray-500 active">
-                            <i class="text-white mr-5 ml-3 hover:text-black fas fa-poll-h"></i> <a class="hover:text-black nav-link text-white"href="{{ url('result') }}">Result</a>
+                            <i class="text-white mr-5 ml-3 hover:text-black fas fa-poll-h"></i> <a class="hover:text-black nav-link text-white"href="{{ url('result') }}">Patient View</a>
                                 </li>
     
                         <li class="nav-item rounded-sm p-2 hover:bg-gray-500 active">

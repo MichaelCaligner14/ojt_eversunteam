@@ -29,14 +29,17 @@ background-color:	#2D3545;
     font-weight: 400;
     margin-bottom: 16px;
   }
+  .message {
+      color:white;
+  }
 
 </style>
 <body>
 <h1 class="flex items-center justify-center text-white font-semibold text-4xl mt-10 "> Chat Me! </h1>
-    <div class="flex h-screen mt-3" style="flex-direction:column;" >
+    <div class="flex h-5/6 mt-3" style="flex-direction:column;" >
         <header>
             
-            <input class="text-center rounded-xl p-3 text-sm text-gray-900 w-3/4 ml-40" type="text" name="username" id="username" placeholder="Please Enter your Name..">
+            <input class=" hidden text-center rounded-xl  p-3 text-lg  w-3/4 ml-40" type="text" name="username" id="username"  value="{{$data->firstname}}">
         </header>
 
         <div  id="messages" style=" flex: 1 1 0%; overflow: scroll; padding: 16px;"></div>
