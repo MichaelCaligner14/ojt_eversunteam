@@ -8,7 +8,9 @@ use Hash;
 use Session;
 use Auth;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Mail;
 use App\Notifications\EmailNotif;
+use App\Mail\Chatmail;
 
 class CustomAuthController extends Controller
 {
@@ -27,9 +29,13 @@ class CustomAuthController extends Controller
     }
 
 
-    //chatroom
+//Chatroom
     public function index(){
-        return view ("index");   
+        $data = array();
+        if(Session::has('loginId')){
+        $data = User::where('id','=',Session::get('loginId'))->first();
+        }
+        return view ("index",compact('data'));   
     }
     
 
@@ -47,13 +53,12 @@ class CustomAuthController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $emailverified = [
-            'body' => 'You receive a  new notification',
-            'mailText' => 'You are sucessfully registered',
-            'url' => url('http://localhost/studentregistration/public/homepage'),
-            'thankyou' => 'Welcome'
-        ];
-        Notification::send($user, new EmailNotif($emailverified));
+
+        $data = [
+            'name' => "lebron"
+         ];
+  
+          Mail::to($user)->send(new Chatmail($data));
         
         $user->password = Hash::make ($request->password);
         $res = $user->save();
@@ -111,6 +116,8 @@ public function logout(){
         return redirect('welcome');
 
 }
+
+
 
 
 }
