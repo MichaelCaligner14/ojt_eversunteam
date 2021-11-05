@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\user;
 use App\Models\Patient;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\Verify;
+use App\Mail\verify;
+use Illuminate\Support\Facades\Mail;
 use Hash;
 use Session;
 
@@ -43,13 +43,11 @@ class LogInController extends Controller
         $user ->lastname = $request ->lastname;
         $user ->address = $request ->address;
         $user ->email = $request ->email;
-        $varify = [
-            'body' => 'You receive a  new notification',
-            'verifyEmail' => 'You are sucessfully registered',
-            'url' => url('http://127.0.0.1:8000/login'),
-            'thankyou' => 'Welcome'
-        ];
-        Notification::send($user, new Verify($varify));
+        
+        $verify = [
+            'name' => ""
+         ];
+          Mail::to($user)->send(new verify($verify));
 
         $user ->username = $request ->username;
         $user ->password = Hash::make($request ->password);
@@ -71,7 +69,7 @@ class LogInController extends Controller
                    'username' => 'required',
              'password' => 'required|min:5|max:12'
                ]);
-                $user = User::where('username','=', $request -> username) ->first();
+                $user = user::where('username','=', $request -> username) ->first();
                  if($user){
                       if(Auth::attempt($credentials)){
                          $request ->session() ->put('loginId', $user->id);
@@ -91,7 +89,11 @@ class LogInController extends Controller
     }
 
     public function welcome(){
-        return view ("messageUs/welcome");
+        $data = array();
+        if(Session::has('loginId')){
+            $data = user::where('id', '=', Session::get('loginId'))->first();
+        }
+        return view ("messageUs/welcome",compact('data'));
     }
 
 

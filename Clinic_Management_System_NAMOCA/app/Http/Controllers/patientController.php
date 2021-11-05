@@ -15,7 +15,7 @@ class patientController extends Controller
     public function patient(){
         return view ('patient');
 
-    }
+    }   
     public function patview(){
         $data = array(
             'list' => DB::table('patient')
