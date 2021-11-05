@@ -30,9 +30,11 @@ use Illuminate\Http\Response;
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
+
 Route::get('/login', [CustomAuthController::class,'login']);
 
-Route::get('/registration', [CustomAuthController::class,'registration']);
+Route::get('/registration', [CustomAuthController::class,'registration'])->middleware('alreadyLoggedIn');
 
 Route::get('/about', [CustomAuthController::class,'about']);
 
@@ -107,7 +109,7 @@ Route::get('/email', function(){
 });
 
 //CHATROOM
-Route::get('/index',[CustomAuthController::class,'index']);
+Route::get('/index',[CustomAuthController::class,'index'])->name('index');
 Route::post('/send-message', function(Request $request){
     event(new Message(
         $request->input('username'),
