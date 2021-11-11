@@ -35,9 +35,10 @@ const options = {
 
 	axios(options);
 });
+
 window.Echo.channel('chat')
 	.listen('.message',(e)=>{
-        message_el.innerHTML += '<div class="message"><strong>' +e.username+ ':</strong>' + e.message + '</div>';
+        message_el.innerHTML += '<div class="message"><strong>' +e.username+ e.message+ ':</strong>' + '</div>';
 	});
 
 	

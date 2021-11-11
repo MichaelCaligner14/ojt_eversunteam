@@ -6,6 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="img/logo.jpeg">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet/less" type="text/css" href="css/style.less">
 <script src="https://cdn.jsdelivr.net/npm/less@4.1.1" ></script>
@@ -61,18 +62,16 @@
             </svg>
         </button>
     <div class="lg:flex lg:flex-row  p-3"> 
-      <img src="img/admin1.png" class="w-16">
-    <h1 style="text-shadow: 0px 0px 1px #000000;" class="mt-3 ml-6"><span class="text-1xl text-white font-bold">How can we help?</span>
+      <img src="img/admin1.png" class="w-16 hidden lg:block">
+    <h1 style="text-shadow: 0px 0px 1px #000000;" class="mt-3 ml-6"><span class=" text-1xl text-white font-bold">How can we help?</span>
     <br><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-5 mr-2 float-left text-green-500" viewBox="0 0 20 20" fill="currentColor">
   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
   </svg><span class="text-sm text-white font-bold">We are online</span></h1>
   
       </div>
-     
-        <!-- Test content -->
       <div class="app flex flex-col ">
         <header class="flex flex-col text-center justify-end shadow">
-            <input type="text" name="username" id="username" class="block w-full bg-gray-300 appearance-none p-2 text-1xl text-black" placeholder="Please enter a username..">
+            <input type="text" name="username" id="username" class=" w-full bg-gray-300 appearance-none px-4 py-2 text-1xl text-black" placeholder="Enter Employee name">
         </header>
         <div id="messages" class="block rounded-1xl  overflow-y-auto h-80 bg-gray-100 p-3 shadow-lg">
         </div>
@@ -91,12 +90,5 @@
 </div>
 </body>
 <script src="./js/app.js"></script>
-<script> 
-    const button = document.getElementById('buttonmodal')
-    const closebutton = document.getElementById('closebutton')
-    const modal = document.getElementById('modal')
-
-    button.addEventListener('click',()=>modal.classList.add('scale-100'))
-    closebutton.addEventListener('click',()=>modal.classList.remove('scale-100'))
-</script>
+<script src="buttonmodal.js"></script>
 </html>

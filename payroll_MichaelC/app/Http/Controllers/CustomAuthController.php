@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Mail;
 use App\Notifications\EmailNotification;
+use App\Mail\Mailview;
 use App\Models\User;
 use Hash;
 use Session;
@@ -24,21 +26,22 @@ class CustomAuthController extends Controller
     {
 
         $request->validate([
+            'lastname'=>'required',
+            'firstname'=>'required',
             'username'=>'required',
             'password'=>'required|min:8|max:20',
             'email'=>'required|email|unique:users'
         ]);
         $user = new User();
+        $user->lastname =$request -> lastname;
+        $user->firstname =$request -> firstname;
         $user->username =$request -> username;
         $user->email =$request -> email;
-        $emailnotif = [
-            'body' =>'You Received an new notification',
-            'emailText'=>'You are successfully registered',
-            'url'=>url('http://127.0.0.1:8000/login'),
-            'thankyou'=>'Welcome to my system'
-        
-            ];
-        Notification::send($user, new EmailNotification($emailnotif));
+        $data = [
+            'name' => "Caligner"
+         ];
+  
+        Mail::to($user)->send(new Mailview($data));
         $user->password = Hash::make($request -> password);
         $res = $user->save();
         if($res){

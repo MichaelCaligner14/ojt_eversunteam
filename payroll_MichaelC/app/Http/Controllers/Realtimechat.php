@@ -22,6 +22,6 @@ class Realtimechat extends Controller
         if(Session::has('loginID')){
             $data = user::where('id', '=', Session::get('loginID'))->first();
         }
-        return view('Chat',compact('data','cnt','rvn'));
+        return view('chat',compact('data','cnt','rvn'));
                     }
 }
