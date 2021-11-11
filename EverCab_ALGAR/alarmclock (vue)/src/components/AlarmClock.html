@@ -1,0 +1,133 @@
+<div id="app">
+  <h1>Time is {{ time.getHours()  != 12 ? time.getHours() % 12 : 12 }}:{{ ('0' + time.getMinutes()).slice(-2) }}{{ time.getHours() >= 12 ? 'PM' : 'AM' }}</h1>
+  <Button v-on:click="stopAlarm" v-if="alarm_going_off" style="background:red;color:#FFF;width:100%;text-align:center;font-size:2em;border-color:red;">Stop alarm</Button>
+  <select id="hour">
+    <option>12</option>
+    <option v-for="i in 1,11">{{ i }}</option>
+  </select>:<select id="minute">
+    <option v-for="i in 60">{{ ('0' + (i-1)).slice(-2) }}</option>
+  </select>
+  <select id="am_pm">
+    <option>AM</option>
+    <option>PM</option>
+  </select> <strong>For:</strong>
+  <input type="text" id="alarm_message" @keyup.enter="saveAlarm" />
+  <button v-on:click="saveAlarm">Save alarm</button>
+  <table>
+    <tr v-for="(alarm, i) in alarms">
+      <td>{{alarm.hour}}:{{ ('0' + (alarm.minute)).slice(-2) }}{{ alarm.am_pm}}</td>
+      <td>{{ alarm.message}}</td>
+      <td><button v-on:click="deleteAlarm(i)">Delete</button>
+    </tr>
+  </table>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js"></script>
+
+<script>
+    window.lastAlarm = {};
+function speakAlarm(message) {
+  if (!app.alarm_going_off) {
+    return;
+  }
+  var msg = new SpeechSynthesisUtterance();
+  if (message) {
+    msg.text = "Alarm going off for " + message;
+  } else {
+    msg.text = "Alarm going off.";
+  }
+  
+  msg.lang = "en-US";
+
+  speechSynthesis.cancel();
+  speechSynthesis.speak(msg);
+  msg.onend = function() {
+    speakAlarm(message);
+  };
+}
+
+function updateTime() {
+  app.time = new Date();
+  setTimeout(function() {
+    updateTime();
+  }, 1000);
+}
+
+$(function() {
+  app = new Vue({
+    el: "#app",
+    data: {
+      time: new Date(),
+      alarm_going_off: false,
+      alarms: []
+    },
+    mounted: function() {
+      if (localStorage.alarms) {
+        this.alarms = JSON.parse(localStorage.alarms);
+      }
+      setTimeout(updateTime, 1000);
+    },
+    methods: {
+      saveAlarm: function() {
+        new_alarm = {
+          hour: $("#hour option:selected").text(),
+          minute: parseInt($("#minute option:selected").text()),
+          message: $("#alarm_message").val(),
+          am_pm: $("#am_pm option:selected").text()
+        };
+        this.alarms.push(new_alarm);
+        $("#alarm_message").val("");
+      },
+      stopAlarm: function() {
+        this.alarm_going_off = false;
+        speechSynthesis.cancel();
+      },
+      deleteAlarm: function(toRemove) {
+        new_alarms = [];
+        $.each(this.alarms, function(i, v) {
+          if (i != toRemove) {
+            new_alarms.push(v);
+          }
+        });
+        this.alarms = new_alarms;
+      }
+    },
+    watch: {
+      alarms: function(newValue) {
+        localStorage.setItem("alarms", JSON.stringify(newValue));
+      },
+      time: function(newValue) {
+        if (this.alarm_going_off) {
+          return;
+        }
+        $.each(this.alarms, function(i, alarm) {
+          hours = app.time.getHours() % 12;
+          if (hours == 0) {
+            hours = 12;
+          }
+          am_pm = "PM";
+          if (app.time.getHours() < 12) {
+            am_pm = "AM";
+          }
+          if (
+            parseInt(alarm.hour) == parseInt(hours) &&
+            parseInt(alarm.minute) == app.time.getMinutes() &&
+            alarm.am_pm == am_pm
+          ) {
+            if (JSON.stringify(alarm) != JSON.stringify(window.lastAlarm)) {
+              app.alarm_going_off = true;
+              window.lastAlarm = alarm;
+              speakAlarm(alarm.message);
+              return;
+            }
+          } else {
+            window.lastAlarm = {};
+          }
+        });
+      }
+    }
+  });
+});
+</script>
