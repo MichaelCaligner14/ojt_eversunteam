@@ -65,7 +65,7 @@ export default {
 			if (this.iRate !== "" && this.loanAmount !== "" && this.termsOfPayment !== "") {
 				const Rate = +this.loanAmount * (+this.iRate / 100);
 				this.totalAmount = +this.loanAmount + (Rate * +this.termsOfPayment);
-                this.monthlyPay = this.totalAmount / this.termsOfPayment;
+        this.monthlyPay = this.totalAmount / this.termsOfPayment;
 			}
 		}
 	}
