@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family:Poppins;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFDD0;
+  margin-top:5%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.board{
+  text-align:center;
+  margin:auto;
+  color:white;
+  width:350px;
+}
+
+.board p{
+  background-color: #f1c40f;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding:5px;
+  color:black;
+  font-size: 1.4em;
+  font-weight: bold;
+  
+}
+
+.board h3{
+  background-color:red;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding:5px;
+  color:black;
+  
+  
+}
+.board-row{
+  display:flex;
+  justify-content: center;
+  
+}
+
+.btn{
+  height:120px;
+  width:120px;
+  font-size: 50px;
+  background-color: #34495e;
+	color: #fff;
+  border: 3px solid #2c3e50;
+}
+
+.App{
+  width:100%;
+  margin:auto;
+}
+
+.header{
+  text-align:center;
+ color:white;
+}
+
+.hide{
+  display:none;
+};
